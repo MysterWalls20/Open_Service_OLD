@@ -1,0 +1,41 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>Dashboard</h1>
+    <p class="subtitle">Resumen general del sistema</p>
+  </div>
+
+  <div class="stats-grid">
+    @for (stat of stats; track stat.label) {
+      <div class="stat-card">
+        <div class="stat-icon {{ stat.color }}">{{ stat.icon }}</div>
+        <div class="stat-info">
+          <span class="stat-value">{{ stat.value }}</span>
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="content-grid">
+    <div class="card">
+      <h2>Resumen de Actividad</h2>
+      <div class="placeholder-content">
+        <p>Gráfico de actividad reciente</p>
+        <p class="hint">Aquí irá el gráfico de actividad cuando se conecte al backend</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Pedidos Recientes</h2>
+      <div class="recent-list">
+        @for (order of recentOrders; track order.id) {
+          <div class="list-item">
+            <span class="item-id">{{ order.id }}</span>
+            <span class="item-status {{ order.statusClass }}">{{ order.status }}</span>
+            <span class="item-date">{{ order.date }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

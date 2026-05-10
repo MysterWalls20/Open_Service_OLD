@@ -1,0 +1,43 @@
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="assets/logo.png" alt="Open Service" class="admin-logo">
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul>
+        @for (item of menuItems; track item.route) {
+          <li>
+            <a
+              [routerLink]="item.route"
+              [class.active]="item.active"
+              (click)="setActive(item)"
+            >
+              <span class="menu-icon">{{ item.icon }}</span>
+              <span class="menu-title">{{ item.title }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="user-avatar">👤</div>
+        <div class="user-details">
+          <span class="user-name">Admin</span>
+          <span class="user-email">{{ adminUser?.email }}</span>
+        </div>
+      </div>
+      <button class="logout-btn" (click)="logout()">🚪</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <app-admin-header></app-admin-header>
+
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

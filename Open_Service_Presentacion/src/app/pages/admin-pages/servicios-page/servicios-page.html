@@ -1,0 +1,82 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>Servicios</h1>
+    <button class="btn-primary" (click)="openForm()">+ Nuevo Servicio</button>
+  </div>
+
+  <div class="table-container">
+    @if (servicios.length > 0) {
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Duración</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (servicio of servicios; track servicio.id) {
+            <tr>
+              <td>{{ servicio.id }}</td>
+              <td>{{ servicio.nombre }}</td>
+              <td>{{ servicio.descripcion }}</td>
+              <td>${{ servicio.precio | number:'1.2-2' }}</td>
+              <td>{{ servicio.duracion }}</td>
+              <td>
+                <span class="badge {{ servicio.estado }}">
+                  {{ servicio.estado === 'activo' ? 'Activo' : 'Inactivo' }}
+                </span>
+              </td>
+              <td class="actions">
+                <button class="btn-icon btn-edit" (click)="editServicio(servicio)" title="Editar">✏️</button>
+                <button class="btn-icon btn-delete" (click)="deleteServicio(servicio.id)" title="Eliminar">🗑️</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    } @else {
+      <div class="empty-state">
+        <p>No hay servicios registrados</p>
+        <p class="hint">Haz clic en "Nuevo Servicio" para agregar el primero</p>
+      </div>
+    }
+  </div>
+
+  @if (showForm) {
+    <div class="modal-overlay" (click)="closeForm()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h2>{{ editingId ? 'Editar Servicio' : 'Nuevo Servicio' }}</h2>
+          <button class="btn-close" (click)="closeForm()">✕</button>
+        </div>
+        <form class="form-grid">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Nombre del servicio">
+          </div>
+          <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" placeholder="Descripción del servicio"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="precio">Precio</label>
+            <input type="number" id="precio" placeholder="0.00" step="0.01">
+          </div>
+          <div class="form-group">
+            <label for="duracion">Duración</label>
+            <input type="text" id="duracion" placeholder="Ej: 2 horas, 1 día">
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" (click)="closeForm()">Cancelar</button>
+            <button type="submit" class="btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</div>

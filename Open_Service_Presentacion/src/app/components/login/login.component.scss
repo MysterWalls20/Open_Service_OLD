@@ -1,0 +1,238 @@
+/* Variables actualizadas según la imagen */
+$primary-color: #5859e2; // Color de botón y título
+$accent-orange: #fe8a00; // Fondo del logo
+$text-main: #333333;
+$text-muted: #6b7280;
+$border-color: #e5e7eb;
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc; // Un gris muy suave, como la imagen
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 900px; // Más ancho para acomodar dos columnas
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  display: grid; // CLAVE: Usamos Grid
+  grid-template-columns: 45% 55%; // Proporción de las columnas (puedes ajustarla)
+  overflow: hidden; // Para que los bordes redondeados afecten a las columnas
+}
+
+/* --- COLUMNA IZQUIERDA (Header) --- */
+.login-header {
+  grid-column: 1; // Fuerza que esté en la columna 1
+  background-color: #f8fafc; // Fondo ligeramente diferente para distinguir
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; // Alineado a la izquierda según la imagen
+  text-align: left;
+
+  .login-logo {
+    width: 200px;
+    height: auto;
+    background-color: $accent-orange; // Fondo naranja del logo
+    padding: 15px; // Espaciado interno para el logo
+    border-radius: 12px;
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    color: $primary-color; // Color morado del título
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
+/* --- COLUMNA DERECHA (Formulario) --- */
+.login-form {
+  grid-column: 2; // Fuerza que esté en la columna 2
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .form-group {
+    margin-bottom: 25px;
+
+    label {
+      display: block;
+      color: $text-main;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .input-icon {
+        position: absolute;
+        left: 16px;
+        color: #9ca3af; // Color gris para los iconos
+        font-size: 18px;
+      }
+
+      input {
+        width: 100%;
+        padding: 16px 16px 16px 50px; // Más padding lateral para iconos
+        border: 2px solid $border-color;
+        border-radius: 12px;
+        font-size: 16px;
+        background-color: #f9fafb;
+        transition: all 0.2s;
+
+        &:focus {
+          outline: none;
+          background-color: #ffffff;
+          border-color: $primary-color;
+          box-shadow: 0 0 0 4px rgba(88, 89, 226, 0.1);
+        }
+
+        &::placeholder {
+          color: #9ca3af;
+        }
+      }
+
+      .toggle-password {
+        position: absolute;
+        right: 12px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        color: #9ca3af;
+        font-size: 20px; // Un poco más grande para que sea visible
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0 30px 0; // Más espacio antes del botón
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      width: 20px; // Arreglado el ancho
+      height: 20px;
+      accent-color: $primary-color;
+      cursor: pointer;
+    }
+
+    span {
+      color: $text-main;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+  .forgot-password {
+    color: $primary-color;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: darken($primary-color, 10%);
+      text-decoration: underline;
+    }
+  }
+}
+
+.btn-login {
+  width: 100%;
+  padding: 16px;
+  background: $primary-color;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px rgba(88, 89, 226, 0.2);
+
+  &:hover {
+    background: darken($primary-color, 5%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(88, 89, 226, 0.25);
+  }
+}
+
+/* --- FOOTER (Alineado con el formulario) --- */
+.login-footer {
+  grid-column: 2; // También en la columna derecha
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid $border-color;
+
+  .back-home {
+    color: $text-muted;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 500;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+  .login-container {
+    grid-template-columns: 100%; // Una sola columna en móvil
+    max-width: 480px;
+  }
+
+  .login-header {
+    padding: 40px;
+    align-items: center;
+    text-align: center;
+    border-radius: 24px 24px 0 0; // Solo bordes superiores
+
+    .login-logo {
+      margin-bottom: 20px;
+    }
+  }
+
+  .login-form, .login-footer {
+    grid-column: 1;
+    padding: 40px 30px;
+  }
+}

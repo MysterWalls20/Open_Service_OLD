@@ -1,0 +1,82 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>Productos</h1>
+    <button class="btn-primary" (click)="openForm()">+ Nuevo Producto</button>
+  </div>
+
+  <div class="table-container">
+    @if (productos.length > 0) {
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (producto of productos; track producto.id) {
+            <tr>
+              <td>{{ producto.id }}</td>
+              <td>{{ producto.nombre }}</td>
+              <td>{{ producto.categoria }}</td>
+              <td>${{ producto.precio | number:'1.2-2' }}</td>
+              <td>{{ producto.stock }}</td>
+              <td>
+                <span class="badge {{ producto.estado }}">
+                  {{ producto.estado === 'disponible' ? 'Disponible' : 'Agotado' }}
+                </span>
+              </td>
+              <td class="actions">
+                <button class="btn-icon btn-edit" (click)="editProducto(producto)" title="Editar">✏️</button>
+                <button class="btn-icon btn-delete" (click)="deleteProducto(producto.id)" title="Eliminar">🗑️</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    } @else {
+      <div class="empty-state">
+        <p>No hay productos registrados</p>
+        <p class="hint">Haz clic en "Nuevo Producto" para agregar el primero</p>
+      </div>
+    }
+  </div>
+
+  @if (showForm) {
+    <div class="modal-overlay" (click)="closeForm()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h2>{{ editingId ? 'Editar Producto' : 'Nuevo Producto' }}</h2>
+          <button class="btn-close" (click)="closeForm()">✕</button>
+        </div>
+        <form class="form-grid">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Nombre del producto">
+          </div>
+          <div class="form-group">
+            <label for="categoria">Categoría</label>
+            <input type="text" id="categoria" placeholder="Categoría">
+          </div>
+          <div class="form-group">
+            <label for="precio">Precio</label>
+            <input type="number" id="precio" placeholder="0.00" step="0.01">
+          </div>
+          <div class="form-group">
+            <label for="stock">Stock</label>
+            <input type="number" id="stock" placeholder="0">
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" (click)="closeForm()">Cancelar</button>
+            <button type="submit" class="btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</div>

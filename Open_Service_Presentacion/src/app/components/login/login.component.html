@@ -1,0 +1,67 @@
+<div class="login-page">
+  <div class="login-container">
+    <div class="login-header">
+      <img src="assets/logo.png" alt="Open Service" class="login-logo">
+      <h2>Panel de Administración</h2>
+      <p>Ingresa tus credenciales para acceder</p>
+    </div>
+
+    <form class="login-form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Correo Electrónico</label>
+        <div class="input-wrapper">
+          <span class="input-icon">✉️</span>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="email"
+            name="email"
+            placeholder="correo@ejemplo.com"
+            autocomplete="off"
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <div class="input-wrapper">
+          <span class="input-icon">🔒</span>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="••••••••"
+          >
+          <button type="button" class="toggle-password" (click)="togglePassword()">
+            {{ showPassword ? '👁️' : '👁️‍🗨️' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="form-options">
+        <label class="remember-me">
+          <input type="checkbox">
+          <span>Recordarme</span>
+        </label>
+        <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      @if (errorMessage) {
+        <div class="error-message">
+          ⚠️ <span>{{ errorMessage }}</span>
+        </div>
+      }
+
+      <button type="submit" class="btn-login">
+        Iniciar Sesión
+      </button>
+    </form>
+
+    <div class="login-footer">
+      <a routerLink="/" class="back-home">
+        ← Volver al inicio
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,144 @@
+.page-container {
+  padding: 20px;
+  max-width: 1200px;
+}
+
+.page-header {
+  margin-bottom: 30px;
+
+  h1 {
+    font-size: 28px;
+    color: #333;
+    margin: 0;
+  }
+
+  .subtitle {
+    color: #666;
+    margin: 5px 0 0;
+    font-size: 14px;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  gap: 15px;
+
+  .stat-icon {
+    font-size: 32px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+    &.users { background: #e3f2fd; }
+    &.products { background: #fff3e0; }
+    &.services { background: #e8f5e9; }
+    &.orders { background: #f3e5f5; }
+  }
+
+  .stat-info {
+    display: flex;
+    flex-direction: column;
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 0 0 15px;
+  }
+
+  .placeholder-content {
+    padding: 40px;
+    text-align: center;
+    color: #999;
+
+    .hint {
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+}
+
+.recent-list {
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .item-id {
+      font-weight: 500;
+      color: #333;
+    }
+
+    .item-status {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+
+      &.pending {
+        background: #fff3cd;
+        color: #856404;
+      }
+
+      &.completed {
+        background: #d4edda;
+        color: #155724;
+      }
+
+      &.in-progress {
+        background: #cce5ff;
+        color: #004085;
+      }
+    }
+
+    .item-date {
+      font-size: 13px;
+      color: #666;
+    }
+  }
+}

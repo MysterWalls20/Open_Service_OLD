@@ -1,0 +1,88 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>Inventario</h1>
+    <button class="btn-primary" (click)="openForm()">+ Nuevo Registro</button>
+  </div>
+
+  <div class="table-container">
+    @if (inventario.length > 0) {
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th>SKU</th>
+            <th>Cantidad</th>
+            <th>Mínimo</th>
+            <th>Ubicación</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of inventario; track item.id) {
+            <tr>
+              <td>{{ item.id }}</td>
+              <td>{{ item.producto }}</td>
+              <td>{{ item.sku }}</td>
+              <td>{{ item.cantidad }}</td>
+              <td>{{ item.minimo }}</td>
+              <td>{{ item.ubicacion }}</td>
+              <td>
+                <span class="badge {{ item.estado }}">
+                  {{ item.estado === 'ok' ? 'OK' : 'Stock Bajo' }}
+                </span>
+              </td>
+              <td class="actions">
+                <button class="btn-icon btn-edit" (click)="editItem(item)" title="Editar">✏️</button>
+                <button class="btn-icon btn-delete" (click)="deleteItem(item.id)" title="Eliminar">🗑️</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    } @else {
+      <div class="empty-state">
+        <p>No hay registros de inventario</p>
+        <p class="hint">Haz clic en "Nuevo Registro" para agregar el primero</p>
+      </div>
+    }
+  </div>
+
+  @if (showForm) {
+    <div class="modal-overlay" (click)="closeForm()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h2>{{ editingId ? 'Editar Registro' : 'Nuevo Registro' }}</h2>
+          <button class="btn-close" (click)="closeForm()">✕</button>
+        </div>
+        <form class="form-grid">
+          <div class="form-group">
+            <label for="producto">Producto</label>
+            <input type="text" id="producto" placeholder="Nombre del producto">
+          </div>
+          <div class="form-group">
+            <label for="sku">SKU</label>
+            <input type="text" id="sku" placeholder="Código SKU">
+          </div>
+          <div class="form-group">
+            <label for="cantidad">Cantidad</label>
+            <input type="number" id="cantidad" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="minimo">Stock Mínimo</label>
+            <input type="number" id="minimo" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="ubicacion">Ubicación</label>
+            <input type="text" id="ubicacion" placeholder="Almacén / Estante">
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" (click)="closeForm()">Cancelar</button>
+            <button type="submit" class="btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</div>
