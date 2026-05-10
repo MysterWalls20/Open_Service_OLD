@@ -1,0 +1,54 @@
+<section class="page-content container">
+  <div class="page-header">
+    <a routerLink="/" class="btn-back">&#8592; Regresar</a>
+    <h1>Ticket de Servicio</h1>
+  </div>
+
+  @if (mensajeExito) {
+    <div class="alert-success">
+      Ticket generado correctamente. Te contactaremos pronto.
+    </div>
+  }
+
+  <div class="ticket-form">
+    <h2>Registra tu solicitud</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" [(ngModel)]="form.nombre" placeholder="Tu nombre" />
+      </div>
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" [(ngModel)]="form.email" placeholder="correo@ejemplo.com" />
+      </div>
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="tel" [(ngModel)]="form.telefono" placeholder="999 999 999" />
+      </div>
+      <div class="form-group">
+        <label>Dirección</label>
+        <input type="text" [(ngModel)]="form.direccion" placeholder="Dirección del servicio" />
+      </div>
+      <div class="form-group">
+        <label>Marca del equipo</label>
+        <input type="text" [(ngModel)]="form.marca" placeholder="Ej: Bosch, Coldex" />
+      </div>
+      <div class="form-group">
+        <label>Modelo del equipo</label>
+        <input type="text" [(ngModel)]="form.modelo" placeholder="Ej: X100" />
+      </div>
+    </div>
+    <div class="form-group full">
+      <label>Archivo adjunto</label>
+      <input type="file" (change)="onFileChange($event)" class="file-input" />
+      @if (form.archivo) {
+        <span class="file-name">{{ form.archivo }}</span>
+      }
+    </div>
+    <div class="form-group full">
+      <label>Descripción del problema</label>
+      <textarea [(ngModel)]="form.descripcion" rows="4" placeholder="Describe el servicio que necesitas..."></textarea>
+    </div>
+    <button class="btn-generar" (click)="guardarTicket()">Guardar Ticket</button>
+  </div>
+</section>

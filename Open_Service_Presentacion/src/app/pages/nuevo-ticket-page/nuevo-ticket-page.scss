@@ -1,0 +1,126 @@
+.page-content {
+  padding: 3rem 1rem;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 1.75rem;
+    color: #333;
+    margin: 0;
+  }
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  background: #4452cc;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #3540a8;
+  }
+}
+
+.alert-success {
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.ticket-form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+  h2 {
+    margin: 0 0 1.5rem;
+    font-size: 1.25rem;
+    color: #333;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #555;
+    }
+
+    input, textarea {
+      padding: 0.7rem 0.9rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+
+      &:focus {
+        outline: none;
+        border-color: #4452cc;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    &.full {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .file-input {
+    padding: 0.5rem 0;
+  }
+
+  .file-name {
+    font-size: 0.8rem;
+    color: #4452cc;
+    font-weight: 500;
+  }
+
+  .btn-generar {
+    background: #4452cc;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #3540a8;
+    }
+  }
+}

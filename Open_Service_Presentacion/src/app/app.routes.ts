@@ -5,6 +5,7 @@ import { ServiciosPageComponent } from './pages/servicios-page/servicios-page';
 import { ProductosPageComponent } from './pages/productos-page/productos-page';
 import { ContactoPageComponent } from './pages/contacto-page/contacto-page';
 import { HorarioPageComponent } from './pages/horario-page/horario-page';
+import { NuevoTicketPageComponent } from './pages/nuevo-ticket-page/nuevo-ticket-page';
 import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'productos', component: ProductosPageComponent },
   { path: 'contacto', component: ContactoPageComponent },
   { path: 'horario', component: HorarioPageComponent },
+  { path: 'nuevo-ticket', component: NuevoTicketPageComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'admin',

@@ -1,36 +1,27 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { Ticket } from '../../models/ticket.model';
+import { Reporte } from '../../models/reporte.model';
 import { TicketService } from '../../services/ticket.service';
+import { ReporteService } from '../../services/reporte.service';
 
 @Component({
   selector: 'app-servicios-page',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './servicios-page.html',
   styleUrl: './servicios-page.scss',
 })
 export class ServiciosPageComponent {
   tickets: Ticket[] = [];
+  reportes: Reporte[] = [];
 
-  form = {
-    nombre: '',
-    email: '',
-    telefono: '',
-    tipoServicio: 'reparacion' as 'reparacion' | 'mantenimiento',
-    descripcion: '',
-  };
-
-  constructor(private ticketService: TicketService) {
+  constructor(
+    private ticketService: TicketService,
+    private reporteService: ReporteService,
+  ) {
     this.tickets = this.ticketService.getTickets();
-  }
-
-  generarTicket() {
-    if (!this.form.nombre || !this.form.email || !this.form.descripcion) return;
-
-    const ticket = this.ticketService.addTicket({ ...this.form });
-    this.tickets.unshift(ticket);
-    this.form = { nombre: '', email: '', telefono: '', tipoServicio: 'reparacion', descripcion: '' };
+    this.reportes = this.reporteService.getReportes();
   }
 }

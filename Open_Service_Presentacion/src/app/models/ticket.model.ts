@@ -5,6 +5,10 @@ export interface Ticket {
   telefono: string;
   tipoServicio: 'reparacion' | 'mantenimiento';
   descripcion: string;
+  direccion: string;
+  marca: string;
+  modelo: string;
+  archivo: string;
   fecha: string;
   estado: 'pendiente' | 'en-proceso' | 'completado' | 'cancelado';
 }

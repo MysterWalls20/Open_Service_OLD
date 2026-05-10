@@ -14,6 +14,10 @@ export class TicketService {
     const tickets = this.getTickets();
     const newTicket: Ticket = {
       ...ticket,
+      direccion: ticket.direccion || '',
+      marca: ticket.marca || '',
+      modelo: ticket.modelo || '',
+      archivo: ticket.archivo || '',
       id: Date.now(),
       fecha: new Date().toLocaleDateString('es-PE'),
       estado: 'pendiente',
