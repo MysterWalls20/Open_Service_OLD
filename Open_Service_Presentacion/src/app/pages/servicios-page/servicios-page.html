@@ -1,4 +1,60 @@
 <section class="page-content container">
   <h1>Servicios</h1>
-  <p>Contenido de la página Servicios</p>
+  <p class="subtitle">Solicita un servicio de reparación o mantenimiento</p>
+
+  <div class="ticket-form">
+    <h2>Generar Ticket</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" [(ngModel)]="form.nombre" placeholder="Tu nombre" />
+      </div>
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" [(ngModel)]="form.email" placeholder="correo@ejemplo.com" />
+      </div>
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="tel" [(ngModel)]="form.telefono" placeholder="999 999 999" />
+      </div>
+      <div class="form-group">
+        <label>Tipo de servicio</label>
+        <select [(ngModel)]="form.tipoServicio">
+          <option value="reparacion">Reparación</option>
+          <option value="mantenimiento">Mantenimiento</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group full">
+      <label>Descripción del problema</label>
+      <textarea [(ngModel)]="form.descripcion" rows="4" placeholder="Describe el servicio que necesitas..."></textarea>
+    </div>
+    <button class="btn-generar" (click)="generarTicket()">Generar Ticket</button>
+  </div>
+
+  <div class="tickets-list">
+    <h2>Tickets Generados</h2>
+    @if (tickets.length === 0) {
+      <p class="empty">Aún no has generado ningún ticket.</p>
+    } @else {
+      <div class="tickets-table">
+        <div class="ticket-header">
+          <span>#</span>
+          <span>Fecha</span>
+          <span>Cliente</span>
+          <span>Tipo</span>
+          <span>Estado</span>
+        </div>
+        @for (ticket of tickets; track ticket.id) {
+          <div class="ticket-row">
+            <span class="ticket-id">#{{ ticket.id.toString().slice(-4) }}</span>
+            <span>{{ ticket.fecha }}</span>
+            <span>{{ ticket.nombre }}</span>
+            <span>{{ ticket.tipoServicio === 'reparacion' ? 'Reparación' : 'Mantenimiento' }}</span>
+            <span class="estado-badge {{ ticket.estado }}">{{ ticket.estado }}</span>
+          </div>
+        }
+      </div>
+    }
+  </div>
 </section>

@@ -17,10 +17,10 @@ export class InicioPageComponent implements AfterViewInit {
   contactForm: FormGroup;
 
   products: Product[] = [
-    { id: 1, name: 'Limpiador de Hornos 375 ml', image: 'assets/producto1.png' },
-    { id: 2, name: 'Filtro de Papel Campana 60/90', image: 'assets/filtro.jpg' },
-    { id: 3, name: 'Limpiador de Lavadoras 250ml', image: 'assets/producto2.png' },
-    { id: 4, name: 'Limpiador para Estufas de Vitrocerámica 250 ml', image: 'assets/producto4.jpg' },
+    { id: 1, name: 'Limpiador de Hornos 375 ml', image: 'assets/producto1.png', price: 0, category: '', description: '', brand: '' },
+    { id: 2, name: 'Filtro de Papel Campana 60/90', image: 'assets/filtro.jpg', price: 0, category: '', description: '', brand: '' },
+    { id: 3, name: 'Limpiador de Lavadoras 250ml', image: 'assets/producto2.png', price: 0, category: '', description: '', brand: '' },
+    { id: 4, name: 'Limpiador para Estufas de Vitrocerámica 250 ml', image: 'assets/producto4.jpg', price: 0, category: '', description: '', brand: '' },
   ];
 
   @ViewChild('heroSwiper') heroSwiper!: ElementRef;
