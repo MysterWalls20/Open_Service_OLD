@@ -8,15 +8,15 @@ import { HorarioPageComponent } from './pages/horario-page/horario-page';
 import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AuthGuard } from './guards/auth.guard';
-import { DashboardPageComponent } from './pages/admin-pages/dashboard-page/dashboard-page';
-import { ClientesPageComponent } from './pages/admin-pages/clientes-page/clientes-page';
-import { ProductosPageComponent as AdminProductosPageComponent } from './pages/admin-pages/productos-page/productos-page';
-import { InventarioPageComponent } from './pages/admin-pages/inventario-page/inventario-page';
-import { ProveedorPageComponent } from './pages/admin-pages/proveedor-page/proveedor-page';
-import { ServiciosPageComponent as AdminServiciosPageComponent } from './pages/admin-pages/servicios-page/servicios-page';
-import { PedidosPageComponent } from './pages/admin-pages/pedidos-page/pedidos-page';
-import { VentasPageComponent } from './pages/admin-pages/ventas-page/ventas-page';
-import { ReportePageComponent } from './pages/admin-pages/reporte-page/reporte-page';
+import { DashboardPageComponent } from './admin-pages/dashboard-page/dashboard-page';
+import { ClientesPageComponent } from './admin-pages/clientes-page/clientes-page';
+import { ProductosPageComponent as AdminProductosPageComponent } from './admin-pages/productos-page/productos-page';
+import { InventarioPageComponent } from './admin-pages/inventario-page/inventario-page';
+import { ProveedorPageComponent } from './admin-pages/proveedor-page/proveedor-page';
+import { ServiciosPageComponent as AdminServiciosPageComponent } from './admin-pages/servicios-page/servicios-page';
+import { PedidosPageComponent } from './admin-pages/pedidos-page/pedidos-page';
+import { VentasPageComponent } from './admin-pages/ventas-page/ventas-page';
+import { ReportePageComponent } from './admin-pages/reporte-page/reporte-page';
 
 export const routes: Routes = [
   { path: '', component: InicioPageComponent },

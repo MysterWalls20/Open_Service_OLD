@@ -1,16 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Venta {
-  id: number;
-  cliente: string;
-  producto: string;
-  cantidad: number;
-  precioUnitario: number;
-  total: number;
-  fecha: string;
-  metodoPago: string;
-}
+import { Venta } from '../../models/venta.model';
 
 @Component({
   selector: 'app-ventas-page',

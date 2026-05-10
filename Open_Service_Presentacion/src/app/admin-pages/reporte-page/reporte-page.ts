@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
-interface ReporteResumen {
-  titulo: string;
-  valor: string;
-  cambio: string;
-  positivo: boolean;
-}
+import { ReporteResumen } from '../../models/reporte.model';
 
 @Component({
   selector: 'app-reporte-page',

@@ -1,15 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Inventario {
-  id: number;
-  producto: string;
-  sku: string;
-  cantidad: number;
-  minimo: number;
-  ubicacion: string;
-  estado: 'ok' | 'bajo';
-}
+import { Inventario } from '../../models/inventario.model';
 
 @Component({
   selector: 'app-inventario-page',

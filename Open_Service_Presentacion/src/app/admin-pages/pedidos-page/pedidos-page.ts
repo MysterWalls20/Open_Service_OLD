@@ -1,15 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Pedido {
-  id: number;
-  cliente: string;
-  producto: string;
-  cantidad: number;
-  total: number;
-  fecha: string;
-  estado: 'pendiente' | 'en-proceso' | 'completado' | 'cancelado';
-}
+import { Pedido } from '../../models/pedido.model';
 
 @Component({
   selector: 'app-pedidos-page',

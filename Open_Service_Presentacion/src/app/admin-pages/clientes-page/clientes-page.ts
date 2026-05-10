@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Cliente {
-  id: number;
-  nombre: string;
-  email: string;
-  telefono: string;
-  direccion: string;
-  estado: 'activo' | 'inactivo';
-}
+import { Cliente } from '../../models/cliente.model';
 
 @Component({
   selector: 'app-clientes-page',

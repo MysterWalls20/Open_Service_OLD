@@ -1,15 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Proveedor {
-  id: number;
-  nombre: string;
-  contacto: string;
-  email: string;
-  telefono: string;
-  direccion: string;
-  estado: 'activo' | 'inactivo';
-}
+import { Proveedor } from '../../models/proveedor.model';
 
 @Component({
   selector: 'app-proveedor-page',

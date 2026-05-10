@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Servicio {
-  id: number;
-  nombre: string;
-  descripcion: string;
-  precio: number;
-  duracion: string;
-  estado: 'activo' | 'inactivo';
-}
+import { Servicio } from '../../models/servicio.model';
 
 @Component({
   selector: 'app-servicios-page',
