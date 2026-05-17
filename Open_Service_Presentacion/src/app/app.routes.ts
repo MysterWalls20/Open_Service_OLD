@@ -18,6 +18,8 @@ import { ServiciosPageComponent as AdminServiciosPageComponent } from './admin-p
 import { PedidosPageComponent } from './admin-pages/pedidos-page/pedidos-page';
 import { VentasPageComponent } from './admin-pages/ventas-page/ventas-page';
 import { ReportePageComponent } from './admin-pages/reporte-page/reporte-page';
+import { ComprasPageComponent } from './admin-pages/compras-page/compras-page';
+import { EmpleadosPageComponent } from './admin-pages/empleados-page/empleados-page';
 
 export const routes: Routes = [
   { path: '', component: InicioPageComponent },
@@ -42,7 +44,9 @@ export const routes: Routes = [
       { path: 'servicios', component: AdminServiciosPageComponent },
       { path: 'pedidos', component: PedidosPageComponent },
       { path: 'ventas', component: VentasPageComponent },
-      { path: 'reporte', component: ReportePageComponent },
+      { path: 'reporte',    component: ReportePageComponent },
+      { path: 'compras',    component: ComprasPageComponent },
+      { path: 'empleados',  component: EmpleadosPageComponent },
     ]
   },
   { path: '**', redirectTo: '' }

@@ -37,40 +37,52 @@ export class InicioPageComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    new Swiper(this.heroSwiper.nativeElement, {
-      modules: [Navigation, Pagination, EffectFade],
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      effect: 'fade',
-      fadeEffect: {
-        crossFade: true,
-      },
-    });
+    try {
+      if (this.heroSwiper?.nativeElement) {
+        new Swiper(this.heroSwiper.nativeElement, {
+          modules: [Navigation, Pagination, EffectFade],
+          loop: true,
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          effect: 'fade',
+          fadeEffect: {
+            crossFade: true,
+          },
+        });
+      }
+    } catch (e) {
+      console.error('Error al inicializar heroSwiper:', e);
+    }
 
-    new Swiper(this.productsSwiper.nativeElement, {
-      modules: [Navigation],
-      slidesPerView: 1,
-      spaceBetween: 20,
-      navigation: {
-        nextEl: '.products-swiper-button-next',
-        prevEl: '.products-swiper-button-prev',
-      },
-      breakpoints: {
-        640: { slidesPerView: 2 },
-        991: { slidesPerView: 4 },
-      },
-    });
+    try {
+      if (this.productsSwiper?.nativeElement) {
+        new Swiper(this.productsSwiper.nativeElement, {
+          modules: [Navigation],
+          slidesPerView: 1,
+          spaceBetween: 20,
+          navigation: {
+            nextEl: '.products-swiper-button-next',
+            prevEl: '.products-swiper-button-prev',
+          },
+          breakpoints: {
+            640: { slidesPerView: 2 },
+            991: { slidesPerView: 4 },
+          },
+        });
+      }
+    } catch (e) {
+      console.error('Error al inicializar productsSwiper:', e);
+    }
   }
 
   onSubmit() {

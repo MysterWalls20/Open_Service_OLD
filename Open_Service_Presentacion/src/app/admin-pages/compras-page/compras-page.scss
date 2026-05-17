@@ -1,0 +1,16 @@
+.page-container { padding: 20px; max-width: 1200px; }
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; h1 { font-size: 28px; color: #333; margin: 0; } }
+.table-container { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.data-table { width: 100%; border-collapse: collapse; th { text-align: left; padding: 12px; background: #f8f9fa; color: #333; font-weight: 600; font-size: 14px; border-bottom: 2px solid #e0e0e0; } td { padding: 12px; border-bottom: 1px solid #f0f0f0; font-size: 14px; color: #555; } tr:hover { background: #f8f9fa; } }
+.actions { display: flex; gap: 8px; }
+.btn-icon { background: none; border: none; cursor: pointer; padding: 4px 8px; border-radius: 4px; transition: background 0.2s; &:hover { background: #e0e0e0; } }
+.empty-state { text-align: center; padding: 60px 20px; color: #999; p { margin: 0; font-size: 16px; } .hint { font-size: 13px; margin-top: 8px; } }
+.btn-primary { background: #4452cc; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; &:hover { background: #3742a8; } }
+.btn-secondary { background: #e0e0e0; color: #333; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; &:hover { background: #d0d0d0; } }
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.modal-content { background: #fff; border-radius: 12px; padding: 24px; width: 90%; max-width: 500px; max-height: 90vh; overflow-y: auto; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; h2 { font-size: 20px; color: #333; margin: 0; } }
+.btn-close { background: none; border: none; font-size: 20px; cursor: pointer; color: #666; padding: 4px; &:hover { color: #333; } }
+.form-grid { display: flex; flex-direction: column; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; label { font-size: 14px; font-weight: 500; color: #333; } input, select { padding: 10px 12px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 14px; &:focus { outline: none; border-color: #4452cc; box-shadow: 0 0 0 2px rgba(68,82,204,0.1); } } }
+.form-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px; }

@@ -236,6 +236,12 @@ footer.footer .container {
     width: 250px;
 }
 
+.footer-logo-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .links h4 {
     margin-bottom: 25px;
     text-transform: uppercase;

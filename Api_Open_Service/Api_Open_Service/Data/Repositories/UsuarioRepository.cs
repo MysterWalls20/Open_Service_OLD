@@ -1,0 +1,12 @@
+﻿using Api_Open_Service.Data;
+using Api_Open_Service.Models;
+
+namespace Api_Open_Service.Data.Repositories
+{
+    public class UsuarioRepository : Repository<Usuario>, IUsuarioRepository
+    {
+        public UsuarioRepository(OpenServiceDbContext context) : base(context)
+        {
+        }
+    }
+}

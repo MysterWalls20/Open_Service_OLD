@@ -1,14 +1,21 @@
 
 <footer class="footer">
   <div class="container">
-    <img class="logo-2" src="assets/logo.png" alt="Open Service Logo">
-    
+    <div class="footer-logo-admin">
+      <img class="logo-2" src="assets/logo.png" alt="Open Service Logo">
+      <div class="links">
+        <ul>
+          <li><a routerLink="/login">Administración</a></li>
+        </ul>
+      </div>
+    </div>
+
     <div class="links">
       <h4>Empresa</h4>
       <ul>
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Nuestros Clientes</a></li>
-        <li><a href="#">Términos y Condiciones</a></li>
+        <li><a routerLink="/nosotros" href="#">Nosotros</a></li>
+        <li><a routerLink="/clientes" href="#">Nuestros Clientes</a></li>
+        <li><a routerLink="/terminos" href="#">Términos y Condiciones</a></li>
       </ul>
     </div>
 
@@ -33,7 +40,9 @@
         <a href="#">
           <div class="social"><img src="assets/s3.svg" alt="WhatsApp"></div>
         </a>
+        
       </div>
     </div>
+
   </div>
 </footer>

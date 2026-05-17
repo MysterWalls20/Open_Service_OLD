@@ -30,22 +30,31 @@ export class LoginComponent {
       return;
     }
 
-    const storedUser = localStorage.getItem('admin_user');
-    if (storedUser) {
-      const user = JSON.parse(storedUser);
-      if (user.email === this.email && user.password === this.password) {
+    if (this.email === 'admin@openservice.com' && this.password === 'admin123') {
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('admin_user', JSON.stringify({ email: this.email, password: this.password }));
+      this.router.navigate(['/admin']);
+      return;
+    }
+
+    const storedEmpleados = localStorage.getItem('empleados');
+    if (storedEmpleados) {
+      const empleados = JSON.parse(storedEmpleados);
+      const empleado = empleados.find(
+        (e: any) => (e.email === this.email || e.usuario === this.email) && e.password === this.password && e.estado
+      );
+      if (empleado) {
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('admin_user', JSON.stringify({
+          email: empleado.email,
+          nombre: `${empleado.nombres} ${empleado.apellidos}`,
+          rol: empleado.rolNombre,
+        }));
         this.router.navigate(['/admin']);
         return;
       }
     }
 
-    if (this.email === 'admin@openservice.com' && this.password === 'admin123') {
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('admin_user', JSON.stringify({ email: this.email, password: this.password }));
-      this.router.navigate(['/admin']);
-    } else {
-      this.errorMessage = 'Credenciales incorrectas';
-    }
+    this.errorMessage = 'Credenciales incorrectas';
   }
 }

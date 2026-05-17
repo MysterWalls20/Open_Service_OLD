@@ -28,7 +28,9 @@ export class AdminComponent implements OnInit {
     { title: 'Servicios', icon: '', route: '/admin/servicios' },
     { title: 'Pedidos', icon: '', route: '/admin/pedidos' },
     { title: 'Ventas', icon: '', route: '/admin/ventas' },
-    { title: 'Reporte', icon: '', route: '/admin/reporte' },
+    { title: 'Compras',    icon: '', route: '/admin/compras' },
+    { title: 'Empleados',  icon: '', route: '/admin/empleados' },
+    { title: 'Reporte',    icon: '', route: '/admin/reporte' },
   ];
 
   constructor(private router: Router, private route: ActivatedRoute) {}
