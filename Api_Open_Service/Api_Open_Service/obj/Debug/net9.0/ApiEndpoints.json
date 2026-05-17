@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "Api_Open_Service.Controllers.AuthController",
+    "Method": "EditarEmpleado",
+    "RelativePath": "api/Auth/empleado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Api_Open_Service.DTOs.EmpleadoEdicionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api_Open_Service.Controllers.AuthController",
     "Method": "EliminarEmpleado",
     "RelativePath": "api/Auth/empleado/{id}",
     "HttpMethod": "DELETE",
@@ -23,6 +39,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api_Open_Service.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Api_Open_Service.DTOs.LoginDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

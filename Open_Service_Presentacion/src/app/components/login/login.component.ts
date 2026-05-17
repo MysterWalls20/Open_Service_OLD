@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service'; // IMPORTANTE: Sin el .ts al final
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
   showPassword = false;
   errorMessage = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) { }
 
   togglePassword() {
     this.showPassword = !this.showPassword;
@@ -25,36 +26,36 @@ export class LoginComponent {
   onSubmit() {
     this.errorMessage = '';
 
+    // 1. Validar que los campos no estén vacíos
     if (!this.email || !this.password) {
       this.errorMessage = 'Por favor, completa todos los campos';
       return;
     }
 
-    if (this.email === 'admin@openservice.com' && this.password === 'admin123') {
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('admin_user', JSON.stringify({ email: this.email, password: this.password }));
-      this.router.navigate(['/admin']);
-      return;
-    }
+    // 2. Armar el DTO exacto que espera nuestro backend
+    const credenciales = {
+      correoOUsuario: this.email,
+      contrasena: this.password
+    };
 
-    const storedEmpleados = localStorage.getItem('empleados');
-    if (storedEmpleados) {
-      const empleados = JSON.parse(storedEmpleados);
-      const empleado = empleados.find(
-        (e: any) => (e.email === this.email || e.usuario === this.email) && e.password === this.password && e.estado
-      );
-      if (empleado) {
+    // 3. Enviar la petición de Login a SQL Server mediante la API
+    this.authService.login(credenciales).subscribe({
+      next: (respuesta) => {
+        // Si el backend responde OK, guardamos la sesión con los datos reales
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('admin_user', JSON.stringify({
-          email: empleado.email,
-          nombre: `${empleado.nombres} ${empleado.apellidos}`,
-          rol: empleado.rolNombre,
+          email: respuesta.email,
+          nombre: respuesta.nombre,
+          rol: respuesta.rol
         }));
+        
+        // Redirigir al panel
         this.router.navigate(['/admin']);
-        return;
+      },
+      error: (err) => {
+        // Si el backend rechaza el login (contraseña mal, usuario inactivo, etc.)
+        this.errorMessage = err.error?.mensaje || 'Credenciales incorrectas';
       }
-    }
-
-    this.errorMessage = 'Credenciales incorrectas';
+    });
   }
 }

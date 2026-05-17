@@ -19,7 +19,6 @@ export class AuthService {
   login(credenciales: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, credenciales);
   }
-
   obtenerRoles(): Observable<any[]> {
   return this.http.get<any[]>(`${this.apiUrl}/roles`);
   }
@@ -32,9 +31,9 @@ export class AuthService {
     return this.http.delete(`${this.apiUrl}/empleado/${id}`);
   }
 
-  /* actualizarEmpleado(id: number, empleado: any): Observable<any> {
-    // NOTA: Cambiamos POST por PUT, que es lo correcto para actualizar.
-    // Asegúrate de que tu Controller en .NET use [HttpPut] y no [HttpPost].
-    return this.http.put<any>(`${this.apiUrl}/actualizar-empleado/${id}`, empleado);
-  }*/
+  editarEmpleado(dto: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/empleado`, dto);
+  }
+
+
 }

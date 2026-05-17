@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Empleado } from '../../models/empleado.model';
-import { AuthService } from '../../services/auth.service.ts';
+import { AuthService } from '../../services/auth.service'; // IMPORTANTE: Sin el .ts al final
 
 @Component({
   selector: 'app-empleados-page',
@@ -80,7 +80,24 @@ export class EmpleadosPageComponent implements OnInit {
     this.errorMessage = '';
 
     if (this.editingId) {
-      alert("La edición completa la conectaremos en el siguiente paso. ¡Pero ya lista y elimina!");
+      const empleadoEditado = {
+        id: this.editingId,
+        nombres: this.formModel.nombres,
+        apellidos: this.formModel.apellidos,
+        correo: this.formModel.email, // En el modelo HTML se llama email
+        idRol: Number(this.formModel.idRol),
+        estado: this.formModel.estado
+      };
+
+      this.authService.editarEmpleado(empleadoEditado).subscribe({
+        next: () => {
+          this.closeForm();
+          this.cargarEmpleados();
+        },
+        error: (err) => {
+          this.errorMessage = err.error?.mensaje || 'Error al editar el empleado';
+        }
+      });
     } else {
       if (this.formModel.password !== this.formModel.confirmPassword) {
         this.errorMessage = 'Las contraseñas no coinciden. Por favor, verifícalas.';

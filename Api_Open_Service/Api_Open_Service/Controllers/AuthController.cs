@@ -69,6 +69,41 @@ namespace Api_Open_Service.Controllers
             if (resultado) return Ok(new { mensaje = "Empleado desactivado correctamente." });
             return BadRequest(new { mensaje = "No se pudo eliminar el empleado." });
         }
+
+
+        [HttpPut("empleado")]
+        public async Task<IActionResult> EditarEmpleado([FromBody] EmpleadoEdicionDto dto)
+        {
+            var resultado = await _authService.EditarEmpleadoAsync(dto);
+            if (resultado) return Ok(new { mensaje = "Empleado actualizado correctamente." });
+
+            return BadRequest(new { mensaje = "No se pudo actualizar el empleado." });
+        }
+
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginDto dto)
+        {
+            try
+            {
+                var resultado = await _authService.LoginAsync(dto);
+
+                if (resultado != null)
+                {
+                    return Ok(resultado); // Devuelve los datos del empleado
+                }
+
+                return Unauthorized(new { mensaje = "Credenciales incorrectas." });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { mensaje = ex.Message });
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, new { mensaje = "Error interno del servidor." });
+            }
+        }
     }
 
 }

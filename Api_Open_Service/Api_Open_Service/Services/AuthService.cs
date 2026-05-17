@@ -37,7 +37,7 @@ namespace Api_Open_Service.Services
             {
                 Usuario1 = dto.NombreUsuario,
                 Correo = dto.Correo,
-                ContrasenaHash = dto.Contrasena, // Texto plano temporal
+                ContrasenaHash = BCrypt.Net.BCrypt.HashPassword(dto.Contrasena), // Aquí se implenta las contraseñas encriptadas
                 Estado = true
             };
 
@@ -91,7 +91,7 @@ namespace Api_Open_Service.Services
                               Email = u.Correo,
                               Usuario = u.Usuario1,
                               RolNombre = r.NombreRol,
-                              Estado = u.Estado 
+                              Estado = u.Estado
                           };
 
             return listado.ToList();
@@ -106,6 +106,65 @@ namespace Api_Open_Service.Services
             usuario.Estado = false;
             _unitOfWork.Usuarios.Update(usuario);
             return await _unitOfWork.SaveAsync() > 0;
+        }
+
+        public async Task<bool> EditarEmpleadoAsync(EmpleadoEdicionDto dto)
+        {
+            // 1. Buscamos al empleado y al usuario (comparten el mismo ID)
+            var empleado = await _unitOfWork.Empleados.GetByIdAsync(dto.Id);
+            var usuario = await _unitOfWork.Usuarios.GetByIdAsync(dto.Id);
+
+            if (empleado == null || usuario == null) return false;
+
+            // 2. Actualizamos los datos
+            empleado.Nombres = dto.Nombres;
+            empleado.Apellidos = dto.Apellidos;
+            empleado.IdRol = dto.IdRol;
+
+            usuario.Correo = dto.Correo;
+            usuario.Estado = dto.Estado;
+
+            // 3. Guardamos los cambios (Entity Framework rastrea qué tablas cambiaron)
+            _unitOfWork.Empleados.Update(empleado);
+            _unitOfWork.Usuarios.Update(usuario);
+
+            return await _unitOfWork.SaveAsync() > 0;
+        }
+
+
+        //Metodo del login
+        public async Task<LoginResponseDto?> LoginAsync(LoginDto dto)
+        {
+            // 1. Buscamos al usuario por correo o por nombre de usuario
+            var usuarios = await _unitOfWork.Usuarios.FindAsync(u =>
+                u.Correo == dto.CorreoOUsuario || u.Usuario1 == dto.CorreoOUsuario);
+
+            var usuario = usuarios.FirstOrDefault();
+
+            // Si no existe, retornamos null
+            if (usuario == null) return null;
+
+            // 2. Verificamos si está activo
+            if (usuario.Estado == false)
+            {
+                throw new UnauthorizedAccessException("Esta cuenta ha sido desactivada.");
+            }
+
+            // 3. Verificamos la contraseña usando BCrypt
+            bool passwordValida = BCrypt.Net.BCrypt.Verify(dto.Contrasena, usuario.ContrasenaHash);
+
+            if (!passwordValida) return null;
+
+            // 4. Si todo es correcto, traemos sus datos para Angular
+            var empleado = await _unitOfWork.Empleados.GetByIdAsync(usuario.IdUsuario);
+            var rol = await _unitOfWork.Roles.GetByIdAsync(empleado.IdRol);
+
+            return new LoginResponseDto
+            {
+                Email = usuario.Correo,
+                Nombre = $"{empleado.Nombres} {empleado.Apellidos}",
+                Rol = rol.NombreRol
+            };
         }
     }
 }

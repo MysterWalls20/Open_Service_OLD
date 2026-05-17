@@ -9,5 +9,8 @@ namespace Api_Open_Service.Services
         Task<IEnumerable<RolDto>> ObtenerRolesAsync();
         Task<IEnumerable<EmpleadoListadoDto>> ObtenerEmpleadosAsync();
         Task<bool> EliminarEmpleadoAsync(int id);
+        Task<bool> EditarEmpleadoAsync(EmpleadoEdicionDto dto);
+
+        Task<LoginResponseDto?> LoginAsync(LoginDto dto);
     }
 }
