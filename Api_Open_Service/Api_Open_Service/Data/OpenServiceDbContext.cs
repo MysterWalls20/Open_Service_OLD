@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Api_Open_Service.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api_Open_Service.Data;
+namespace Api_Open_Service.Models;
 
 public partial class OpenServiceDbContext : DbContext
 {
@@ -314,6 +313,7 @@ public partial class OpenServiceDbContext : DbContext
             entity.Property(e => e.RazonSocial).HasMaxLength(150);
             entity.Property(e => e.RucContacto).HasMaxLength(11);
             entity.Property(e => e.Telefono).HasMaxLength(20);
+            entity.Property(e => e.Email).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Repuesto>(entity =>

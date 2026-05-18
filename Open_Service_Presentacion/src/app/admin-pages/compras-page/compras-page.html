@@ -1,6 +1,6 @@
 <div class="page-container">
   <div class="page-header">
-    <h1>Compras</h1>
+    <h1>Compras e Ingresos de Stock</h1>
     <button class="btn-primary" (click)="openForm()">+ Nueva Compra</button>
   </div>
 
@@ -9,11 +9,10 @@
       <table class="data-table">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Proveedor</th>
-            <th>Nro. Factura</th>
+            <th>ID Compra</th>
+            <th>Proveedor</th> <th>Nro. Factura</th>
             <th>Fecha</th>
-            <th>Total</th>
+            <th>Total Factura</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -21,12 +20,13 @@
           @for (compra of compras; track compra.id) {
             <tr>
               <td>{{ compra.id }}</td>
-              <td>{{ compra.nombreProveedor }}</td>
+              
+              <td style="font-weight: 500;">{{ obtenerNombreProveedor(compra.idProveedor) }}</td>
+              
               <td>{{ compra.nroFactura }}</td>
               <td>{{ compra.fechaCompra }}</td>
-              <td>${{ compra.total.toFixed(2) }}</td>
+              <td style="font-weight: bold; color: #28a745;">S/ {{ compra.total.toFixed(2) }}</td>
               <td class="actions">
-                <button class="btn-icon btn-edit" (click)="editCompra(compra)" title="Editar">✏️</button>
                 <button class="btn-icon btn-delete" (click)="deleteCompra(compra.id)" title="Eliminar">🗑️</button>
               </td>
             </tr>
@@ -36,40 +36,107 @@
     } @else {
       <div class="empty-state">
         <p>No hay compras registradas</p>
-        <p class="hint">Haz clic en "Nueva Compra" para agregar la primera</p>
+        <p class="hint">Al registrar compras, el inventario se actualizará automáticamente.</p>
       </div>
     }
   </div>
 
   @if (showForm) {
     <div class="modal-overlay" (click)="closeForm()">
-      <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-content large-modal" style="max-width: 800px;" (click)="$event.stopPropagation()">
         <div class="modal-header">
-          <h2>{{ editingId ? 'Editar Compra' : 'Nueva Compra' }}</h2>
+          <h2>Nueva Factura de Compra</h2>
           <button class="btn-close" (click)="closeForm()">✕</button>
         </div>
-        <form class="form-grid" (ngSubmit)="saveCompra()">
+        
+        <div class="form-grid">
           <div class="form-group">
-            <label for="nombreProveedor">Proveedor</label>
-            <input type="text" id="nombreProveedor" [(ngModel)]="formModel.nombreProveedor" name="nombreProveedor" placeholder="Nombre del proveedor" required>
-          </div>
-          <div class="form-group">
-            <label for="nroFactura">Nro. Factura</label>
-            <input type="text" id="nroFactura" [(ngModel)]="formModel.nroFactura" name="nroFactura" placeholder="Factura #" required>
-          </div>
-          <div class="form-group">
-            <label for="fechaCompra">Fecha de Compra</label>
-            <input type="date" id="fechaCompra" [(ngModel)]="formModel.fechaCompra" name="fechaCompra" required>
+            <label>Proveedor</label>
+            <select [(ngModel)]="formModel.idProveedor" required>
+              <option value="" disabled selected>Seleccione un proveedor...</option>
+              @for (p of proveedores; track p.idProveedor) {
+                <option [value]="p.idProveedor">{{ p.razonSocial }}</option>
+              }
+            </select>
           </div>
           <div class="form-group">
-            <label for="total">Total</label>
-            <input type="number" id="total" [(ngModel)]="formModel.total" name="total" placeholder="0.00" step="0.01" required>
+            <label>Nro. Factura</label>
+            <input type="text" [(ngModel)]="formModel.nroFactura" required placeholder="F001-0023">
           </div>
-          <div class="form-actions">
-            <button type="button" class="btn-secondary" (click)="closeForm()">Cancelar</button>
-            <button type="submit" class="btn-primary">Guardar</button>
+          <div class="form-group">
+            <label>Fecha de Compra</label>
+            <input type="date" [(ngModel)]="formModel.fechaCompra" required>
           </div>
-        </form>
+        </div>
+
+        <hr style="margin: 20px 0; border: 0; border-top: 2px dashed #ddd;">
+
+        <div class="details-section">
+          <h3 style="margin-bottom: 15px; color: #333;">Añadir Productos</h3>
+          <div class="form-grid" style="grid-template-columns: 2fr 1fr 1fr auto; align-items: end; background: #f9f9f9; padding: 15px; border-radius: 8px;">
+            
+            <div class="form-group">
+              <label>Artículo (Inventario)</label>
+              <select [(ngModel)]="nuevoDetalle.idArticulo">
+                <option value="" disabled selected>Seleccione producto...</option>
+                @for (a of articulos; track a.idArticulo) {
+                  <option [value]="a.idArticulo">{{ a.nombre }} (Stock: {{ a.stockDisponible }})</option>
+                }
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label>Cantidad</label>
+              <input type="number" [(ngModel)]="nuevoDetalle.cantidad" min="1" placeholder="Ej: 10">
+            </div>
+
+            <div class="form-group">
+              <label>Precio Unitario</label>
+              <input type="number" [(ngModel)]="nuevoDetalle.precio" step="0.01" placeholder="Ej: 5.50">
+            </div>
+
+            <div class="form-group">
+              <button type="button" class="btn-primary" (click)="agregarDetalle()">+ Añadir a lista</button>
+            </div>
+          </div>
+
+          <table class="data-table" style="margin-top: 15px;">
+            <thead style="background: #333; color: white;">
+              <tr>
+                <th>Producto</th>
+                <th>Cant.</th>
+                <th>P. Unitario</th>
+                <th>Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (det of detallesCompra; track $index) {
+                <tr>
+                  <td>{{ det.nombreArticulo }}</td>
+                  <td>{{ det.cantidad }}</td>
+                  <td>S/ {{ det.precioUnitarioCompra.toFixed(2) }}</td>
+                  <td>S/ {{ det.subtotal.toFixed(2) }}</td>
+                  <td><button type="button" class="btn-delete" (click)="eliminarDetalle($index)">✕</button></td>
+                </tr>
+              }
+            </tbody>
+            <tfoot>
+              <tr style="background: #eef2f5;">
+                <td colspan="3" style="text-align: right; font-weight: bold; padding: 10px;">TOTAL A PAGAR:</td>
+                <td colspan="2" style="font-weight: bold; font-size: 1.2em; color: #28a745; padding: 10px;">
+                  S/ {{ totalCompraCalculado.toFixed(2) }}
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="form-actions" style="margin-top: 20px;">
+          <button type="button" class="btn-secondary" (click)="closeForm()">Cancelar</button>
+          <button type="button" class="btn-primary" style="background: #28a745;" (click)="saveCompra()">Finalizar y Procesar Compra</button>
+        </div>
+        
       </div>
     </div>
   }

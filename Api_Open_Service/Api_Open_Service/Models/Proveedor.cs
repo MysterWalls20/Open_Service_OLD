@@ -12,6 +12,7 @@ public partial class Proveedor
     public string RucContacto { get; set; } = null!;
 
     public string Telefono { get; set; } = null!;
+    public string? Email { get; set; }
 
     public virtual ICollection<Compra> Compras { get; set; } = new List<Compra>();
 }

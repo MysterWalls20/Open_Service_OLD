@@ -1,5 +1,4 @@
-﻿using Api_Open_Service.Data;
-using Api_Open_Service.Models;
+﻿using Api_Open_Service.Models;
 
 namespace Api_Open_Service.Data.Repositories
 {

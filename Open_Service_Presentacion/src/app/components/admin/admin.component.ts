@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink, RouterOutlet, ActivatedRoute } from '@angular/router';
+import { Router, RouterLink, RouterOutlet, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { AdminHeaderComponent } from '../admin-header/admin-header';
+import { filter, Subscription } from 'rxjs';
 
 interface MenuItem {
   title: string;
@@ -17,10 +18,10 @@ interface MenuItem {
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss',
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, OnDestroy {
   adminUser: { email: string } | null = null;
   menuItems: MenuItem[] = [
-    { title: 'Dashboard', icon: '', route: '/admin/dashboard', active: true },
+    { title: 'Dashboard', icon: '', route: '/admin/dashboard' },
     { title: 'Clientes', icon: '', route: '/admin/clientes' },
     { title: 'Productos', icon: '', route: '/admin/productos' },
     { title: 'Inventario', icon: '', route: '/admin/inventario' },
@@ -33,6 +34,8 @@ export class AdminComponent implements OnInit {
     { title: 'Reporte',    icon: '', route: '/admin/reporte' },
   ];
 
+  private routerSubscription?: Subscription;
+
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -40,11 +43,25 @@ export class AdminComponent implements OnInit {
     if (storedUser) {
       this.adminUser = JSON.parse(storedUser);
     }
+
+    this.syncActiveWithRouter();
+
+    this.routerSubscription = this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.syncActiveWithRouter();
+      });
   }
 
-  setActive(item: MenuItem) {
-    this.menuItems.forEach(i => i.active = false);
-    item.active = true;
+  ngOnDestroy() {
+    this.routerSubscription?.unsubscribe();
+  }
+
+  private syncActiveWithRouter() {
+    const currentUrl = this.router.url;
+    this.menuItems.forEach(item => {
+      item.active = currentUrl === item.route;
+    });
   }
 
   logout() {

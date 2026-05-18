@@ -1,38 +1,64 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Inventario } from '../../models/inventario.model';
+import { FormsModule } from '@angular/forms';
+import { InventarioService } from '../../services/inventario.service';
 
 @Component({
   selector: 'app-inventario-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './inventario-page.html',
   styleUrl: './inventario-page.scss',
 })
-export class InventarioPageComponent {
+export class InventarioPageComponent implements OnInit {
   showForm = false;
   editingId: number | null = null;
+  formModel: any = {};
+  articulos: any[] = [];
 
-  inventario: Inventario[] = [];
+  constructor(private inventarioService: InventarioService) {}
+
+  ngOnInit() {
+    this.cargarArticulos();
+  }
+
+  cargarArticulos() {
+    this.inventarioService.getAll().subscribe(data => this.articulos = data);
+  }
 
   openForm() {
     this.showForm = true;
     this.editingId = null;
+    this.formModel = {};
   }
 
   closeForm() {
     this.showForm = false;
-    this.editingId = null;
   }
 
-  editItem(item: Inventario) {
-    this.editingId = item.id;
+  editArticulo(a: any) {
+    this.editingId = a.idArticulo;
+    this.formModel = { ...a };
     this.showForm = true;
   }
 
-  deleteItem(id: number) {
-    if (confirm('¿Estás seguro de eliminar este registro de inventario?')) {
-      this.inventario = this.inventario.filter(i => i.id !== id);
+  deleteArticulo(id: number) {
+    if (confirm('¿Eliminar?')) {
+      this.inventarioService.delete(id).subscribe(() => this.cargarArticulos());
+    }
+  }
+
+  saveArticulo() {
+    if (this.editingId) {
+      this.inventarioService.update(this.editingId, this.formModel).subscribe(() => {
+        this.closeForm();
+        this.cargarArticulos();
+      });
+    } else {
+      this.inventarioService.create(this.formModel).subscribe(() => {
+        this.closeForm();
+        this.cargarArticulos();
+      });
     }
   }
 }

@@ -20,7 +20,11 @@
   </div>
 
   <div class="table-container">
-    @if (ventas.length > 0) {
+    @if (loading) {
+      <div class="loading-state">
+        <p>Cargando datos...</p>
+      </div>
+    } @else if (ventas.length > 0) {
       <table class="data-table">
         <thead>
           <tr>

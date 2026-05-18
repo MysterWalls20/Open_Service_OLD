@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Empleado } from '../../models/empleado.model';
-import { AuthService } from '../../services/auth.service'; // IMPORTANTE: Sin el .ts al final
+import { Router, NavigationEnd } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { filter, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-empleados-page',
@@ -11,32 +12,54 @@ import { AuthService } from '../../services/auth.service'; // IMPORTANTE: Sin el
   templateUrl: './empleados-page.html',
   styleUrl: './empleados-page.scss',
 })
-export class EmpleadosPageComponent implements OnInit {
+export class EmpleadosPageComponent implements OnInit, OnDestroy {
   showForm = false;
   editingId: number | null = null;
-  formModel: any = {}; 
+  formModel: any = {};
   empleados: any[] = [];
   roles: any[] = [];
   errorMessage = '';
+  loading = false;
 
-  constructor(private authService: AuthService) {}
+  private routerSubscription?: Subscription;
+
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.cargarRoles();
     this.cargarEmpleados();
+
+    this.routerSubscription = this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event) => {
+        if (event.url === '/admin/empleados') {
+          this.cargarEmpleados();
+        }
+      });
+  }
+
+  ngOnDestroy() {
+    this.routerSubscription?.unsubscribe();
   }
 
   cargarRoles() {
     this.authService.obtenerRoles().subscribe({
-      next: (data) => this.roles = data,
-      error: (err) => console.error(err)
+      next: (data: any[]) => this.roles = data,
+      error: (err: any) => console.error(err)
     });
   }
 
   cargarEmpleados() {
+    this.loading = true;
     this.authService.obtenerEmpleados().subscribe({
-      next: (data) => this.empleados = data,
-      error: (err) => console.error('Error al cargar empleados', err)
+      next: (data: any[]) => {
+        this.empleados = data;
+        this.loading = false;
+      },
+      error: (err: any) => {
+        console.error('Error al cargar empleados', err);
+        this.loading = false;
+      }
     });
   }
 
@@ -57,10 +80,10 @@ export class EmpleadosPageComponent implements OnInit {
   editEmpleado(empleado: any) {
     this.editingId = empleado.id;
     this.formModel = { ...empleado };
-    
+
     const rolEncontrado = this.roles.find(r => r.nombre === empleado.rolNombre);
     if (rolEncontrado) this.formModel.idRol = rolEncontrado.id;
-    
+
     this.showForm = true;
   }
 
@@ -71,7 +94,7 @@ export class EmpleadosPageComponent implements OnInit {
           alert('Empleado desactivado correctamente');
           this.cargarEmpleados();
         },
-        error: (err) => alert('Error al eliminar: ' + err.message)
+        error: (err: any) => alert('Error al eliminar: ' + err.message)
       });
     }
   }
@@ -84,7 +107,7 @@ export class EmpleadosPageComponent implements OnInit {
         id: this.editingId,
         nombres: this.formModel.nombres,
         apellidos: this.formModel.apellidos,
-        correo: this.formModel.email, // En el modelo HTML se llama email
+        correo: this.formModel.email,
         idRol: Number(this.formModel.idRol),
         estado: this.formModel.estado
       };
@@ -94,14 +117,14 @@ export class EmpleadosPageComponent implements OnInit {
           this.closeForm();
           this.cargarEmpleados();
         },
-        error: (err) => {
+        error: (err: any) => {
           this.errorMessage = err.error?.mensaje || 'Error al editar el empleado';
         }
       });
     } else {
       if (this.formModel.password !== this.formModel.confirmPassword) {
         this.errorMessage = 'Las contraseñas no coinciden. Por favor, verifícalas.';
-        return; 
+        return;
       }
 
       const empleadoDto = {
@@ -116,9 +139,9 @@ export class EmpleadosPageComponent implements OnInit {
       this.authService.registrarEmpleado(empleadoDto).subscribe({
         next: () => {
           this.closeForm();
-          this.cargarEmpleados(); 
+          this.cargarEmpleados();
         },
-        error: (err) => {
+        error: (err: any) => {
           this.errorMessage = err.error?.mensaje || 'Error al conectar con el servidor';
         }
       });

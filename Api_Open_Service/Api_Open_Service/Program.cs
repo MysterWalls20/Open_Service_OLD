@@ -1,6 +1,5 @@
-
-using Api_Open_Service.Data;
 using Api_Open_Service.Data.Repositories;
+using Api_Open_Service.Models;
 using Api_Open_Service.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,13 +13,13 @@ namespace Api_Open_Service
 
 
             // =========================================================================
-            // REGISTRO DEL DBCONTEXT (CONEXIÓN A SQL SERVER)
+            // REGISTRO DEL DBCONTEXT (CONEXIï¿½N A SQL SERVER)
             // =========================================================================
             builder.Services.AddDbContext<OpenServiceDbContext>(options =>
                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // =======================================================
-            // INYECCIÓN DE DEPENDENCIAS (PATRONES DE DISEÑO)
+            // INYECCIï¿½N DE DEPENDENCIAS (PATRONES DE DISEï¿½O)
             // =======================================================
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -50,7 +49,7 @@ namespace Api_Open_Service
             var app = builder.Build();
 
 
-            // Justo DESPUÉS de app.UseHttpsRedirection(); y ANTES de app.UseAuthorization();
+            // Justo DESPUï¿½S de app.UseHttpsRedirection(); y ANTES de app.UseAuthorization();
             app.UseCors("PermitirAngular");
 
 

@@ -1,4 +1,6 @@
-﻿namespace Api_Open_Service.Data.Repositories
+﻿using Api_Open_Service.Models;
+
+namespace Api_Open_Service.Data.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -8,12 +10,21 @@
         public IEmpleadoRepository Empleados { get; private set; }
         public IRolRepository Roles { get; private set; }
 
+
+        public IRepository<Proveedor> Proveedores { get; private set; }
+        public IRepository<Articulo> Articulos { get; private set; }
+        public IRepository<Compra> Compras { get; private set; }
+
         public UnitOfWork(OpenServiceDbContext context)
         {
             _context = context;
             Usuarios = new UsuarioRepository(_context);
             Empleados = new EmpleadoRepository(_context);
             Roles = new RolRepository(_context);
+
+            Proveedores = new Repository<Proveedor>(_context);
+            Articulos = new Repository<Articulo>(_context);
+            Compras = new Repository<Compra>(_context);
         }
 
         public async Task<int> SaveAsync()

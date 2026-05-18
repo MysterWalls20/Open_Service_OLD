@@ -10,72 +10,50 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Nombre</th>
-            <th>Contacto</th>
-            <th>Email</th>
+            <th>Razón Social</th>
+            <th>RUC</th>
             <th>Teléfono</th>
-            <th>Dirección</th>
-            <th>Estado</th>
-            <th>Acciones</th>
+            <th>Email</th> <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          @for (proveedor of proveedores; track proveedor.id) {
+          @for (p of proveedores; track p.idProveedor) {
             <tr>
-              <td>{{ proveedor.id }}</td>
-              <td>{{ proveedor.nombre }}</td>
-              <td>{{ proveedor.contacto }}</td>
-              <td>{{ proveedor.email }}</td>
-              <td>{{ proveedor.telefono }}</td>
-              <td>{{ proveedor.direccion }}</td>
-              <td>
-                <span class="badge {{ proveedor.estado }}">
-                  {{ proveedor.estado === 'activo' ? 'Activo' : 'Inactivo' }}
-                </span>
-              </td>
-              <td class="actions">
-                <button class="btn-icon btn-edit" (click)="editProveedor(proveedor)" title="Editar">✏️</button>
-                <button class="btn-icon btn-delete" (click)="deleteProveedor(proveedor.id)" title="Eliminar">🗑️</button>
+              <td>{{ p.idProveedor }}</td>
+              <td>{{ p.razonSocial }}</td>
+              <td>{{ p.rucContacto }}</td>
+              <td>{{ p.telefono }}</td>
+              <td>{{ p.email }}</td> <td class="actions">
+                <button class="btn-icon btn-edit" (click)="editProveedor(p)" title="Editar">✏️</button>
+                <button class="btn-icon btn-delete" (click)="deleteProveedor(p.idProveedor)" title="Eliminar">🗑️</button>
               </td>
             </tr>
           }
         </tbody>
       </table>
-    } @else {
-      <div class="empty-state">
-        <p>No hay proveedores registrados</p>
-        <p class="hint">Haz clic en "Nuevo Proveedor" para agregar el primero</p>
-      </div>
     }
   </div>
 
   @if (showForm) {
     <div class="modal-overlay" (click)="closeForm()">
       <div class="modal-content" (click)="$event.stopPropagation()">
-        <div class="modal-header">
-          <h2>{{ editingId ? 'Editar Proveedor' : 'Nuevo Proveedor' }}</h2>
-          <button class="btn-close" (click)="closeForm()">✕</button>
-        </div>
-        <form class="form-grid">
+        <h2>{{ editingId ? 'Editar Proveedor' : 'Nuevo Proveedor' }}</h2>
+        <form class="form-grid" (ngSubmit)="saveProveedor()">
           <div class="form-group">
-            <label for="nombre">Nombre Empresa</label>
-            <input type="text" id="nombre" placeholder="Nombre de la empresa">
+            <label>Razón Social</label>
+            <input type="text" [(ngModel)]="formModel.razonSocial" name="razonSocial" required>
           </div>
           <div class="form-group">
-            <label for="contacto">Persona de Contacto</label>
-            <input type="text" id="contacto" placeholder="Nombre del contacto">
+            <label>RUC de Contacto</label>
+            <input type="text" [(ngModel)]="formModel.rucContacto" name="rucContacto" required>
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="correo@empresa.com">
+            <label>Teléfono</label>
+            <input type="text" [(ngModel)]="formModel.telefono" name="telefono" required>
           </div>
           <div class="form-group">
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" placeholder="+593 XXX XXX XXX">
-          </div>
-          <div class="form-group">
-            <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" placeholder="Dirección completa">
+            <label>Email</label>
+            <input type="email" [(ngModel)]="formModel.email" name="email" placeholder="correo@empresa.com">
           </div>
           <div class="form-actions">
             <button type="button" class="btn-secondary" (click)="closeForm()">Cancelar</button>
