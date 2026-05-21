@@ -15,6 +15,7 @@ export class ProveedorPageComponent implements OnInit {
   editingId: number | null = null;
   formModel: any = {};
   proveedores: any[] = [];
+  loading = false;
 
   constructor(private proveedorService: ProveedorService) {}
 
@@ -23,7 +24,17 @@ export class ProveedorPageComponent implements OnInit {
   }
 
   cargarProveedores() {
-    this.proveedorService.getAll().subscribe(data => this.proveedores = data);
+    this.loading = true;
+    this.proveedorService.getAll().subscribe({
+      next: (data) => {
+        this.proveedores = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Error al cargar proveedores', err);
+        this.loading = false;
+      }
+    });
   }
 
   openForm() {

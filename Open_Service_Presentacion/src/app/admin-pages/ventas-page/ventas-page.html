@@ -22,6 +22,7 @@
   <div class="table-container">
     @if (loading) {
       <div class="loading-state">
+        <div class="spinner"></div>
         <p>Cargando datos...</p>
       </div>
     } @else if (ventas.length > 0) {
@@ -51,8 +52,8 @@
               <td>{{ venta.fecha }}</td>
               <td>{{ venta.metodoPago }}</td>
               <td class="actions">
-                <button class="btn-icon btn-edit" (click)="editVenta(venta)" title="Editar">✏️</button>
-                <button class="btn-icon btn-delete" (click)="deleteVenta(venta.id)" title="Eliminar">🗑️</button>
+                <button class="btn-edit" (click)="editVenta(venta)">Editar</button>
+                <button class="btn-delete" (click)="deleteVenta(venta.id)">Eliminar</button>
               </td>
             </tr>
           }

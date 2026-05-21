@@ -15,6 +15,7 @@ export class InventarioPageComponent implements OnInit {
   editingId: number | null = null;
   formModel: any = {};
   articulos: any[] = [];
+  loading = false;
 
   constructor(private inventarioService: InventarioService) {}
 
@@ -23,7 +24,17 @@ export class InventarioPageComponent implements OnInit {
   }
 
   cargarArticulos() {
-    this.inventarioService.getAll().subscribe(data => this.articulos = data);
+    this.loading = true;
+    this.inventarioService.getAll().subscribe({
+      next: (data) => {
+        this.articulos = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Error al cargar artículos', err);
+        this.loading = false;
+      }
+    });
   }
 
   openForm() {

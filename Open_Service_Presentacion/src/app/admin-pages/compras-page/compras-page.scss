@@ -4,6 +4,7 @@
 .data-table { width: 100%; border-collapse: collapse; th { text-align: left; padding: 12px; background: #f8f9fa; color: #333; font-weight: 600; font-size: 14px; border-bottom: 2px solid #e0e0e0; } td { padding: 12px; border-bottom: 1px solid #f0f0f0; font-size: 14px; color: #555; } tr:hover { background: #f8f9fa; } }
 .actions { display: flex; gap: 8px; }
 .btn-icon { background: none; border: none; cursor: pointer; padding: 4px 8px; border-radius: 4px; transition: background 0.2s; &:hover { background: #e0e0e0; } }
+.btn-delete { background: #fce4e4; color: #dc3545; border: 1px solid #dc3545; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s; &:hover { background: #dc3545; color: #fff; } }
 .empty-state { text-align: center; padding: 60px 20px; color: #999; p { margin: 0; font-size: 16px; } .hint { font-size: 13px; margin-top: 8px; } }
 .btn-primary { background: #4452cc; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; &:hover { background: #3742a8; } }
 .btn-secondary { background: #e0e0e0; color: #333; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; &:hover { background: #d0d0d0; } }

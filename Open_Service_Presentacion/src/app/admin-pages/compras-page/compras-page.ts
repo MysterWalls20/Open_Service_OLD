@@ -14,6 +14,7 @@ import { ProveedorService } from '../../services/proveedor.service';
 })
 export class ComprasPageComponent implements OnInit {
   showForm = false;
+  loading = false;
   
   // Listas de datos
   compras: any[] = [];
@@ -39,14 +40,22 @@ export class ComprasPageComponent implements OnInit {
   }
 
   cargarCompras() {
-    this.compraService.getAll().subscribe(data => {
-      this.compras = data.map((c: any) => ({
-        id: c.idCompra,
-        idProveedor: c.idProveedor,
-        nroFactura: c.nroFacturaProveedor,
-        fechaCompra: c.fechaCompra ? new Date(c.fechaCompra).toLocaleDateString() : 'N/A',
-        total: c.totalCompra
-      }));
+    this.loading = true;
+    this.compraService.getAll().subscribe({
+      next: (data) => {
+        this.compras = data.map((c: any) => ({
+          id: c.idCompra,
+          idProveedor: c.idProveedor,
+          nroFactura: c.nroFacturaProveedor,
+          fechaCompra: c.fechaCompra ? new Date(c.fechaCompra).toLocaleDateString() : 'N/A',
+          total: c.totalCompra
+        }));
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Error al cargar compras', err);
+        this.loading = false;
+      }
     });
   }
 

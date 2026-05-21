@@ -19,7 +19,7 @@ interface MenuItem {
   styleUrl: './admin.component.scss',
 })
 export class AdminComponent implements OnInit, OnDestroy {
-  adminUser: { email: string } | null = null;
+  adminUser: { email: string; nombre: string; rol: string } | null = null;
   menuItems: MenuItem[] = [
     { title: 'Dashboard', icon: '', route: '/admin/dashboard' },
     { title: 'Clientes', icon: '', route: '/admin/clientes' },

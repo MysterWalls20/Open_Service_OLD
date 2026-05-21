@@ -5,7 +5,12 @@
   </div>
 
   <div class="table-container">
-    @if (compras.length > 0) {
+    @if (loading) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Cargando datos...</p>
+      </div>
+    } @else if (compras.length > 0) {
       <table class="data-table">
         <thead>
           <tr>
@@ -27,7 +32,7 @@
               <td>{{ compra.fechaCompra }}</td>
               <td style="font-weight: bold; color: #28a745;">S/ {{ compra.total.toFixed(2) }}</td>
               <td class="actions">
-                <button class="btn-icon btn-delete" (click)="deleteCompra(compra.id)" title="Eliminar">🗑️</button>
+                <button class="btn-delete" (click)="deleteCompra(compra.id)">Eliminar</button>
               </td>
             </tr>
           }

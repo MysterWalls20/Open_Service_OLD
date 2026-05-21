@@ -5,7 +5,12 @@
   </div>
 
   <div class="table-container">
-    @if (proveedores.length > 0) {
+    @if (loading) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Cargando datos...</p>
+      </div>
+    } @else if (proveedores.length > 0) {
       <table class="data-table">
         <thead>
           <tr>
@@ -24,13 +29,17 @@
               <td>{{ p.rucContacto }}</td>
               <td>{{ p.telefono }}</td>
               <td>{{ p.email }}</td> <td class="actions">
-                <button class="btn-icon btn-edit" (click)="editProveedor(p)" title="Editar">✏️</button>
-                <button class="btn-icon btn-delete" (click)="deleteProveedor(p.idProveedor)" title="Eliminar">🗑️</button>
+                <button class="btn-edit" (click)="editProveedor(p)">Editar</button>
+                <button class="btn-delete" (click)="deleteProveedor(p.idProveedor)">Eliminar</button>
               </td>
             </tr>
           }
         </tbody>
       </table>
+    } @else {
+      <div class="empty-state">
+        <p>No hay proveedores registrados</p>
+      </div>
     }
   </div>
 

@@ -7,6 +7,7 @@
   <div class="table-container">
     @if (loading) {
       <div class="loading-state">
+        <div class="spinner"></div>
         <p>Cargando datos...</p>
       </div>
     } @else if (productos.length > 0) {
@@ -36,8 +37,8 @@
                 </span>
               </td>
               <td class="actions">
-                <button class="btn-icon btn-edit" (click)="editProducto(producto)" title="Editar">✏️</button>
-                <button class="btn-icon btn-delete" (click)="deleteProducto(producto.id)" title="Eliminar">🗑️</button>
+                <button class="btn-edit" (click)="editProducto(producto)">Editar</button>
+                <button class="btn-delete" (click)="deleteProducto(producto.id)">Eliminar</button>
               </td>
             </tr>
           }

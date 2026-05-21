@@ -235,3 +235,29 @@
   gap: 12px;
   margin-top: 8px;
 }
+
+.btn-edit {
+  background: #e8f0fe;
+  color: #4452cc;
+  border: 1px solid #4452cc;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+  &:hover { background: #4452cc; color: #fff; }
+}
+
+.btn-delete {
+  background: #fce4e4;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+  &:hover { background: #dc3545; color: #fff; }
+}

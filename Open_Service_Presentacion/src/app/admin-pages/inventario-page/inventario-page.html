@@ -5,7 +5,12 @@
   </div>
 
   <div class="table-container">
-    @if (articulos.length > 0) {
+    @if (loading) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Cargando datos...</p>
+      </div>
+    } @else if (articulos.length > 0) {
       <table class="data-table">
         <thead>
           <tr>
@@ -26,13 +31,17 @@
               <td>S/ {{ a.precio }}</td>
               <td>{{ a.stockDisponible }}</td>
               <td class="actions">
-                <button class="btn-icon btn-edit" (click)="editArticulo(a)">✏️</button>
-                <button class="btn-icon btn-delete" (click)="deleteArticulo(a.idArticulo)">🗑️</button>
+                <button class="btn-edit" (click)="editArticulo(a)">Editar</button>
+                <button class="btn-delete" (click)="deleteArticulo(a.idArticulo)">Eliminar</button>
               </td>
             </tr>
           }
         </tbody>
       </table>
+    } @else {
+      <div class="empty-state">
+        <p>No hay artículos en el inventario</p>
+      </div>
     }
   </div>
 
