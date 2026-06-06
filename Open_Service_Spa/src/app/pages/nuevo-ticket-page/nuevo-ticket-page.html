@@ -1,0 +1,83 @@
+<section class="page-content container">
+  <div class="page-header">
+    <a routerLink="/" class="btn-back">&#8592; Regresar</a>
+    <h1>Ticket de Servicio</h1>
+  </div>
+
+  @if (mensajeExito) {
+  <div class="alert-success">
+    Ticket generado correctamente. Te contactaremos pronto.
+  </div>
+  }
+
+  @if (errorMsg) {
+  <div class="alert-error">
+    {{ errorMsg }}
+  </div>
+  }
+
+  <div class="ticket-form">
+    <h2>Registra tu solicitud</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Nombres *</label>
+        <input type="text" [(ngModel)]="form.nombres" placeholder="Tus nombres" />
+      </div>
+      <div class="form-group">
+        <label>Apellidos *</label>
+        <input type="text" [(ngModel)]="form.apellidos" placeholder="Tus apellidos" />
+      </div>
+      <div class="form-group">
+        <label>Correo electrónico *</label>
+        <input type="email" [(ngModel)]="form.email" placeholder="correo@ejemplo.com" />
+      </div>
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="tel" [(ngModel)]="form.telefono" placeholder="999 999 999" />
+      </div>
+      <div class="form-group">
+        <label>Dirección *</label>
+        <input type="text" [(ngModel)]="form.direccion" placeholder="Dirección del servicio" />
+      </div>
+      <div class="form-group">
+        <label>Tipo de equipo *</label>
+        <input type="text" [(ngModel)]="form.electrodomestico" placeholder="Ej: Lavadora, Refrigerador" />
+      </div>
+      <div class="form-group">
+        <label>Marca *</label>
+        <select (change)="onMarcaChange($event)" class="form-select">
+          <option value="0" disabled selected>Selecciona una marca</option>
+          @for (m of marcas; track m.idMarca) {
+          <option [value]="m.idMarca">{{ m.nombreMarca }}</option>
+          }
+          <option value="-1">Otra (escribe abajo)</option>
+        </select>
+        @if (form.idMarca === -1) {
+        <input type="text" [(ngModel)]="form.nombreMarca" placeholder="Escribe la marca" class="marca-input"
+          style="margin-top: 8px;" />
+        }
+      </div>
+      <div class="form-group">
+        <label>Modelo</label>
+        <input type="text" [(ngModel)]="form.modelo" placeholder="Ej: X100" />
+      </div>
+      <div class="form-group">
+        <label>Tipo de servicio *</label>
+        <select [(ngModel)]="form.tipoServicio" class="form-select">
+          @for (t of tiposServicio; track t.valor) {
+          <option [value]="t.valor">{{ t.label }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group full">
+      <label>Descripción del problema *</label>
+      <textarea [(ngModel)]="form.descripcion" rows="4" placeholder="Describe el servicio que necesitas..."></textarea>
+    </div>
+
+    <button class="btn-generar" (click)="guardarTicket()" [disabled]="enviando">
+      {{ enviando ? 'Enviando...' : 'Guardar Ticket' }}
+    </button>
+  </div>
+</section>

@@ -1,0 +1,112 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>Pedidos (Panel Administrador)</h1>
+    <button class="btn-primary" (click)="openForm()">+ Nuevo Pedido Manual</button>
+  </div>
+
+  <div class="table-container">
+    @if (loading) {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Cargando datos...</p>
+    </div>
+    } @else if (pedidos.length > 0) {
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Ticket</th>
+          <th>Cliente</th>
+          <th>Producto</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (pedido of pedidos; track pedido.id) {
+        <tr>
+          <td><span style="font-weight: bold; color: #0056b3;">{{ pedido.ticketFormat }}</span></td>
+          <td>{{ pedido.cliente }}</td>
+          <td>{{ pedido.producto }}</td>
+          <td>{{ pedido.fecha }}</td>
+          <td>
+            <span class="badge {{ pedido.estado }}">{{ getEstadoLabel(pedido.estado) }}</span>
+          </td>
+          <td class="actions">
+            <button class="btn-edit" (click)="editPedido(pedido)">Editar</button>
+            <button class="btn-delete" (click)="deletePedido(pedido.id)">Eliminar</button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    } @else {
+    <div class="empty-state">
+      <p>No hay pedidos registrados en la base de datos.</p>
+    </div>
+    }
+  </div>
+
+  @if (showForm) {
+  <div class="modal-overlay" (click)="closeForm()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>{{ editingId ? 'Editar Pedido' : 'Crear Pedido Manual' }}</h2>
+        <button class="btn-close" (click)="closeForm()">✕</button>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nombres</label>
+          <input type="text" [(ngModel)]="form.nombres" placeholder="Nombres del cliente">
+        </div>
+        <div class="form-group">
+          <label>Apellidos</label>
+          <input type="text" [(ngModel)]="form.apellidos" placeholder="Apellidos">
+        </div>
+        <div class="form-group">
+          <label>Correo</label>
+          <input type="email" [(ngModel)]="form.correo" placeholder="correo@ejemplo.com">
+        </div>
+        <div class="form-group">
+          <label>Teléfono y Dirección</label>
+          <div style="display: flex; gap: 10px;">
+            <input type="text" [(ngModel)]="form.telefono" placeholder="Teléfono" style="width: 40%;">
+            <input type="text" [(ngModel)]="form.direccion" placeholder="Dirección" style="flex: 1;">
+          </div>
+        </div>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+        <div class="form-group">
+          <label>Equipo y Marca</label>
+          <div style="display: flex; gap: 10px;">
+            <input type="text" [(ngModel)]="form.electrodomestico" placeholder="Ej: Lavadora" style="flex: 1;">
+            <input type="text" [(ngModel)]="form.nombreMarca" placeholder="Ej: LG" style="width: 40%;">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Modelo y Descripción del Problema</label>
+          <input type="text" [(ngModel)]="form.modelo" placeholder="Modelo (Opcional)" style="margin-bottom: 6px;">
+          <textarea [(ngModel)]="form.descripcion" placeholder="Falla reportada..." rows="3"></textarea>
+        </div>
+
+        @if (editingId) {
+        <!--<div class="form-group">
+          <label>Estado del Ticket</label>
+          <select [(ngModel)]="form.estado">
+            <option value="Pendiente">Pendiente</option>
+            <option value="En Proceso">En Proceso</option>
+            <option value="Completado">Completado</option>
+            <option value="Cancelado">Cancelado</option>
+          </select>
+        </div>-->
+        }
+
+        <div class="form-actions">
+          <button type="button" class="btn-secondary" (click)="closeForm()">Cancelar</button>
+          <button type="button" class="btn-primary" (click)="guardarPedido()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</div>

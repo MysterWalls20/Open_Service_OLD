@@ -1,0 +1,89 @@
+<div class="checkout-container">
+  <button class="btn-back" (click)="volver()">← Volver al Carrito</button>
+
+  <div class="checkout-grid">
+    <div class="form-section">
+      <h2>1. Datos de Envío y Facturación</h2>
+      
+      <form class="checkout-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombres *</label>
+            <input type="text" [(ngModel)]="cliente.nombres" name="nombres" placeholder="Ej: Carlos Eduardo">
+          </div>
+          <div class="form-group">
+            <label>Apellidos *</label>
+            <input type="text" [(ngModel)]="cliente.apellidos" name="apellidos">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Correo Electrónico *</label>
+            <input type="email" [(ngModel)]="cliente.correo" name="correo" placeholder="correo@ejemplo.com">
+          </div>
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="text" [(ngModel)]="cliente.telefono" name="telefono">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Dirección de Envío *</label>
+          <input type="text" [(ngModel)]="cliente.direccion" name="direccion" placeholder="Calle, número, distrito">
+        </div>
+
+        <h2 style="margin-top: 30px;">2. Método de Pago</h2>
+        <div class="payment-methods">
+          
+          <label class="radio-box" [class.selected]="cliente.idTipoPago === 1">
+            <input type="radio" [(ngModel)]="cliente.idTipoPago" name="idTipoPago" [value]="1">
+            <span>💵 Pago en Efectivo (Contra entrega)</span>
+          </label>
+          
+          <label class="radio-box" [class.selected]="cliente.idTipoPago === 2">
+            <input type="radio" [(ngModel)]="cliente.idTipoPago" name="idTipoPago" [value]="2">
+            <span>📱 Yape / Transferencia</span>
+          </label>
+
+          <label class="radio-box" [class.selected]="cliente.idTipoPago === 3">
+            <input type="radio" [(ngModel)]="cliente.idTipoPago" name="idTipoPago" [value]="3">
+            <span>💳 Tarjeta de Crédito / Débito (POS)</span>
+          </label>
+
+        </div>
+      </form>
+    </div>
+
+    <div class="summary-section">
+      <h2>Resumen de Cotización</h2>
+      
+      <div class="items-list">
+        @for (item of itemsCarrito; track item.idArticulo) {
+          <div class="summary-item">
+            <img [src]="item.imagen" [alt]="item.nombre">
+            <div class="item-details">
+              <h4>{{ item.nombre }}</h4>
+              <p>Cant: {{ item.cantidad }} x S/ {{ item.precio | number:'1.2-2' }}</p>
+            </div>
+            <div class="item-total">
+              S/ {{ (item.cantidad * item.precio) | number:'1.2-2' }}
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="summary-totals">
+        <div class="row"><span>Subtotal:</span> <span>S/ {{ (total / 1.18) | number:'1.2-2' }}</span></div>
+        
+        <div class="row"><span>IGV (18%):</span> <span>S/ {{ (total - (total / 1.18)) | number:'1.2-2' }}</span></div>
+        
+        <div class="row total-big"><span>Total a Pagar:</span> <span>S/ {{ total | number:'1.2-2' }}</span></div>
+      </div>
+
+      <button class="btn-confirmar" [disabled]="procesando" (click)="confirmarCompra()">
+        {{ procesando ? 'Procesando Pago...' : 'Confirmar y Pagar' }}
+      </button>
+    </div>
+  </div>
+</div>

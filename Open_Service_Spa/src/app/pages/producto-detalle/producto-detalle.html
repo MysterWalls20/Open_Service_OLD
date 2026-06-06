@@ -1,0 +1,49 @@
+<div class="detalle-container">
+  <button class="btn-back" (click)="volverAlCatalogo()">← Volver al catálogo</button>
+
+  @if (loading) {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Cargando información del producto...</p>
+    </div>
+  } @else if (producto) {
+    <div class="producto-grid">
+      <div class="imagen-wrapper">
+        <img [src]="producto.urlImagen" [alt]="producto.nombre">
+      </div>
+
+      <div class="info-wrapper">
+        <span class="categoria-tag">{{ producto.categoriaMarketplace }}</span>
+        <h1 class="producto-titulo">{{ producto.nombre }}</h1>
+        <p class="producto-precio">S/ {{ producto.precio | number:'1.2-2' }}</p>
+        
+        <p class="producto-descripcion">{{ producto.descripcion }}</p>
+
+        <div class="compra-section">
+          <p class="stock-info" [class.agotado]="producto.stock === 0">
+            {{ producto.stock > 0 ? 'Disponibles: ' + producto.stock + ' unidades' : 'Agotado temporalmente' }}
+          </p>
+
+          @if (producto.stock > 0) {
+            <div class="cantidad-selector">
+              <label>Cantidad:</label>
+              <div class="selector-controles">
+                <button (click)="disminuirCantidad()" [disabled]="cantidadSeleccionada <= 1">-</button>
+                <input type="text" [value]="cantidadSeleccionada" readonly>
+                <button (click)="aumentarCantidad()" [disabled]="cantidadSeleccionada >= producto.stock">+</button>
+              </div>
+            </div>
+
+            <button class="btn-agregar-carrito" (click)="agregarAlCarrito()">
+              🛒 Agregar al Carrito ({{ cantidadSeleccionada }})
+            </button>
+          } @else {
+            <button class="btn-agregar-carrito agotado" disabled>
+              Sin Stock
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>

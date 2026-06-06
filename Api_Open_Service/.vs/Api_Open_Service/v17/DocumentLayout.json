@@ -3,164 +3,204 @@
   "WorkspaceRootPath": "D:\\OpenService\\Open_Service\\Api_Open_Service\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\compraregistrodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\compraregistrodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\detallecompradto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\detallecompradto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\compradto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\compradto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\proveedordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\proveedordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\openservicedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\openservicedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\inventariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\inventariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\empleadorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\empleadorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\rolrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\rolrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\articulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\articulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\compra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\compra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\empleadoregistrodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\empleadoregistrodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\servicioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\servicioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\servicioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\servicioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\services\\strategy\\pagoefectivostrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\services\\strategy\\pagoefectivostrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\empleadoediciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\empleadoediciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\services\\strategy\\pagotarjetastrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\services\\strategy\\pagotarjetastrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\api_open_service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\api_open_service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\services\\strategy\\pagoyapestrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\services\\strategy\\pagoyapestrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\empleadolistadodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\empleadolistadodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\services\\strategy\\contextopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\services\\strategy\\contextopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\roldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\roldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\services\\strategy\\iestrategiapago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\services\\strategy\\iestrategiapago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\irolrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\irolrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\iempleadorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\iempleadorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\itemcarritodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\itemcarritodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\checkoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\checkoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\ventum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\ventum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\openservicedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\openservicedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\services\\singleton\\singleton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\services\\singleton\\singleton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\detalleservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\detalleservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\servicioorden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\servicioorden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\tipopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\tipopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\detalleventum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\detalleventum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\productoregistrodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\productoregistrodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\clientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\clientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\estadodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\estadodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\pedidoediciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\pedidoediciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\repuestoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\repuestoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\repuestodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\repuestodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\serviciodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\serviciodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\consumorepuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\consumorepuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\repuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\repuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\consumorepuestodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\consumorepuestodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\detalleserviciodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\detalleserviciodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\data\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\data\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\pedidoregistrodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\pedidoregistrodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\OpenServiceDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Api_Open_Service\\Models\\OpenServiceDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\controllers\\marcascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\controllers\\marcascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\ticketpublicoregistrodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\ticketpublicoregistrodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\articulodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\articulodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\dtos\\compradto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\dtos\\compradto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\marca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\marca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\models\\historialticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\models\\historialticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|d:\\openservice\\open_service\\api_open_service\\api_open_service\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F799EC31-C437-4F27-82D3-3EC80FB861F7}|Api_Open_Service\\Api_Open_Service.csproj|solutionrelative:api_open_service\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -178,44 +218,543 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CompraRegistroDto.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\CompraRegistroDto.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\CompraRegistroDto.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\CompraRegistroDto.cs",
-              "RelativeToolTip": "Api_Open_Service\\DTOs\\CompraRegistroDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAhAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "PagoYapeStrategy.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\Strategy\\PagoYapeStrategy.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Services\\Strategy\\PagoYapeStrategy.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\Strategy\\PagoYapeStrategy.cs",
+              "RelativeToolTip": "Api_Open_Service\\Services\\Strategy\\PagoYapeStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T08:04:38.577Z"
+              "WhenOpened": "2026-06-04T08:39:57.9Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DetalleCompraDto.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\DetalleCompraDto.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\DetalleCompraDto.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\DetalleCompraDto.cs",
-              "RelativeToolTip": "Api_Open_Service\\DTOs\\DetalleCompraDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA5AAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "PagoTarjetaStrategy.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\Strategy\\PagoTarjetaStrategy.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Services\\Strategy\\PagoTarjetaStrategy.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\Strategy\\PagoTarjetaStrategy.cs",
+              "RelativeToolTip": "Api_Open_Service\\Services\\Strategy\\PagoTarjetaStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T08:04:19.883Z"
+              "WhenOpened": "2026-06-04T08:40:15.803Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Api_Open_Service\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T05:39:36.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "OpenServiceDbContext.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\OpenServiceDbContext.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\OpenServiceDbContext.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\OpenServiceDbContext.cs",
+              "RelativeToolTip": "Api_Open_Service\\Data\\OpenServiceDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T08:27:49.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CheckoutDto.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\CheckoutDto.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\CheckoutDto.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\CheckoutDto.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\CheckoutDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T08:08:27.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PagoEfectivoStrategy.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\Strategy\\PagoEfectivoStrategy.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Services\\Strategy\\PagoEfectivoStrategy.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\Strategy\\PagoEfectivoStrategy.cs",
+              "RelativeToolTip": "Api_Open_Service\\Services\\Strategy\\PagoEfectivoStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T08:40:40.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IEstrategiaPago.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\Strategy\\IEstrategiaPago.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Services\\Strategy\\IEstrategiaPago.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\Strategy\\IEstrategiaPago.cs",
+              "RelativeToolTip": "Api_Open_Service\\Services\\Strategy\\IEstrategiaPago.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T08:39:06.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ContextoPago.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\Strategy\\ContextoPago.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Services\\Strategy\\ContextoPago.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\Strategy\\ContextoPago.cs",
+              "RelativeToolTip": "Api_Open_Service\\Services\\Strategy\\ContextoPago.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T08:40:56.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VentasController.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\VentasController.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\VentasController.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\VentasController.cs",
+              "RelativeToolTip": "Api_Open_Service\\Controllers\\VentasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T07:27:37.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ServiciosController.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ServiciosController.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\ServiciosController.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ServiciosController.cs",
+              "RelativeToolTip": "Api_Open_Service\\Controllers\\ServiciosController.cs",
+              "ViewState": "AgIAAJMAAAAAAAAAAADwv7QAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T05:40:18.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\UnitOfWork.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\UnitOfWork.cs",
+              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\UnitOfWork.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAASwDYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:31:04.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ItemCarritoDto.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ItemCarritoDto.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\ItemCarritoDto.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ItemCarritoDto.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\ItemCarritoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T08:08:45.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Ventum.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Ventum.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\Ventum.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Ventum.cs",
+              "RelativeToolTip": "Api_Open_Service\\Models\\Ventum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T08:27:15.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Singleton.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\Singleton\\Singleton.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Services\\Singleton\\Singleton.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\Singleton\\Singleton.cs",
+              "RelativeToolTip": "Api_Open_Service\\Services\\Singleton\\Singleton.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T06:59:44.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "TipoPago.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\TipoPago.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\TipoPago.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\TipoPago.cs",
+              "RelativeToolTip": "Api_Open_Service\\Models\\TipoPago.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T07:40:48.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ClientesController.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ClientesController.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\ClientesController.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ClientesController.cs",
+              "RelativeToolTip": "Api_Open_Service\\Controllers\\ClientesController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowDcAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T05:36:12.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\Cliente.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Cliente.cs",
+              "RelativeToolTip": "Api_Open_Service\\Models\\Cliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:41:19.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "PedidoEdicionDto.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\PedidoEdicionDto.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\PedidoEdicionDto.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\PedidoEdicionDto.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\PedidoEdicionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T01:40:14.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "EstadoDto.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\EstadoDto.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\EstadoDto.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\EstadoDto.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\EstadoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T01:40:29.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ServicioOrden.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\ServicioOrden.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\ServicioOrden.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\ServicioOrden.cs",
+              "RelativeToolTip": "Api_Open_Service\\Models\\ServicioOrden.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:41:39.873Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DetalleServicio.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\DetalleServicio.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\DetalleServicio.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\DetalleServicio.cs",
+              "RelativeToolTip": "Api_Open_Service\\Models\\DetalleServicio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:41:49.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "ComprasController.cs",
               "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ComprasController.cs",
               "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\ComprasController.cs",
               "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ComprasController.cs",
               "RelativeToolTip": "Api_Open_Service\\Controllers\\ComprasController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAHoAAAAAAAAAAADwv5MAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T06:43:52.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-01T03:22:55.833Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 20,
+              "Title": "ProductosController.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ProductosController.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\ProductosController.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ProductosController.cs",
+              "RelativeToolTip": "Api_Open_Service\\Controllers\\ProductosController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAQwAcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T03:36:43.024Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ProductoRegistroDto.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ProductoRegistroDto.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\ProductoRegistroDto.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ProductoRegistroDto.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\ProductoRegistroDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T04:20:22.105Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DetalleVentum.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\DetalleVentum.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\DetalleVentum.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\DetalleVentum.cs",
+              "RelativeToolTip": "Api_Open_Service\\Models\\DetalleVentum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:43:45.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CategoriasController.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\CategoriasController.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\CategoriasController.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\CategoriasController.cs",
+              "RelativeToolTip": "Api_Open_Service\\Controllers\\CategoriasController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T05:25:22.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Empleado.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Empleado.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\Empleado.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Empleado.cs",
+              "RelativeToolTip": "Api_Open_Service\\Models\\Empleado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:41:29.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "RepuestoDto.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\RepuestoDto.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\RepuestoDto.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\RepuestoDto.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\RepuestoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T01:19:49.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Api_Open_Service\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T06:12:42.968Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "PedidosController.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\PedidosController.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\PedidosController.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\PedidosController.cs",
+              "RelativeToolTip": "Api_Open_Service\\Controllers\\PedidosController.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAA7wNgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T07:17:12.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ClienteDto.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ClienteDto.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\ClienteDto.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ClienteDto.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\ClienteDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T01:45:00.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "RepuestosController.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\RepuestosController.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\RepuestosController.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\RepuestosController.cs",
+              "RelativeToolTip": "Api_Open_Service\\Controllers\\RepuestosController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwAQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T01:15:08.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Program.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Program.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Program.cs",
+              "RelativeToolTip": "Api_Open_Service\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T21:25:54.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ServicioDTO.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ServicioDTO.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\ServicioDTO.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ServicioDTO.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\ServicioDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T06:05:42.883Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\Repository.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\Repository.cs",
+              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\Repository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:30:56.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Repuesto.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Repuesto.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\Repuesto.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Repuesto.cs",
+              "RelativeToolTip": "Api_Open_Service\\Models\\Repuesto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:42:45.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ConsumoRepuesto.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\ConsumoRepuesto.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\ConsumoRepuesto.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\ConsumoRepuesto.cs",
+              "RelativeToolTip": "Api_Open_Service\\Models\\ConsumoRepuesto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:42:29.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\IUnitOfWork.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IUnitOfWork.cs",
+              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:30:48.267Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ConsumoRepuestoDTO.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ConsumoRepuestoDTO.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\ConsumoRepuestoDTO.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ConsumoRepuestoDTO.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\ConsumoRepuestoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T07:46:57.107Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "DetalleServicioDTO.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\DetalleServicioDTO.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\DetalleServicioDTO.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\DetalleServicioDTO.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\DetalleServicioDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T07:46:37.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IRepository.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\IRepository.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IRepository.cs",
+              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:30:28.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "MarcasController.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\MarcasController.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\MarcasController.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\MarcasController.cs",
+              "RelativeToolTip": "Api_Open_Service\\Controllers\\MarcasController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T20:29:15.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "PedidoRegistroDto.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\PedidoRegistroDto.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\PedidoRegistroDto.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\PedidoRegistroDto.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\PedidoRegistroDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T07:16:06.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "ArticuloDto.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ArticuloDto.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\ArticuloDto.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ArticuloDto.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\ArticuloDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T08:07:13.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
               "Title": "CompraDto.cs",
               "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\CompraDto.cs",
               "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\CompraDto.cs",
@@ -223,443 +762,67 @@
               "RelativeToolTip": "Api_Open_Service\\DTOs\\CompraDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T08:05:10.167Z"
+              "WhenOpened": "2026-05-24T08:07:12.214Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProveedoresController.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ProveedoresController.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\ProveedoresController.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ProveedoresController.cs",
-              "RelativeToolTip": "Api_Open_Service\\Controllers\\ProveedoresController.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAcwBwAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T06:34:07.455Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Proveedor.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Proveedor.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\Proveedor.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Proveedor.cs",
-              "RelativeToolTip": "Api_Open_Service\\Models\\Proveedor.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAiwA4AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T06:36:35.649Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProveedorDto.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ProveedorDto.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\ProveedorDto.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\ProveedorDto.cs",
-              "RelativeToolTip": "Api_Open_Service\\DTOs\\ProveedorDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T07:31:45.198Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\UnitOfWork.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\UnitOfWork.cs",
-              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\UnitOfWork.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA4wB8AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T07:24:13.49Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ProductosController.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ProductosController.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\ProductosController.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ProductosController.cs",
-              "RelativeToolTip": "Api_Open_Service\\Controllers\\ProductosController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T06:12:00.789Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PedidosController.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\PedidosController.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\PedidosController.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\PedidosController.cs",
-              "RelativeToolTip": "Api_Open_Service\\Controllers\\PedidosController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T06:14:16.302Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "OpenServiceDbContext.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\OpenServiceDbContext.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\OpenServiceDbContext.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\OpenServiceDbContext.cs",
-              "RelativeToolTip": "Api_Open_Service\\Data\\OpenServiceDbContext.cs",
-              "ViewState": "AgIAACUBAAAAAAAAAADgvzsBAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-16T08:26:04.403Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "IUsuarioRepository.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IUsuarioRepository.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\IUsuarioRepository.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IUsuarioRepository.cs",
-              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\IUsuarioRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T08:04:18.932Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IUnitOfWork.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\IUnitOfWork.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IUnitOfWork.cs",
-              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\IUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T08:11:50.879Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "UsuarioRepository.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\UsuarioRepository.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\UsuarioRepository.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\UsuarioRepository.cs",
-              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\UsuarioRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T08:22:22.51Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Api_Open_Service\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAkwBIAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T08:36:47.947Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "InventarioController.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\InventarioController.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\InventarioController.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\InventarioController.cs",
-              "RelativeToolTip": "Api_Open_Service\\Controllers\\InventarioController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAIwEEAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T07:14:32.648Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Compra.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Compra.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\Compra.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Compra.cs",
-              "RelativeToolTip": "Api_Open_Service\\Models\\Compra.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T06:55:42.31Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "RolRepository.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\RolRepository.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\RolRepository.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\RolRepository.cs",
-              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\RolRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T08:26:02.795Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\Repository.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\Repository.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\Repository.cs",
-              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\Repository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T08:09:52.083Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "EmpleadoRepository.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\EmpleadoRepository.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\EmpleadoRepository.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\EmpleadoRepository.cs",
-              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\EmpleadoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T08:25:22.829Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Program.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Program.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Program.cs",
-              "RelativeToolTip": "Api_Open_Service\\Program.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAYwBoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-16T08:28:14.654Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Articulo.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Articulo.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\Articulo.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Articulo.cs",
-              "RelativeToolTip": "Api_Open_Service\\Models\\Articulo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T06:55:53.046Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ClientesController.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ClientesController.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\ClientesController.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ClientesController.cs",
-              "RelativeToolTip": "Api_Open_Service\\Controllers\\ClientesController.cs",
+              "DocumentIndex": 43,
+              "Title": "TicketPublicoRegistroDto.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\TicketPublicoRegistroDto.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\TicketPublicoRegistroDto.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\TicketPublicoRegistroDto.cs",
+              "RelativeToolTip": "Api_Open_Service\\DTOs\\TicketPublicoRegistroDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T06:32:03.887Z"
+              "WhenOpened": "2026-05-24T08:07:18.723Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "LoginResponseDto.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\LoginResponseDto.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\LoginResponseDto.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\LoginResponseDto.cs",
-              "RelativeToolTip": "Api_Open_Service\\DTOs\\LoginResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T17:38:43.641Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "LoginDto.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\LoginDto.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\LoginDto.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\LoginDto.cs",
-              "RelativeToolTip": "Api_Open_Service\\DTOs\\LoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T17:38:20.414Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "EmpleadoRegistroDto.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\EmpleadoRegistroDto.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\EmpleadoRegistroDto.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\EmpleadoRegistroDto.cs",
-              "RelativeToolTip": "Api_Open_Service\\DTOs\\EmpleadoRegistroDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T07:51:52.059Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\IAuthService.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Services\\IAuthService.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\IAuthService.cs",
-              "RelativeToolTip": "Api_Open_Service\\Services\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T08:30:19.107Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 46,
               "Title": "AuthService.cs",
               "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Api_Open_Service\\Services\\AuthService.cs",
               "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\AuthService.cs",
               "RelativeToolTip": "Api_Open_Service\\Services\\AuthService.cs",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAwwIYAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAgwJ8AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T08:30:34.084Z"
+              "WhenOpened": "2026-05-24T06:31:25.853Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "VentasController.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\VentasController.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\VentasController.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\VentasController.cs",
-              "RelativeToolTip": "Api_Open_Service\\Controllers\\VentasController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T06:12:08.015Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "ServiciosController.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ServiciosController.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\ServiciosController.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\ServiciosController.cs",
-              "RelativeToolTip": "Api_Open_Service\\Controllers\\ServiciosController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T06:13:38.49Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "EmpleadoEdicionDto.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\EmpleadoEdicionDto.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\EmpleadoEdicionDto.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\EmpleadoEdicionDto.cs",
-              "RelativeToolTip": "Api_Open_Service\\DTOs\\EmpleadoEdicionDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T17:06:13.035Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Api_Open_Service.csproj",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\API_Open_Service\\Api_Open_Service\\Api_Open_Service.csproj",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Api_Open_Service.csproj",
-              "ToolTip": "D:\\OpenService\\Open_Service\\API_Open_Service\\Api_Open_Service\\Api_Open_Service.csproj",
-              "RelativeToolTip": "Api_Open_Service\\Api_Open_Service.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-17T17:02:51.32Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "EmpleadoListadoDto.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\EmpleadoListadoDto.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\EmpleadoListadoDto.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\EmpleadoListadoDto.cs",
-              "RelativeToolTip": "Api_Open_Service\\DTOs\\EmpleadoListadoDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T09:26:59.72Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "RolDto.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\RolDto.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\DTOs\\RolDto.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\DTOs\\RolDto.cs",
-              "RelativeToolTip": "Api_Open_Service\\DTOs\\RolDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T09:13:43.561Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "IRolRepository.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IRolRepository.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\IRolRepository.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IRolRepository.cs",
-              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\IRolRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T08:25:45.735Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "IEmpleadoRepository.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IEmpleadoRepository.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\IEmpleadoRepository.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IEmpleadoRepository.cs",
-              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\IEmpleadoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T08:25:00.428Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IRepository.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Data\\Repositories\\IRepository.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Data\\Repositories\\IRepository.cs",
-              "RelativeToolTip": "Api_Open_Service\\Data\\Repositories\\IRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T08:09:23.472Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "WeatherForecastController.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\WeatherForecastController.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Controllers\\WeatherForecastController.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Controllers\\WeatherForecastController.cs",
-              "RelativeToolTip": "Api_Open_Service\\Controllers\\WeatherForecastController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-16T08:34:49.879Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\appsettings.json",
-              "RelativeDocumentMoniker": "Api_Open_Service\\appsettings.json",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\appsettings.json",
-              "RelativeToolTip": "Api_Open_Service\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-16T08:26:21.411Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "OpenServiceDbContext.cs",
-              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\OpenServiceDbContext.cs",
-              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\OpenServiceDbContext.cs",
-              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\OpenServiceDbContext.cs",
-              "RelativeToolTip": "Api_Open_Service\\Models\\OpenServiceDbContext.cs",
+              "DocumentIndex": 48,
+              "Title": "HistorialTicket.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\HistorialTicket.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\HistorialTicket.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\HistorialTicket.cs",
+              "RelativeToolTip": "Api_Open_Service\\Models\\HistorialTicket.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-16T08:25:21.323Z"
+              "WhenOpened": "2026-05-24T06:40:33.67Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Marca.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Marca.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Models\\Marca.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Models\\Marca.cs",
+              "RelativeToolTip": "Api_Open_Service\\Models\\Marca.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:40:29.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Api_Open_Service\\Services\\IAuthService.cs",
+              "ToolTip": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Services\\IAuthService.cs",
+              "RelativeToolTip": "Api_Open_Service\\Services\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T06:31:40.078Z"
             }
           ]
         }

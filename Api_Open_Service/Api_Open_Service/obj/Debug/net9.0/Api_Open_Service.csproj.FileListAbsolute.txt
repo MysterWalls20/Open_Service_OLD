@@ -146,7 +146,6 @@ D:\OpenService\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\s
 D:\OpenService\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\staticwebassets.build.json.cache
 D:\OpenService\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\staticwebassets.development.json
 D:\OpenService\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-D:\OpenService\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\OpenService\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\Api_Open.D7A8478B.Up2Date
 D:\OpenService\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\Api_Open_Service.dll
 D:\OpenService\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\refint\Api_Open_Service.dll
@@ -310,3 +309,4 @@ D:\Open_Services-Proyect\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debu
 D:\Open_Services-Proyect\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\Api_Open_Service.pdb
 D:\Open_Services-Proyect\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\Api_Open_Service.genruntimeconfig.cache
 D:\Open_Services-Proyect\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\ref\Api_Open_Service.dll
+D:\OpenService\Open_Service\API_Open_Service\Api_Open_Service\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

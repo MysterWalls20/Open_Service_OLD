@@ -1,0 +1,68 @@
+<div class="carrito-container">
+  <div class="carrito-header">
+    <h1>Tu Carrito de Compras</h1>
+    @if (itemsCarrito.length > 0) {
+      <button class="btn-vaciar" (click)="vaciarCarrito()">🗑 Vaciar Carrito</button>
+    }
+  </div>
+
+  @if (itemsCarrito.length === 0) {
+    <div class="empty-cart">
+      <div class="empty-icon">🛒</div>
+      <h2>Tu carrito está vacío</h2>
+      <p>Parece que aún no has agregado ningún producto o repuesto.</p>
+      <button class="btn-primary" (click)="seguirComprando()">Ir al Catálogo</button>
+    </div>
+  } @else {
+    <div class="carrito-layout">
+      <div class="carrito-items">
+        @for (item of itemsCarrito; track item.idArticulo) {
+          <div class="item-card">
+            <div class="item-img">
+              <img [src]="item.imagen" [alt]="item.nombre">
+            </div>
+            
+            <div class="item-info">
+              <h3>{{ item.nombre }}</h3>
+              <p class="item-price">Precio unitario: S/ {{ item.precio | number:'1.2-2' }}</p>
+            </div>
+
+            <div class="item-quantity">
+              <span class="qty-badge">Cant: {{ item.cantidad }}</span>
+            </div>
+
+            <div class="item-subtotal">
+              <strong>S/ {{ (item.precio * item.cantidad) | number:'1.2-2' }}</strong>
+            </div>
+
+            <button class="btn-remove" (click)="eliminarItem(item.idArticulo)" title="Eliminar producto">✕</button>
+          </div>
+        }
+      </div>
+
+      <div class="carrito-summary">
+        <h2>Resumen del Pedido</h2>
+        
+        <div class="summary-row">
+          <span>Subtotal ({{ itemsCarrito.length }} items)</span>
+          <span>S/ {{ totalCarrito | number:'1.2-2' }}</span>
+        </div>
+        
+        <div class="summary-row">
+          <span>Envío a Trujillo</span>
+          <span class="free">Gratis</span>
+        </div>
+        
+        <hr class="divider">
+        
+        <div class="summary-row total">
+          <span>Total a Pagar</span>
+          <span>S/ {{ totalCarrito | number:'1.2-2' }}</span>
+        </div>
+
+        <button class="btn-checkout" (click)="procederAlPago()">Proceder al Pago</button>
+        <button class="btn-outline" (click)="seguirComprando()">Seguir Comprando</button>
+      </div>
+    </div>
+  }
+</div>

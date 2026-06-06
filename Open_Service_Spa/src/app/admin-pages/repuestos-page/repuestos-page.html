@@ -1,0 +1,94 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>Repuestos / Piezas</h1>
+    <button class="btn-primary" (click)="openForm()">+ Nuevo Repuesto</button>
+  </div>
+
+  <div class="table-container">
+    @if (loading) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Cargando datos...</p>
+      </div>
+    } @else if (repuestos.length > 0) {
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID Artículo</th>
+            <th>Nombre</th>
+            <th>Compatibilidad</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (repuesto of repuestos; track repuesto.id) {
+            <tr>
+              <td><strong>#{{ repuesto.id }}</strong></td>
+              <td>{{ repuesto.nombre }}</td>
+              <td>{{ repuesto.compatibilidad }}</td>
+              <td>S/ {{ repuesto.precio | number:'1.2-2' }}</td>
+              <td>{{ repuesto.stock }}</td>
+              <td>
+                <span class="badge {{ repuesto.estado }}">
+                  {{ repuesto.estado === 'disponible' ? 'Disponible' : 'Agotado' }}
+                </span>
+              </td>
+              <td class="actions">
+                <button class="btn-edit" (click)="editRepuesto(repuesto)">Editar</button>
+                <button class="btn-delete" (click)="deleteRepuesto(repuesto.id)">Eliminar</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    } @else {
+      <div class="empty-state">
+        <p>No hay repuestos registrados</p>
+        <p class="hint">Haz clic en "Nuevo Repuesto" para agregar el primero desde tu inventario general.</p>
+      </div>
+    }
+  </div>
+
+  @if (showForm) {
+    <div class="modal-overlay" (click)="closeForm()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h2>{{ editingId ? 'Editar Repuesto' : 'Nuevo Repuesto' }}</h2>
+          <button class="btn-close" (click)="closeForm()">✕</button>
+        </div>
+        
+        <form class="form-grid">
+          
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label>Artículo del Inventario Base *</label>
+            <select [(ngModel)]="form.idArticulo" name="idArticulo" [disabled]="editingId !== null" class="form-select">
+              <option [ngValue]="null" disabled selected>-- Seleccione un artículo del inventario --</option>
+              @for (art of catalogoInventario; track art.idArticulo) {
+                <option [ngValue]="art.idArticulo">ID: {{ art.idArticulo }} - {{ art.nombre }} (Stock: {{ art.stockDisponible }})</option>
+              }
+            </select>
+            @if (!editingId) {
+              <small style="color: #666; font-size: 11px; margin-top: 4px; display: block;">
+                Selecciona un artículo de tu inventario general para clasificarlo como repuesto.
+              </small>
+            }
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label>Compatibilidad de Marca</label>
+            <input type="text" [(ngModel)]="form.compatibilidad" name="compatibilidad" placeholder="Ej: LG, Samsung, Bosch, Genérico">
+          </div>
+
+          <div class="form-actions" style="grid-column: 1 / -1; margin-top: 15px;">
+            <button type="button" class="btn-secondary" (click)="closeForm()">Cancelar</button>
+            <button type="button" class="btn-primary" (click)="guardarRepuesto()">Guardar Repuesto</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  }
+</div>

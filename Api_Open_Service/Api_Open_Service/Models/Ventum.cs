@@ -24,6 +24,7 @@ public partial class Ventum
     public DateTime FechaRegistro { get; set; }
 
     public DateTime? FechaModificacion { get; set; }
+    public decimal MontoIGV { get; set; }
 
     public virtual Comprobante? Comprobante { get; set; }
 

@@ -1,0 +1,205 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>Órdenes de Servicio</h1>
+    <button class="btn-primary" (click)="openForm()">+ Nueva Orden</button>
+  </div>
+
+  <div class="filters">
+    <select [(ngModel)]="filtroEstado" class="form-select filter-select">
+      <option value="">Todos los estados</option>
+      <option value="Activo">Activo</option>
+      <option value="En proceso">En proceso</option>
+      <option value="Completado">Completado</option>
+    </select>
+    <select [(ngModel)]="filtroTecnico" class="form-select filter-select">
+      <option value="">Todos los técnicos</option>
+      @for (tec of tecnicos; track tec.idEmpleado) {
+        <option [value]="tec.idEmpleado">{{ tec.nombreCompleto }}</option>
+      }
+    </select>
+    <select [(ngModel)]="filtroTicket" class="form-select filter-select">
+      <option value="">Todos los tickets</option>
+      @for (t of ticketsPendientes; track t.idPedido) {
+        <option [value]="t.idPedido">TK-{{ t.idPedido.toString().padStart(5, '0') }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="table-container">
+    @if (loading) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Cargando datos...</p>
+      </div>
+    } @else if (filteredServicios.length > 0) {
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID Orden</th>
+            <th>Ticket Base</th>
+            <th>Técnico</th>
+            <th>Diagnóstico</th>
+            <th>Total</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (servicio of filteredServicios; track servicio.id) {
+            <tr>
+              <td><strong>#{{ servicio.id }}</strong></td>
+              <td><span class="ticket-label">TK-{{ servicio.idPedido.toString().padStart(5, '0') }}</span></td>
+              <td>{{ servicio.tecnico }}</td>
+              <td>{{ servicio.descripcion }}</td>
+              <td>S/ {{ servicio.precio | number:'1.2-2' }}</td>
+              <td>{{ servicio.fecha }}</td>
+              <td>
+                <span class="badge {{ servicio.estadoVisual }}">
+                  {{ servicio.estadoReal }}
+                </span>
+              </td>
+              <td class="actions">
+                <button class="btn-delete" (click)="deleteServicio(servicio.id)">Eliminar</button>
+              </td>
+            </tr>
+            @if (servicio.detalles && servicio.detalles.length > 0) {
+              <tr class="detail-row">
+                <td colspan="8">
+                  <strong>🛠️ Tareas:</strong>
+                  @for (det of servicio.detalles; track det.idDetalleServicio) {
+                    <span class="detail-chip">{{ det.descripcionTarea }} (S/ {{ det.costoManoObra | number:'1.2-2' }})</span>
+                  }
+                </td>
+              </tr>
+            }
+            @if (servicio.repuestos && servicio.repuestos.length > 0) {
+              <tr class="detail-row">
+                <td colspan="8">
+                  <strong>📦 Repuestos:</strong>
+                  @for (rep of servicio.repuestos; track rep.idConsumo) {
+                    <span class="detail-chip">{{ rep.cantidad }}x Art#{{ rep.idArticulo }} (S/ {{ rep.subtotal | number:'1.2-2' }})</span>
+                  }
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    } @else {
+      <div class="empty-state">
+        <p>No hay órdenes de servicio registradas.</p>
+        <p class="hint">Haz clic en "Nueva Orden" para asignar un ticket a un técnico.</p>
+      </div>
+    }
+  </div>
+
+  @if (showForm) {
+    <div class="modal-overlay" (click)="closeForm()">
+      <div class="modal-content modal-lg" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h2>Nueva Orden de Servicio</h2>
+          <button class="btn-close" (click)="closeForm()">✕</button>
+        </div>
+
+        <form class="form-grid">
+        <div class="form-group">
+            <label>Ticket Base (Pedido) *</label>
+            <select [(ngModel)]="form.idPedido" name="idPedido" class="form-select">
+              <option [ngValue]="null" disabled selected>-- Seleccione un ticket --</option>
+              @for (t of ticketsPendientes; track t.idPedido) {
+                <option [ngValue]="t.idPedido">TK-{{ t.idPedido.toString().padStart(5, '0') }} - {{ t.electrodomestico }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Técnico Asignado *</label>
+            <select [(ngModel)]="form.idEmpleado" name="idEmpleado" class="form-select">
+              <option [ngValue]="null" disabled selected>-- Seleccione un técnico --</option>
+              @for (tec of tecnicos; track tec.idEmpleado) {
+                <option [ngValue]="tec.idEmpleado">{{ tec.nombreCompleto }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label>Diagnóstico Técnico</label>
+            <textarea [(ngModel)]="form.diagnosticoTecnico" name="diagnosticoTecnico" placeholder="Detalle de la falla..." rows="2"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Fecha del Servicio</label>
+            <input type="date" [(ngModel)]="form.fechaServicio" name="fechaServicio">
+          </div>
+
+          <div class="form-group">
+            <label>Hora de Inicio</label>
+            <input type="time" [(ngModel)]="form.horaInicio" name="horaInicio">
+          </div>
+
+          <div class="form-group">
+            <label>Hora de Fin</label>
+            <input type="time" [(ngModel)]="form.horaFin" name="horaFin">
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label>Total del Servicio (S/)</label>
+            <input type="number" [(ngModel)]="form.totalServicio" name="totalServicio" readonly style="background-color: #f0f0f0; cursor: not-allowed; font-weight: bold; color: #4452cc;">
+            <small>Se auto-calcula sumando las tareas y repuestos agregados abajo.</small>
+          </div>
+
+          <hr style="grid-column: 1 / -1; border: 0; border-top: 2px dashed #eee; margin: 10px 0;">
+
+          <div style="grid-column: 1 / -1;">
+            <h3 class="section-title">🛠️ Tareas / Mano de Obra</h3>
+            <div class="inline-form">
+              <input type="text" [(ngModel)]="nuevoDetalle.descripcion" name="descDetalle" placeholder="Ej: Limpieza de motor" class="flex-2">
+              <input type="number" [(ngModel)]="nuevoDetalle.costo" name="costoDetalle" placeholder="Costo S/" class="flex-1">
+              <button type="button" class="btn-primary btn-sm" (click)="agregarDetalle()">Agregar</button>
+            </div>
+            @if (detallesServicio.length > 0) {
+              <ul class="item-list">
+                @for (det of detallesServicio; track $index; let i = $index) {
+                  <li>
+                    <span>{{ det.descripcion }} - <strong>S/ {{ det.costo | number:'1.2-2' }}</strong></span>
+                    <button type="button" class="btn-remove" (click)="quitarDetalle(i)">✕</button>
+                  </li>
+                }
+              </ul>
+            }
+          </div>
+
+          <div style="grid-column: 1 / -1;">
+            <h3 class="section-title" style="color: #DB241B;">📦 Repuestos Utilizados</h3>
+            <div class="inline-form">
+              <select [(ngModel)]="nuevoRepuesto.idArticulo" name="idRepuesto" class="form-select flex-2">
+                <option [ngValue]="null" disabled selected>-- Seleccione Repuesto --</option>
+                @for (art of articulos; track art.idArticulo) {
+                  <option [ngValue]="art.idArticulo">{{ art.nombre }} - S/{{ art.precio }} (Stock: {{ art.stockDisponible }})</option>
+                }
+              </select>
+              <input type="number" [(ngModel)]="nuevoRepuesto.cantidad" name="cantRepuesto" placeholder="Cant." class="flex-1">
+              <button type="button" class="btn-primary btn-sm" style="background: #DB241B;" (click)="agregarRepuesto()">Añadir</button>
+            </div>
+            @if (consumoRepuestos.length > 0) {
+              <ul class="item-list">
+                @for (rep of consumoRepuestos; track $index; let i = $index) {
+                  <li>
+                    <span>{{ rep.cantidad }}x {{ rep.nombreArticulo }} - <strong>S/ {{ rep.subtotal | number:'1.2-2' }}</strong></span>
+                    <button type="button" class="btn-remove" (click)="quitarRepuesto(i)">✕</button>
+                  </li>
+                }
+              </ul>
+            }
+          </div>
+
+          <div class="form-actions" style="grid-column: 1 / -1; margin-top: 15px;">
+            <button type="button" class="btn-secondary" (click)="closeForm()">Cancelar</button>
+            <button type="button" class="btn-primary" (click)="guardarServicio()">Guardar Orden</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</div>

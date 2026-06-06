@@ -1,0 +1,81 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>Comprobantes</h1>
+    <p style="color: #666; margin-top: 5px;">Historial de comprobantes electrónicos emitidos.</p>
+  </div>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label>Tipo Documento</label>
+      <select [(ngModel)]="filtroDocumento" class="form-select" (change)="aplicarFiltros()">
+        <option value="">Todos</option>
+        <option value="Factura">Factura</option>
+        <option value="Boleta">Boleta</option>
+        <option value="Ticket">Ticket</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Desde</label>
+      <input type="date" [(ngModel)]="fechaInicio" class="form-input" (change)="aplicarFiltros()">
+    </div>
+    <div class="filter-group">
+      <label>Hasta</label>
+      <input type="date" [(ngModel)]="fechaFin" class="form-input" (change)="aplicarFiltros()">
+    </div>
+  </div>
+
+  <div class="table-container">
+    @if (loading) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Cargando comprobantes...</p>
+      </div>
+    } @else if (filteredComprobantes.length > 0) {
+   <table class="data-table">
+        <thead>
+          <tr>
+            <th>Comprobante</th>
+            <th>Tipo</th>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>SubTotal</th>
+            <th>IGV</th>
+            <th>Total</th>
+            <th style="text-align: center;">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (c of filteredComprobantes; track c.idComprobante) {
+            <tr>
+              <td><strong>{{ c.serie }}-{{ c.correlativo }}</strong></td>
+              <td>{{ c.tipoDocumento }}</td>
+              <td>{{ c.venta?.cliente?.nombres }} {{ c.venta?.cliente?.apellidos }}</td>
+              <td>{{ c.venta?.fechaVenta | date:'dd/MM/yyyy' }}</td>
+              <td>S/ {{ c.subTotal | number:'1.2-2' }}</td>
+              <td>S/ {{ c.montoIgv | number:'1.2-2' }}</td>
+              <td style="color: #28a745;"><strong>S/ {{ (c.subTotal + c.montoIgv) | number:'1.2-2' }}</strong></td>
+              <td style="text-align: center;">
+                <button class="btn-primary btn-sm" style="background-color: #dc3545; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px;" (click)="generarPDF(c)">
+                  📄 PDF
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4" style="text-align: right; font-weight: bold;">Totales Generales:</td>
+            <td style="font-weight: bold; color: #4452cc;">S/ {{ totalSubtotal | number:'1.2-2' }}</td>
+            <td style="font-weight: bold; color: #4452cc;">S/ {{ totalIgv | number:'1.2-2' }}</td>
+            <td style="font-weight: bold; color: #28a745; font-size: 16px;">S/ {{ totalGeneral | number:'1.2-2' }}</td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    } @else {
+      <div class="empty-state">
+        <p>No hay comprobantes registrados</p>
+      </div>
+    }
+  </div>
+</div>

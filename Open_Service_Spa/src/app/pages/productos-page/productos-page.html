@@ -1,0 +1,87 @@
+<section class="marketplace">
+  <div class="marketplace-header">
+    <h1>Catálogo de Productos</h1>
+    <p class="subtitle">Explora nuestro catálogo oficial y repuestos garantizados</p>
+    
+    <div class="header-controls">
+      <div class="search-bar">
+        <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar por nombre o descripción..." />
+      </div>
+      
+      <button class="btn-ir-carrito" (click)="irAlCarrito()">
+        🛒 Mi Carrito 
+        @if (cantidadCarrito > 0) {
+          <span class="cart-badge">{{ cantidadCarrito }}</span>
+        }
+      </button>
+    </div>
+  </div>
+
+  @if (loading) {
+    <div class="loading-state" style="text-align: center; padding: 60px;">
+      <div class="spinner"></div>
+      <p style="margin-top: 15px; color: #666;">Cargando inventario en tiempo real...</p>
+    </div>
+  } @else {
+    <div class="categories-bar">
+      <button class="category-chip" [class.active]="selectedCategory === 'todas'" (click)="filterByCategory('todas')">
+        Todas
+      </button>
+
+      @for (cat of categoriasBD; track cat.idCategoria) {
+        <button
+          class="category-chip"
+          [class.active]="selectedCategory === cat.nombreCategoria"
+          (click)="filterByCategory(cat.nombreCategoria)"
+        >
+          {{ cat.nombreCategoria }}
+        </button>
+      }
+    </div>
+
+    <div class="products-grid">
+      @for (product of filteredProducts; track product.id) {
+        
+        <div class="product-card" (click)="verDetalle(product)" style="cursor: pointer;">
+          
+          <div class="card-image">
+            <img [src]="product.urlImagen" [alt]="product.nombre" />
+            @if (product.stock <= 0) {
+              <span class="brand-badge agotado">Agotado</span>
+            } @else {
+              <span class="brand-badge">Stock: {{ product.stock }}</span>
+            }
+          </div>
+
+          <div class="card-body">
+            <span class="card-category">{{ product.categoriaMarketplace }}</span>
+            <h3>{{ product.nombre }}</h3>
+            <p class="card-desc">{{ product.descripcion }}</p>
+            
+            <div class="card-footer">
+              <span class="card-price">S/ {{ product.precio | number:'1.2-2' }}</span>
+              <div class="actions-group" style="display: flex; gap: 8px;">
+                
+                <button class="btn-ver" (click)="verDetalle(product); $event.stopPropagation()">Ver más</button>
+                
+                <button 
+                  class="btn-carrito" 
+                  [disabled]="product.stock <= 0" 
+                  (click)="agregarAlCarritoRapido(product, $event)"
+                  [title]="product.stock <= 0 ? 'Sin stock' : 'Agregar al carrito'"
+                >
+                  🛒
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      } @empty {
+        <div class="empty">
+          <p>No se encontraron productos en esta búsqueda o categoría.</p>
+        </div>
+      }
+    </div>
+  }
+</section>

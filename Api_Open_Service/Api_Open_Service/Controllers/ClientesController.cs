@@ -1,6 +1,9 @@
 using Api_Open_Service.Data.Repositories;
+using Api_Open_Service.DTOs;
 using Api_Open_Service.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace Api_Open_Service.Controllers
 {
@@ -33,20 +36,35 @@ namespace Api_Open_Service.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Cliente cliente)
+        public async Task<IActionResult> Create([FromBody] ClienteDto dto)
         {
-            await _repository.AddAsync(cliente);
+            var nuevoCliente = new Cliente
+            {
+                Nombres = dto.Nombres,
+                Apellidos = dto.Apellidos,
+                Correo = dto.Correo,
+                Telefono = dto.Telefono,
+                Direccion = dto.Direccion
+            };
+
+            await _repository.AddAsync(nuevoCliente);
             await _unitOfWork.SaveAsync();
-            return CreatedAtAction(nameof(GetById), new { id = cliente.IdCliente }, cliente);
+            return CreatedAtAction(nameof(GetById), new { id = nuevoCliente.IdCliente }, nuevoCliente);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] Cliente cliente)
+        public async Task<IActionResult> Update(int id, [FromBody] ClienteDto dto)
         {
-            if (id != cliente.IdCliente) return BadRequest(new { mensaje = "El ID no coincide." });
             var existing = await _repository.GetByIdAsync(id);
             if (existing == null) return NotFound(new { mensaje = "Cliente no encontrado." });
-            _repository.Update(cliente);
+
+            existing.Nombres = dto.Nombres;
+            existing.Apellidos = dto.Apellidos;
+            existing.Correo = dto.Correo;
+            existing.Telefono = dto.Telefono;
+            existing.Direccion = dto.Direccion;
+
+            _repository.Update(existing);
             await _unitOfWork.SaveAsync();
             return Ok(new { mensaje = "Cliente actualizado correctamente." });
         }
@@ -54,11 +72,20 @@ namespace Api_Open_Service.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var cliente = await _repository.GetByIdAsync(id);
-            if (cliente == null) return NotFound(new { mensaje = "Cliente no encontrado." });
-            _repository.Remove(cliente);
-            await _unitOfWork.SaveAsync();
-            return Ok(new { mensaje = "Cliente eliminado correctamente." });
+            try
+            {
+                var cliente = await _repository.GetByIdAsync(id);
+                if (cliente == null) return NotFound(new { mensaje = "Cliente no encontrado." });
+
+                _repository.Remove(cliente);
+                await _unitOfWork.SaveAsync();
+                return Ok(new { mensaje = "Cliente eliminado correctamente." });
+            }
+            catch (Exception)
+            {
+                // Si explota, es porque tiene Tickets o Ventas asociados.
+                return BadRequest(new { mensaje = "No se puede eliminar este cliente porque tiene Tickets o Ventas registradas en el sistema." });
+            }
         }
     }
 }

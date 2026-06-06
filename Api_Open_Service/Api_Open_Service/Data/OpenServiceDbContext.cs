@@ -405,6 +405,9 @@ public partial class OpenServiceDbContext : DbContext
             entity.Property(e => e.OrigenVenta).HasMaxLength(50);
             entity.Property(e => e.TipoComprobante).HasMaxLength(20);
 
+            // Dentro de OnModelCreating en OpenServiceDbContext.cs
+            entity.Property(e => e.MontoIGV).HasColumnType("decimal(18, 2)").HasColumnName("MontoIGV"); // Pon el nombre exacto de tu columna en SQL
+
             entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.Venta)
                 .HasForeignKey(d => d.IdCliente)
                 .OnDelete(DeleteBehavior.ClientSetNull)

@@ -2,6 +2,7 @@ using Api_Open_Service.Data.Repositories;
 using Api_Open_Service.Models;
 using Api_Open_Service.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 namespace Api_Open_Service
 {
@@ -29,7 +30,19 @@ namespace Api_Open_Service
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+
+            // =======================================================
+            // CONFIGURACIÓN DE CONTROLADORES (FIX PARA CICLO INFINITO JSON)
+            // =======================================================
+            builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    // Esto evita que la API colapse al cargar las relaciones Cliente -> Pedido -> Cliente
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                });
+
+
+            //builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 

@@ -1,0 +1,58 @@
+.checkout-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+.btn-back { background: none; border: none; color: #4452cc; cursor: pointer; font-weight: bold; margin-bottom: 20px; font-size: 15px; }
+
+.checkout-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: start; }
+
+.form-section {
+  background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  h2 { font-size: 20px; color: #333; margin-bottom: 20px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.form-group {
+  margin-bottom: 15px;
+  label { display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px; }
+  input { width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; &:focus{ outline: none; border-color: #4452cc; } }
+}
+
+.payment-methods {
+  display: flex; flex-direction: column; gap: 10px;
+  
+  .radio-box {
+    display: flex; align-items: center; gap: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
+    
+    &:hover { border-color: #4452cc; background: #f8f9ff; }
+    
+    /* Esta clase nueva pinta y resalta la opción elegida */
+    &.selected {
+      border-color: #4452cc;
+      background: #f8f9ff;
+      box-shadow: 0 0 0 1px #4452cc;
+    }
+
+    input { width: 18px; height: 18px; accent-color: #4452cc; cursor: pointer; }
+    span { font-weight: 600; color: #333; font-size: 15px;}
+  }
+}
+
+.summary-section {
+  background: #f8f9fa; padding: 30px; border-radius: 12px; position: sticky; top: 20px;
+  h2 { font-size: 20px; margin-bottom: 20px; }
+}
+
+.items-list { max-height: 300px; overflow-y: auto; margin-bottom: 20px; }
+.summary-item {
+  display: flex; align-items: center; gap: 15px; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ccc;
+  img { width: 50px; height: 50px; object-fit: contain; background: #fff; border-radius: 6px; padding: 5px; }
+  .item-details { flex-grow: 1; h4 { margin: 0 0 5px; font-size: 14px; color: #333; } p { margin: 0; font-size: 12px; color: #777; } }
+  .item-total { font-weight: bold; color: #4452cc; }
+}
+
+.summary-totals {
+  .row { display: flex; justify-content: space-between; margin-bottom: 10px; color: #555; }
+  .total-big { font-size: 22px; font-weight: bold; color: #222; margin-top: 15px; border-top: 2px solid #ddd; padding-top: 15px; }
+}
+
+.btn-confirmar { background: #28a745; color: #fff; border: none; padding: 15px; width: 100%; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.2s; &:hover:not(:disabled) { background: #218838; } &:disabled { opacity: 0.6; cursor: not-allowed; } }
+
+@media (max-width: 768px) { .checkout-grid { grid-template-columns: 1fr; } }

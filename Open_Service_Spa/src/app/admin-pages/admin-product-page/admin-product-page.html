@@ -1,0 +1,113 @@
+<div class="page-container">
+  <div class="page-header">
+    <div>
+      <h1>Gestión de Productos (Marketplace)</h1>
+      <p style="color: #666; margin-top: 5px;">Administra tu catálogo y agrega nuevos productos.</p>
+    </div>
+  </div>
+
+  @if (loading) {
+    <p>Cargando catálogo...</p>
+  } @else {
+    <div class="products-admin-grid">
+      
+      <div class="product-card add-card" (click)="openForm()">
+        <div class="add-content">
+          <div class="plus-icon">+</div>
+          <h3>Registrar Producto</h3>
+        </div>
+      </div>
+
+      @for (producto of productos; track producto.id) {
+        <div class="product-card">
+          <div class="card-image-wrapper">
+            <img [src]="producto.urlImagen || 'https://via.placeholder.com/300x200?text=Sin+Imagen'" [alt]="producto.nombre">
+            <span class="badge {{ producto.estado }}">{{ producto.estado === 'disponible' ? 'Stock: ' + producto.stock : 'Agotado' }}</span>
+          </div>
+          
+          <div class="card-details">
+            <span class="category-tag">{{ producto.categoria }}</span>
+            <h3 class="product-title" [title]="producto.nombre">{{ producto.nombre }}</h3>
+            <p class="product-price">S/ {{ producto.precio | number:'1.2-2' }}</p>
+            
+            <div class="card-actions">
+              <button class="btn-edit-sm" (click)="editProducto(producto)">✎ Editar</button>
+              <button class="btn-delete-sm" (click)="deleteProducto(producto.id)">🗑 Ocultar</button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  @if (showForm) {
+    <div class="modal-overlay" (click)="closeForm()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        
+        <div class="modal-header">
+          <h2>{{ editingId ? 'Editar Producto' : 'Nuevo Producto' }}</h2>
+          <button class="btn-close" (click)="closeForm()">✕</button>
+        </div>
+        
+        <form class="form-grid">
+          <div class="image-preview" style="text-align: center; margin-bottom: 15px; grid-column: 1 / -1;">
+            <img [src]="form.urlImagen || 'https://via.placeholder.com/150?text=Foto'" 
+                 style="width: 120px; height: 120px; object-fit: contain; border: 2px dashed #ccc; border-radius: 8px;">
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label>Seleccionar Artículo (Inventario Base) *</label>
+            <select [(ngModel)]="form.idArticulo" name="idArticulo" (change)="onArticuloSeleccionado()" [disabled]="editingId !== null" class="form-select">
+              <option [ngValue]="null" disabled selected>-- Elija un artículo para publicar --</option>
+              @for (art of articulosInventario; track art.idArticulo) {
+                <option [ngValue]="art.idArticulo">ID: {{ art.idArticulo }} - {{ art.nombre }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Categoría (Sistema) *</label>
+            <select [(ngModel)]="form.idCategoria" name="idCategoria" class="form-select">
+              <option [ngValue]="null" disabled selected>-- Elija una categoría --</option>
+              @for (cat of categoriasBD; track cat.idCategoria) {
+                <option [ngValue]="cat.idCategoria">{{ cat.nombreCategoria }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Etiqueta Marketplace *</label>
+            <input type="text" [(ngModel)]="form.categoriaMarketplace" name="categoriaMarketplace" placeholder="Ej: Refrigeración">
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label>URL de la Imagen (Link)</label>
+            <input type="text" [(ngModel)]="form.urlImagen" name="urlImagen" placeholder="https://ejemplo.com/imagen.jpg">
+          </div>
+
+          <hr style="grid-column: 1 / -1; border-top: 1px dashed #ccc; margin: 5px 0;">
+          
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label>Nombre del Producto</label>
+            <input type="text" [(ngModel)]="form.nombre" name="nombre" readonly class="readonly-input">
+          </div>
+
+          <div class="form-group">
+            <label>Precio (S/)</label>
+            <input type="number" [(ngModel)]="form.precio" name="precio" readonly class="readonly-input">
+          </div>
+
+          <div class="form-group">
+            <label>Stock Disponible</label>
+            <input type="number" [(ngModel)]="form.stock" name="stock" readonly class="readonly-input">
+          </div>
+
+          <div class="form-actions" style="grid-column: 1 / -1; margin-top: 15px;">
+            <button type="button" class="btn-secondary" (click)="closeForm()">Cancelar</button>
+            <button type="button" class="btn-primary" (click)="guardarProducto()">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</div>

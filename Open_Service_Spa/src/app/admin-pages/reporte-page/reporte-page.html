@@ -1,0 +1,67 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>Reportes y Estadísticas</h1>
+    <div class="header-actions">
+      <button class="btn-secondary" (click)="exportarPDF()" [disabled]="loading">📄 Exportar PDF</button>
+      <button class="btn-secondary" (click)="exportarCSV()" [disabled]="loading">📊 Exportar CSV</button>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <div class="filter-group">
+      <label for="fechaInicio">Desde</label>
+      <input type="date" id="fechaInicio" [(ngModel)]="fechaInicio">
+    </div>
+    <div class="filter-group">
+      <label for="fechaFin">Hasta</label>
+      <input type="date" id="fechaFin" [(ngModel)]="fechaFin">
+    </div>
+    <button class="btn-primary" (click)="filtrar()" [disabled]="loading">Filtrar</button>
+  </div>
+
+  @if (loading) {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Procesando datos y generando reportes...</p>
+    </div>
+  } @else {
+    <div class="summary-grid">
+      @for (item of resumen; track item.titulo) {
+        <div class="summary-card">
+          <span class="summary-label">{{ item.titulo }}</span>
+          <span class="summary-value" style="font-weight: bold; color: #4452cc; font-size: 24px;">{{ item.valor }}</span>
+          </div>
+      }
+    </div>
+
+<div class="content-grid">
+      <div class="card">
+        <h2>Ingresos por Período</h2>
+        <div style="position: relative; height: 250px; width: 100%;">
+          <canvas id="ventasChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Cantidad de Operaciones Diarias</h2>
+        <div style="position: relative; height: 250px; width: 100%;">
+          <canvas id="operacionesChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Distribución de Ingresos (Origen)</h2>
+        <div style="position: relative; height: 250px; width: 100%;">
+          <canvas id="origenChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Ingresos por Método de Pago</h2>
+        <div style="position: relative; height: 250px; width: 100%;">
+          <canvas id="pagoChart"></canvas>
+        </div>
+      </div>
+    </div>
+  }
+</div>
