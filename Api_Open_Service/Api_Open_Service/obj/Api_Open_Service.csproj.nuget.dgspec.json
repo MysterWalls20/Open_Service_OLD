@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\OpenService\\Open_Service\\API_Open_Service\\Api_Open_Service\\Api_Open_Service.csproj": {}
+    "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Api_Open_Service.csproj": {}
   },
   "projects": {
-    "D:\\OpenService\\Open_Service\\API_Open_Service\\Api_Open_Service\\Api_Open_Service.csproj": {
+    "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Api_Open_Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\OpenService\\Open_Service\\API_Open_Service\\Api_Open_Service\\Api_Open_Service.csproj",
+        "projectUniqueName": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Api_Open_Service.csproj",
         "projectName": "Api_Open_Service",
-        "projectPath": "D:\\OpenService\\Open_Service\\API_Open_Service\\Api_Open_Service\\Api_Open_Service.csproj",
+        "projectPath": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\Api_Open_Service.csproj",
         "packagesPath": "C:\\Users\\OPEN SERVICE EIRL\\.nuget\\packages\\",
-        "outputPath": "D:\\OpenService\\Open_Service\\API_Open_Service\\Api_Open_Service\\obj\\",
+        "outputPath": "D:\\OpenService\\Open_Service\\Api_Open_Service\\Api_Open_Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -54,6 +54,10 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",

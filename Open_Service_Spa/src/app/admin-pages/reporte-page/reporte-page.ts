@@ -6,11 +6,11 @@ import { finalize } from 'rxjs/operators';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
+import { ReporteResumen } from '../../models/reporte.model';
+
 // 👇 IMPORTAMOS CHART.JS
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
-
-interface ReporteResumen { titulo: string; valor: string; cambio: string; positivo: boolean; }
 
 @Component({
   selector: 'app-reporte-page',

@@ -35,5 +35,9 @@ export class AuthService {
     return this.http.put(`${this.apiUrl}/empleado`, dto);
   }
 
+  actualizarPerfil(dto: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/mi-perfil`, dto);
+  }
+
 
 }

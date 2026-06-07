@@ -121,6 +121,27 @@
   }
 }
 
+.profile-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #FE8A00;
+    border-color: #FE8A00;
+    color: #fff;
+  }
+}
+
 .logout-btn {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);

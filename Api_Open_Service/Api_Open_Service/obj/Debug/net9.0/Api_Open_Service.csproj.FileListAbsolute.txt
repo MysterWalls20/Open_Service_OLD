@@ -309,4 +309,5 @@ D:\Open_Services-Proyect\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debu
 D:\Open_Services-Proyect\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\Api_Open_Service.pdb
 D:\Open_Services-Proyect\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\Api_Open_Service.genruntimeconfig.cache
 D:\Open_Services-Proyect\Open_Service\Api_Open_Service\Api_Open_Service\obj\Debug\net9.0\ref\Api_Open_Service.dll
+D:\OpenService\Open_Service\API_Open_Service\Api_Open_Service\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\OpenService\Open_Service\API_Open_Service\Api_Open_Service\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

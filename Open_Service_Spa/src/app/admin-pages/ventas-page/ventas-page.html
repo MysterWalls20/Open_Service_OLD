@@ -1,40 +1,35 @@
 <div class="page-container">
   <div class="page-header">
-    <h1>Ventas</h1>
-    <button class="btn-primary" (click)="openForm()">+ Nueva Venta</button>
+    <h1>Ventas y Facturación</h1>
+    <button class="btn-primary" (click)="openForm()">+ Nueva Operación</button>
   </div>
 
-  <div class="summary-cards">
-      <div class="summary-card">
-        <span class="summary-label">Total Ventas Hoy</span>
-        <span class="summary-value">S/ {{ totalVentasHoy | number:'1.2-2' }}</span>
-      </div>
-      <div class="summary-card">
-        <span class="summary-label">Ventas del Mes</span>
-        <span class="summary-value">{{ ventasMes }}</span>
-      </div>
-      <div class="summary-card">
-        <span class="summary-label">Promedio por Venta</span>
-        <span class="summary-value">S/ {{ promedioVenta | number:'1.2-2' }}</span>
-      </div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h3>Total Ventas Hoy</h3>
+      <p class="stat-value">S/ {{ totalVentasHoy | number:'1.2-2' }}</p>
     </div>
+    <div class="stat-card">
+      <h3>Ventas del Mes</h3>
+      <p class="stat-value">{{ ventasMes }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Ticket Promedio</h3>
+      <p class="stat-value">S/ {{ promedioVenta | number:'1.2-2' }}</p>
+    </div>
+  </div>
 
-  <div class="table-container">
+  <div class="card table-container">
     @if (loading) {
-      <div class="loading-state">
-        <div class="spinner"></div>
-        <p>Cargando datos...</p>
-      </div>
-    } @else if (ventas.length > 0) {
-<table class="data-table">
+      <div class="loading">Cargando registro de ventas...</div>
+    } @else {
+      <table class="data-table">
         <thead>
           <tr>
             <th>ID</th>
             <th>Cliente</th>
             <th>Origen</th>
-            <th>Método Pago</th>
             <th>Subtotal</th>
-            <th>IGV</th>
             <th>Total</th>
             <th>Fecha</th>
             <th>Acciones</th>
@@ -45,140 +40,136 @@
             <tr>
               <td>{{ venta.id }}</td>
               <td>{{ venta.cliente }}</td>
-              <td>{{ venta.origen }}</td>
-              <td>{{ venta.metodoPago }}</td>
-              <td style="color: #666;">S/ {{ venta.subtotal | number:'1.2-2' }}</td>
-              <td style="color: #666;">S/ {{ venta.igv | number:'1.2-2' }}</td>
+              <td><span class="badge" [ngClass]="{'badge-service': venta.origen === 'Servicio Técnico', 'badge-sale': venta.origen !== 'Servicio Técnico'}">{{ venta.origen }}</span></td>
+              <td>S/ {{ venta.subtotal | number:'1.2-2' }}</td>
               <td style="font-weight: bold; color: #4452cc;">S/ {{ venta.total | number:'1.2-2' }}</td>
               <td>{{ venta.fecha }}</td>
-
-              
-              <td class="actions">
-                <button class="btn-delete" (click)="deleteVenta(venta.id)">Eliminar</button>
+              <td>
+                <button class="btn-danger-sm" (click)="deleteVenta(venta.id)">Eliminar</button>
               </td>
-
             </tr>
+          }
+          @if (ventas.length === 0) {
+            <tr><td colspan="7" class="text-center">No hay operaciones registradas en el sistema.</td></tr>
           }
         </tbody>
       </table>
-    } @else {
-      <div class="empty-state">
-        <p>No hay ventas registradas</p>
-        <p class="hint">Haz clic en "Nueva Venta" para agregar la primera</p>
-      </div>
     }
   </div>
 
   @if (showForm) {
-    <div class="modal-overlay" (click)="closeForm()">
-      <div class="modal-content" (click)="$event.stopPropagation()" style="max-width: 600px;">
+    <div class="modal-overlay">
+      <div class="modal-content">
         <div class="modal-header">
           <h2>Registrar Nueva Operación</h2>
           <button class="btn-close" (click)="closeForm()">✕</button>
         </div>
         
-        <div class="form-group" style="margin-bottom: 20px; background: #f8f9ff; padding: 15px; border-radius: 8px; border: 1px solid #4452cc;">
-          <label style="color: #4452cc;">¿Qué tipo de operación vas a registrar?</label>
-          <select [(ngModel)]="tipoOperacion" (change)="resetForm()" style="font-weight: bold; font-size: 16px;">
-            <option value="venta">🛒 Venta Directa de Productos</option>
-            <option value="servicio">🔧 Cobro de Servicio Técnico</option>
-          </select>
-        </div>
-
-        <form class="form-grid">
-          @if (tipoOperacion === 'servicio') {
-            <div class="form-group" style="grid-column: 1 / -1;">
-              <label>Seleccionar Servicio (Pendiente de Cobro)</label>
-              <select [(ngModel)]="form.idServicio" name="idServicio" (change)="onServicioSeleccionado()">
-                <option [ngValue]="null" disabled selected>-- Elija un servicio --</option>
-                @for (srv of serviciosPendientes; track srv.idServicio) {
-                  <option [ngValue]="srv.idServicio">Orden #{{ srv.idServicio }} - {{ srv.diagnosticoTecnico }} (S/ {{ srv.totalServicio | number:'1.2-2' }})</option>
-                }
-              </select>
-            </div>
-            <div class="form-group" style="grid-column: 1 / -1; margin-bottom: 15px;">
-              <p style="font-size: 12px; color: #666; margin: 0;">* Al seleccionar un servicio, los datos del cliente se llenarán automáticamente.</p>
-            </div>
-          }
-
-          @if (tipoOperacion === 'venta') {
-            <div class="form-group" style="grid-column: 1 / -1; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
-              <h4 style="margin: 0 0 10px; color: #333;">Agregar Productos</h4>
-              <div style="display: flex; gap: 10px;">
-                <select [(ngModel)]="form.idArticuloSeleccionado" name="idArt" style="flex-grow: 1;">
-                  <option [ngValue]="null" disabled selected>-- Seleccionar producto del inventario --</option>
-                  @for (art of articulosInventario; track art.idArticulo) {
-                    <option [ngValue]="art.idArticulo">{{ art.nombre }} (S/ {{ art.precio }}) - Disp: {{ art.stockDisponible }}</option>
-                  }
-                </select>
-                <input type="number" [(ngModel)]="form.cantidadSeleccionada" name="cant" min="1" style="width: 70px;">
-                <button type="button" class="btn-primary" (click)="agregarProductoVenta()">Añadir</button>
-              </div>
-
-              @if (form.carritoAdmin.length > 0) {
-                <ul style="margin-top: 15px; padding-left: 0; list-style: none;">
-                  @for (item of form.carritoAdmin; let i = $index; track item.idArticulo) {
-                    <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 14px; background: #f9f9f9; padding: 8px; border-radius: 4px;">
-                      <span>{{ item.cantidad }}x {{ item.nombre }} (S/ {{ item.subtotal | number:'1.2-2' }})</span>
-                      <button type="button" (click)="quitarProductoVenta(i)" style="background: none; border: none; color: red; cursor: pointer; font-weight: bold;">✕</button>
-                    </li>
-                  }
-                </ul>
-              }
-            </div>
-          }
-
-          <hr style="grid-column: 1 / -1; border-top: 1px dashed #ccc; margin: 5px 0;">
-
-          <div class="form-group">
-            <label>Nombres</label>
-            <input type="text" [(ngModel)]="form.nombres" name="nombres" [readonly]="tipoOperacion === 'servicio'">
-          </div>
-          <div class="form-group">
-            <label>Apellidos</label>
-            <input type="text" [(ngModel)]="form.apellidos" name="apellidos" [readonly]="tipoOperacion === 'servicio'">
-          </div>
-          <div class="form-group">
-            <label>Correo Electrónico</label>
-            <input type="email" [(ngModel)]="form.correo" name="correo" [readonly]="tipoOperacion === 'servicio'">
-          </div>
-          <div class="form-group">
-            <label>Teléfono</label>
-            <input type="text" [(ngModel)]="form.telefono" name="telefono" [readonly]="tipoOperacion === 'servicio'">
-          </div>
+        <div class="modal-body">
           
-          <div class="form-group" style="grid-column: 1 / -1;">
-            <label>Método de Pago (Pasarela)</label>
-            <select [(ngModel)]="form.idTipoPago" name="idTipoPago">
-              <option [value]="1">Efectivo en Caja</option>
-              <option [value]="2">Transferencia / Yape / Plin</option>
-              <option [value]="3">Tarjeta de Crédito / Débito (POS)</option>
+          <div class="form-group highlight-box">
+            <label style="color: #4452cc; font-weight: bold; display: block; margin-bottom: 8px;">¿Qué tipo de operación vas a registrar?</label>
+            
+            <select [(ngModel)]="tipoOperacion" name="tipoOp" class="form-select" [disabled]="userRole !== 'Administrador'">
+              @if (userRole === 'Administrador' || userRole === 'Vendedor') {
+                <option value="venta">🛒 Venta Directa de Productos</option>
+              }
+              @if (userRole === 'Administrador' || userRole === 'Técnico') {
+                <option value="servicio">🔧 Cobro de Servicio Técnico</option>
+              }
             </select>
           </div>
 
-          <div class="summary-totals-admin" style="grid-column: 1 / -1; background: #fafafa; padding: 15px; border-radius: 8px; border: 1px solid #eee; margin-top: 10px;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 5px; color: #666;">
-              <span>Subtotal:</span>
-              <span>S/ {{ form.subtotal | number:'1.2-2' }}</span>
+          @if (tipoOperacion === 'venta') {
+            <div class="form-section">
+              <h3 class="section-title">Agregar Productos</h3>
+              <div class="product-adder">
+                <select [(ngModel)]="form.idArticuloSeleccionado" name="articulo" class="form-select flex-grow">
+                  <option [ngValue]="null">-- Seleccionar producto del inventario --</option>
+                  @for (art of articulosInventario; track art.idArticulo) {
+                    <option [value]="art.idArticulo">{{ art.nombre }} (Stock: {{ art.stockDisponible }} | Precio: S/ {{ art.precio | number:'1.2-2' }})</option>
+                  }
+                </select>
+                <input type="number" [(ngModel)]="form.cantidadSeleccionada" name="cantidad" min="1" class="form-input qty-input">
+                <button class="btn-secondary" (click)="agregarProductoVenta()">Añadir</button>
+              </div>
+              
+              <div class="cart-items">
+                @for (item of form.carritoAdmin; track item.idArticulo; let i = $index) {
+                  <div class="cart-item">
+                    <span>{{ item.nombre }} (x{{ item.cantidad }})</span>
+                    <span>S/ {{ item.subtotal | number:'1.2-2' }} <button class="btn-icon text-danger" (click)="quitarProductoVenta(i)" title="Quitar">✖</button></span>
+                  </div>
+                }
+              </div>
             </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #666; border-bottom: 1px dashed #ccc; padding-bottom: 10px;">
-              <span>IGV (18%):</span>
-              <span>S/ {{ form.igv | number:'1.2-2' }}</span>
+          }
+
+          @if (tipoOperacion === 'servicio') {
+            <div class="form-section highlight-bg">
+              <h3 class="section-title">Seleccionar Servicio a Cobrar</h3>
+              <select [(ngModel)]="form.idServicio" name="servicio" class="form-select" (change)="onServicioSeleccionado()">
+                <option [ngValue]="null">-- Seleccionar servicio pendiente --</option>
+                @for (srv of serviciosPendientes; track srv.idServicio) {
+                  <option [value]="srv.idServicio">Orden #{{ srv.idServicio }} - {{ srv.cliente.nombres }} (Total: S/ {{ srv.totalServicio | number:'1.2-2' }})</option>
+                }
+              </select>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <h3 style="margin: 0; color: #28a745; font-size: 22px;">Total a Cobrar:</h3>
-              <h3 style="margin: 0; color: #28a745; font-size: 22px;">S/ {{ form.total | number:'1.2-2' }}</h3>
+          }
+
+          <div class="form-section">
+            <h3 class="section-title">Datos del Cliente</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nombres *</label>
+                <input type="text" [(ngModel)]="form.nombres" name="nombres" class="form-input" placeholder="Ej: Jason">
+              </div>
+              <div class="form-group">
+                <label>Apellidos *</label>
+                <input type="text" [(ngModel)]="form.apellidos" name="apellidos" class="form-input" placeholder="Ej: Barboa">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Correo Electrónico</label>
+              <input type="email" [(ngModel)]="form.correo" name="correo" class="form-input">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Teléfono</label>
+                <input type="text" [(ngModel)]="form.telefono" name="telefono" class="form-input">
+              </div>
+              <div class="form-group">
+                <label>Método de Pago</label>
+                <select [(ngModel)]="form.idTipoPago" name="tipoPago" class="form-select">
+                  <option [value]="1">Efectivo en Caja</option>
+                  <option [value]="2">Yape / Transferencia</option>
+                  <option [value]="3">Tarjeta de Crédito / Débito</option>
+                </select>
+              </div>
             </div>
           </div>
 
-          <div class="form-actions" style="grid-column: 1 / -1; margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="margin: 0; color: #28a745;">Total: S/ {{ form.total | number:'1.2-2' }}</h3>
-            <div>
-              <button type="button" class="btn-secondary" style="margin-right: 10px;" (click)="closeForm()">Cancelar</button>
-              <button type="button" class="btn-primary" (click)="procesarTransaccion()">Procesar y Emitir</button>
+          <div class="summary-section">
+            <div class="summary-row">
+              <span>Subtotal:</span>
+              <span>S/ {{ form.subtotal | number:'1.2-2' }}</span>
+            </div>
+            <div class="summary-row">
+              <span>IGV (18%):</span>
+              <span>S/ {{ form.igv | number:'1.2-2' }}</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total a Cobrar:</span>
+              <span>S/ {{ form.total | number:'1.2-2' }}</span>
             </div>
           </div>
-        </form>
+
+        </div>
+        
+        <div class="modal-footer">
+          <button class="btn-cancel" (click)="closeForm()">Cancelar</button>
+          <button class="btn-primary" (click)="procesarTransaccion()">Procesar Cobro</button>
+        </div>
       </div>
     </div>
   }

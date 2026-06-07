@@ -132,6 +132,35 @@ namespace Api_Open_Service.Services
         }
 
 
+        public async Task<bool> ActualizarPerfilAsync(ActualizarPerfilDto dto, string emailUsuario)
+        {
+            var usuarios = await _unitOfWork.Usuarios.FindAsync(u => u.Correo == emailUsuario);
+            var usuario = usuarios.FirstOrDefault();
+            if (usuario == null) return false;
+
+            var empleado = await _unitOfWork.Empleados.GetByIdAsync(usuario.IdUsuario);
+            if (empleado == null) return false;
+
+            empleado.Nombres = dto.Nombres;
+            empleado.Apellidos = dto.Apellidos;
+            usuario.Correo = dto.Correo;
+
+            if (!string.IsNullOrEmpty(dto.ContrasenaActual) && !string.IsNullOrEmpty(dto.NuevaContrasena))
+            {
+                bool passwordValida = BCrypt.Net.BCrypt.Verify(dto.ContrasenaActual, usuario.ContrasenaHash);
+                if (!passwordValida)
+                {
+                    throw new UnauthorizedAccessException("La contraseña actual no es correcta.");
+                }
+                usuario.ContrasenaHash = BCrypt.Net.BCrypt.HashPassword(dto.NuevaContrasena);
+            }
+
+            _unitOfWork.Empleados.Update(empleado);
+            _unitOfWork.Usuarios.Update(usuario);
+
+            return await _unitOfWork.SaveAsync() > 0;
+        }
+
         //Metodo del login
         public async Task<LoginResponseDto?> LoginAsync(LoginDto dto)
         {

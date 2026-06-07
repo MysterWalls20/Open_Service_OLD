@@ -222,26 +222,26 @@ namespace Api_Open_Service.Controllers
             var venta = await _context.Venta.FindAsync(id);
             if (venta == null) return NotFound(new { mensaje = "Venta no encontrada." });
 
-            // 1. DESTRUIR EL COMPROBANTE HUÉRFANO (Soluciona el error de tu imagen)
+            // 1. PRIMERO: DESTRUIR EL COMPROBANTE HUÉRFANO (Esto soluciona tu pantalla roja)
             var comprobante = await _context.Set<Comprobante>().FirstOrDefaultAsync(c => c.IdVenta == id);
             if (comprobante != null)
             {
                 _context.Set<Comprobante>().Remove(comprobante);
             }
 
-            // 2. DESTRUIR LOS DETALLES DE VENTA Y DEVOLVER STOCK (Si fue venta directa)
+            // 2. SEGUNDO: DESTRUIR LOS DETALLES Y DEVOLVER STOCK
             var detallesVenta = await _context.Set<DetalleVentum>().Where(d => d.IdVenta == id).ToListAsync();
             if (detallesVenta.Any())
             {
                 foreach (var det in detallesVenta)
                 {
                     var articulo = await _context.Articulos.FindAsync(det.IdArticulo);
-                    if (articulo != null) articulo.StockDisponible += det.Cantidad; // Devolvemos el stock al almacén
+                    if (articulo != null) articulo.StockDisponible += det.Cantidad;
                 }
                 _context.Set<DetalleVentum>().RemoveRange(detallesVenta);
             }
 
-            // 3. ANULAR EL SERVICIO Y EL TICKET ASOCIADO (Como acordamos antes)
+            // 3. TERCERO: ANULAR EL TICKET DE SERVICIO (Si aplica)
             if (venta.IdServicio.HasValue)
             {
                 var servicio = await _context.ServicioOrdens.FindAsync(venta.IdServicio.Value);
@@ -253,27 +253,17 @@ namespace Api_Open_Service.Controllers
                     var pedido = await _context.Set<PedidoTicket>().FindAsync(servicio.IdPedido);
                     if (pedido != null)
                     {
-                        string estadoAnterior = pedido.Estado;
                         pedido.Estado = "Anulado";
                         pedido.FechaModificacion = DateTime.Now;
-
-                        _context.Set<HistorialTicket>().Add(new HistorialTicket
-                        {
-                            IdPedido = pedido.IdPedido,
-                            EstadoAnterior = estadoAnterior,
-                            EstadoNuevo = "Anulado",
-                            FechaCambio = DateTime.Now,
-                            Observacion = "Se eliminó el pago (Venta). El Servicio y el Ticket pasaron a estado Anulado."
-                        });
                     }
                 }
             }
 
-            // 4. AHORA SÍ, BORRAMOS A LA VENTA PADRE
+            // 4. FINALMENTE: BORRAR LA VENTA (Ahora SQL Server sí te dejará)
             _context.Venta.Remove(venta);
             await _unitOfWork.SaveAsync();
 
-            return Ok(new { mensaje = "Venta, Comprobante y Detalles eliminados correctamente. Ticket anulado." });
+            return Ok(new { mensaje = "Venta y Comprobante eliminados correctamente." });
         }
     }
 }

@@ -8,17 +8,15 @@ import { filter, Subscription } from 'rxjs';
 @Component({
   selector: 'app-clientes-page',
   standalone: true,
-  imports: [CommonModule, FormsModule], // <-- AGREGADO AQUI
+  imports: [CommonModule, FormsModule],
   templateUrl: './clientes-page.html',
   styleUrl: './clientes-page.scss',
 })
 export class ClientesPageComponent implements OnInit, OnDestroy {
   showForm = false;
-  editingId: number | null = null;
   clientes: any[] = [];
   loading = false;
 
-  // Objeto para atrapar los datos del HTML
   form = {
     nombres: '',
     apellidos: '',
@@ -29,7 +27,11 @@ export class ClientesPageComponent implements OnInit, OnDestroy {
 
   private routerSubscription?: Subscription;
 
-  constructor(private cdr: ChangeDetectorRef, private clienteService: ClienteService, private router: Router) {}
+  constructor(
+    private cdr: ChangeDetectorRef, 
+    private clienteService: ClienteService, 
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.cargarClientes();
@@ -47,7 +49,7 @@ export class ClientesPageComponent implements OnInit, OnDestroy {
     this.routerSubscription?.unsubscribe();
   }
 
-cargarClientes() {
+  cargarClientes() {
     this.loading = true;
     this.clienteService.getAll().subscribe({
       next: (data) => {
@@ -55,7 +57,6 @@ cargarClientes() {
           id: c.idCliente,
           nombres: c.nombres,
           apellidos: c.apellidos,
-          // 👇 CAMBIAMOS ESTA LÍNEA PARA QUE EL HTML LA LEA DIRECTAMENTE
           nombre: `${c.nombres} ${c.apellidos}`, 
           email: c.correo,
           telefono: c.telefono,
@@ -75,26 +76,11 @@ cargarClientes() {
 
   openForm() {
     this.showForm = true;
-    this.editingId = null;
     this.form = { nombres: '', apellidos: '', correo: '', telefono: '', direccion: '' };
   }
 
   closeForm() {
     this.showForm = false;
-    this.editingId = null;
-  }
-
-  editCliente(cliente: any) {
-    this.editingId = cliente.id;
-    // Llenamos el formulario con los datos exactos
-    this.form = {
-      nombres: cliente.nombres,
-      apellidos: cliente.apellidos,
-      correo: cliente.email,
-      telefono: cliente.telefono,
-      direccion: cliente.direccion
-    };
-    this.showForm = true;
   }
 
   guardarCliente() {
@@ -103,34 +89,13 @@ cargarClientes() {
       return;
     }
 
-    if (this.editingId) {
-      this.clienteService.update(this.editingId, this.form).subscribe({
-        next: () => {
-          this.cargarClientes();
-          this.closeForm();
-        },
-        error: (err) => alert(err.error?.mensaje || "Error al actualizar el cliente.")
-      });
-    } else {
-      this.clienteService.create(this.form).subscribe({
-        next: () => {
-          this.cargarClientes();
-          this.closeForm();
-        },
-        error: (err) => alert(err.error?.mensaje || "Error al crear el cliente.")
-      });
-    }
-  }
-
-  deleteCliente(id: number) {
-    if (confirm('¿Estás seguro de eliminar este cliente?')) {
-      this.clienteService.delete(id).subscribe({
-        next: () => this.cargarClientes(),
-        error: (err) => {
-          // Atrapamos el error de llave foránea que manda C#
-          alert(err.error?.mensaje || "No se pudo eliminar el cliente.");
-        }
-      });
-    }
+    this.clienteService.create(this.form).subscribe({
+      next: () => {
+        this.cargarClientes();
+        this.closeForm();
+        alert("Cliente registrado exitosamente.");
+      },
+      error: (err) => alert(err.error?.mensaje || "Error al crear el cliente.")
+    });
   }
 }

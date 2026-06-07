@@ -87,6 +87,8 @@ export class ProductoDetalleComponent implements OnInit {
       imagen: this.producto.urlImagen,
       stockMaximo: this.producto.stock
     });
+
+    this.router.navigate(['/productos']); 
   }
 
   volverAlCatalogo() {

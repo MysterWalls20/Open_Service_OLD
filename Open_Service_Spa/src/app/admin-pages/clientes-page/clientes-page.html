@@ -20,7 +20,6 @@
             <th>Teléfono</th>
             <th>Dirección</th>
             <th>Estado</th>
-            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -35,10 +34,6 @@
                 <span class="badge {{ cliente.estado }}">
                   {{ cliente.estado === 'activo' ? 'Activo' : 'Inactivo' }}
                 </span>
-              </td>
-              <td class="actions">
-                <button class="btn-edit" (click)="editCliente(cliente)">Editar</button>
-                <button class="btn-delete" (click)="deleteCliente(cliente.id)">Eliminar</button>
               </td>
             </tr>
           }
@@ -56,10 +51,10 @@
     <div class="modal-overlay" (click)="closeForm()">
       <div class="modal-content" (click)="$event.stopPropagation()">
         <div class="modal-header">
-          <h2>{{ editingId ? 'Editar Cliente' : 'Nuevo Cliente' }}</h2>
+          <h2>Nuevo Cliente</h2>
           <button class="btn-close" (click)="closeForm()">✕</button>
         </div>
-<form class="form-grid">
+        <form class="form-grid">
           <div class="form-group">
             <label>Nombres</label>
             <input type="text" [(ngModel)]="form.nombres" name="nombres" placeholder="Nombres del cliente">

@@ -8,6 +8,7 @@ interface MenuItem {
   title: string;
   route: string;
   active?: boolean;
+  roles: string[]; // <-- Nueva propiedad de restricción
 }
 
 @Component({
@@ -19,22 +20,25 @@ interface MenuItem {
 })
 export class AdminComponent implements OnInit, OnDestroy {
   adminUser: { email: string; nombre: string; rol: string } | null = null;
+  
+  // Matriz de permisos EXACTA a lo que solicitaste
   menuItems: MenuItem[] = [
-    { title: 'Dashboard', route: '/admin/dashboard' },
-    { title: 'Clientes', route: '/admin/clientes' },
-    { title: 'Productos', route: '/admin/productos' },
-    { title: 'Inventario', route: '/admin/inventario' },
-    { title: 'Proveedor', route: '/admin/proveedor' },
-    { title: 'Servicios', route: '/admin/servicios' },
-    { title: 'Repuestos', route: '/admin/repuestos' },
-    { title: 'Pedidos', route: '/admin/pedidos' },
-    { title: 'Ventas', route: '/admin/ventas' },
-    { title: 'Comprobantes', route: '/admin/comprobantes' },
-    { title: 'Compras',    route: '/admin/compras' },
-    { title: 'Empleados',  route: '/admin/empleados' },
-    { title: 'Reporte',    route: '/admin/reporte' },
+    { title: 'Dashboard', route: '/admin/dashboard', roles: ['Administrador', 'Vendedor', 'Comprador', 'Técnico', 'Inventario'] },
+    { title: 'Clientes', route: '/admin/clientes', roles: ['Administrador', 'Técnico'] },
+    { title: 'Productos', route: '/admin/productos', roles: ['Administrador', 'Inventario'] },
+    { title: 'Inventario', route: '/admin/inventario', roles: ['Administrador', 'Comprador', 'Inventario'] },
+    { title: 'Proveedor', route: '/admin/proveedor', roles: ['Administrador', 'Comprador'] },
+    { title: 'Servicios', route: '/admin/servicios', roles: ['Administrador', 'Técnico'] },
+    { title: 'Repuestos', route: '/admin/repuestos', roles: ['Administrador', 'Inventario'] },
+    { title: 'Pedidos', route: '/admin/pedidos', roles: ['Administrador', 'Técnico'] },
+    { title: 'Ventas', route: '/admin/ventas', roles: ['Administrador', 'Vendedor', 'Técnico'] },
+    { title: 'Comprobantes', route: '/admin/comprobantes', roles: ['Administrador', 'Vendedor', 'Técnico'] },
+    { title: 'Compras',    route: '/admin/compras', roles: ['Administrador', 'Comprador'] },
+    { title: 'Empleados',  route: '/admin/empleados', roles: ['Administrador'] },
+    { title: 'Reporte',    route: '/admin/reporte', roles: ['Administrador', 'Vendedor', 'Técnico'] },
   ];
 
+  filteredMenuItems: MenuItem[] = []; // Menú final que verá el usuario
   private routerSubscription?: Subscription;
 
   constructor(private router: Router, private route: ActivatedRoute) {}
@@ -43,6 +47,11 @@ export class AdminComponent implements OnInit, OnDestroy {
     const storedUser = localStorage.getItem('admin_user');
     if (storedUser) {
       this.adminUser = JSON.parse(storedUser);
+      
+      // Filtramos el menú: Solo se quedan los ítems donde el rol del usuario esté en el arreglo
+      if (this.adminUser) {
+        this.filteredMenuItems = this.menuItems.filter(item => item.roles.includes(this.adminUser!.rol));
+      }
     }
 
     this.syncActiveWithRouter();
@@ -60,14 +69,19 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   private syncActiveWithRouter() {
     const currentUrl = this.router.url;
-    this.menuItems.forEach(item => {
+    this.filteredMenuItems.forEach(item => {
       item.active = currentUrl === item.route;
     });
+  }
+
+  irConfiguraciones() {
+    this.router.navigate(['/admin/configuraciones']);
   }
 
   logout() {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('admin_user');
+    localStorage.removeItem('token'); // Borramos el JWT
     this.router.navigate(['/login']);
   }
 }

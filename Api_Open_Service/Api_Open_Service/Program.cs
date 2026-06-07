@@ -3,6 +3,9 @@ using Api_Open_Service.Models;
 using Api_Open_Service.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Api_Open_Service
 {
@@ -12,24 +15,42 @@ namespace Api_Open_Service
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // =========================================================================
+            // CONFIGURACIÓN DE JWT
+            // =========================================================================
+            var jwtSettings = builder.Configuration.GetSection("Jwt");
+            var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
 
             // =========================================================================
-            // REGISTRO DEL DBCONTEXT (CONEXI�N A SQL SERVER)
+            // REGISTRO DEL DBCONTEXT (CONEXIÓN A SQL SERVER)
             // =========================================================================
             builder.Services.AddDbContext<OpenServiceDbContext>(options =>
                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // =======================================================
-            // INYECCI�N DE DEPENDENCIAS (PATRONES DE DISE�O)
+            // INYECCIÓN DE DEPENDENCIAS (PATRONES DE DISEÑO)
             // =======================================================
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IAuthService, AuthService>();
 
-
-
-            // Add services to the container.
-
+            // =======================================================
+            // REGISTRO DE AUTENTICACIÓN JWT
+            // =======================================================
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = jwtSettings["Issuer"],
+                    ValidAudience = jwtSettings["Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                };
+            });
 
             // =======================================================
             // CONFIGURACIÓN DE CONTROLADORES (FIX PARA CICLO INFINITO JSON)
@@ -37,34 +58,25 @@ namespace Api_Open_Service
             builder.Services.AddControllers()
                 .AddJsonOptions(options =>
                 {
-                    // Esto evita que la API colapse al cargar las relaciones Cliente -> Pedido -> Cliente
                     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
                 });
 
-
-            //builder.Services.AddControllers();
-            // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
-
-            // Justo ANTES de builder.Build();
+            // =======================================================
+            // CONFIGURACIÓN CORS (PERMITIR ANGULAR)
+            // =======================================================
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("PermitirAngular", policy =>
                 {
-                    policy.WithOrigins("http://localhost:4200") // El puerto de tu Angular
+                    policy.WithOrigins("http://localhost:4200")
                           .AllowAnyHeader()
                           .AllowAnyMethod();
                 });
             });
 
-
             var app = builder.Build();
-
-
-            // Justo DESPU�S de app.UseHttpsRedirection(); y ANTES de app.UseAuthorization();
-            app.UseCors("PermitirAngular");
-
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -74,8 +86,14 @@ namespace Api_Open_Service
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            // 1. Primero permitimos que Angular se conecte (CORS)
+            app.UseCors("PermitirAngular");
 
+            // 2. 👇 LUEGO LEEMOS EL TOKEN (¡ESTO FALTABA!)
+            app.UseAuthentication();
+
+            // 3. FINALMENTE REVISAMOS LOS PERMISOS (ROLES)
+            app.UseAuthorization();
 
             app.MapControllers();
 

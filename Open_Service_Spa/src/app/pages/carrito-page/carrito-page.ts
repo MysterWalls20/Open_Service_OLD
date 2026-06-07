@@ -38,11 +38,13 @@ export class CarritoPageComponent implements OnInit {
   }
 
   seguirComprando() {
-    this.router.navigate(['/catalogo']); // Cambia a la ruta de tu marketplace
+    this.router.navigate(['/productos']); 
   }
 
   procederAlPago() {
       if (this.itemsCarrito.length === 0) return;
       this.router.navigate(['/checkout']);
     }
+
+
 }

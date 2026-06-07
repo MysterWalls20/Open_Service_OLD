@@ -7,12 +7,11 @@ import { PedidoService } from '../../services/pedido.service';
 import { forkJoin, of } from 'rxjs'; 
 import { catchError, finalize } from 'rxjs/operators';
 
+import { StatCard, RecentOrder } from '../../models/dashboard.model';
+
 // 👇 IMPORTAMOS CHART.JS
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
-
-interface StatCard { label: string; value: number; icon: string; color: string; }
-interface RecentOrder { id: string; status: string; date: string; statusClass: string; }
 
 @Component({
   selector: 'app-dashboard-page',

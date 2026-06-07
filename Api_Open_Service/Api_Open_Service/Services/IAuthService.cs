@@ -12,5 +12,7 @@ namespace Api_Open_Service.Services
         Task<bool> EditarEmpleadoAsync(EmpleadoEdicionDto dto);
 
         Task<LoginResponseDto?> LoginAsync(LoginDto dto);
+
+        Task<bool> ActualizarPerfilAsync(ActualizarPerfilDto dto, string emailUsuario);
     }
 }

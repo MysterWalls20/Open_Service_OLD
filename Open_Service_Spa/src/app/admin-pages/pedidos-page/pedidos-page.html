@@ -30,7 +30,8 @@
           <td>{{ pedido.producto }}</td>
           <td>{{ pedido.fecha }}</td>
           <td>
-            <span class="badge {{ pedido.estado }}">{{ getEstadoLabel(pedido.estado) }}</span>
+          <td>
+            <span class="badge {{ pedido.estadoClase }}">{{ pedido.estadoLabel }}</span>
           </td>
           <td class="actions">
             <button class="btn-edit" (click)="editPedido(pedido)">Editar</button>
@@ -88,18 +89,6 @@
           <input type="text" [(ngModel)]="form.modelo" placeholder="Modelo (Opcional)" style="margin-bottom: 6px;">
           <textarea [(ngModel)]="form.descripcion" placeholder="Falla reportada..." rows="3"></textarea>
         </div>
-
-        @if (editingId) {
-        <!--<div class="form-group">
-          <label>Estado del Ticket</label>
-          <select [(ngModel)]="form.estado">
-            <option value="Pendiente">Pendiente</option>
-            <option value="En Proceso">En Proceso</option>
-            <option value="Completado">Completado</option>
-            <option value="Cancelado">Cancelado</option>
-          </select>
-        </div>-->
-        }
 
         <div class="form-actions">
           <button type="button" class="btn-secondary" (click)="closeForm()">Cancelar</button>

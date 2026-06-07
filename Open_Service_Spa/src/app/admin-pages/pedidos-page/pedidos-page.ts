@@ -16,7 +16,6 @@ export class PedidosPageComponent implements OnInit {
   pedidos: any[] = [];
   loading = false;
   
-  // NUEVA VARIABLE: Guarda toda la información original del pedido de la BD
   pedidoOriginal: any = null; 
 
   form = {
@@ -41,7 +40,10 @@ export class PedidosPageComponent implements OnInit {
           cliente: p.idClienteNavigation ? `${p.idClienteNavigation.nombres} ${p.idClienteNavigation.apellidos}` : 'N/A',
           producto: p.electrodomestico,
           fecha: p.fechaSolicitud ? new Date(p.fechaSolicitud).toLocaleDateString('es-PE') : 'N/A',
-          estado: p.estado ? p.estado.toLowerCase() : 'pendiente',
+          
+          estadoClase: this.getEstadoClass(p.estado), // La clase CSS segura (sin espacios)
+          estadoLabel: this.capitalizarPrimeraLetra(p.estado || 'Pendiente'), // El texto bonito para el usuario
+          
           estadoReal: p.estado || 'Pendiente'
         }));
         this.loading = false;
@@ -55,6 +57,7 @@ export class PedidosPageComponent implements OnInit {
     });
   }
 
+  // ... (Tus métodos openForm, closeForm, editPedido, guardarPedido, deletePedido se mantienen EXACTAMENTE igual) ...
   openForm() {
     this.showForm = true;
     this.editingId = null;
@@ -62,60 +65,33 @@ export class PedidosPageComponent implements OnInit {
     this.form = { nombres: '', apellidos: '', correo: '', telefono: '', direccion: '', electrodomestico: '', nombreMarca: '', modelo: '', descripcion: '', tipoServicio: 'Reparacion', estado: 'Pendiente' };
   }
 
-  closeForm() {
-    this.showForm = false;
-  }
+  closeForm() { this.showForm = false; }
 
   editPedido(pedido: any) {
     this.editingId = pedido.idPedido;
-    this.pedidoOriginal = pedido; // Guardamos todo el objeto completo (con IdCliente, IdMarca, etc.)
+    this.pedidoOriginal = pedido; 
     this.showForm = true;
     
     this.form = {
-      nombres: pedido.idClienteNavigation?.nombres || '',
-      apellidos: pedido.idClienteNavigation?.apellidos || '',
-      correo: pedido.idClienteNavigation?.correo || '',
-      telefono: pedido.idClienteNavigation?.telefono || '',
-      direccion: pedido.idClienteNavigation?.direccion || '',
-      electrodomestico: pedido.electrodomestico,
-      nombreMarca: pedido.idMarcaNavigation?.nombreMarca || '',
-      modelo: pedido.modelo,
-      descripcion: pedido.descripcion,
-      tipoServicio: pedido.tipoDeServicio,
-      estado: pedido.estadoReal || 'Pendiente' // Usamos el estadoReal para que coincida con las opciones
+      nombres: pedido.idClienteNavigation?.nombres || '', apellidos: pedido.idClienteNavigation?.apellidos || '', correo: pedido.idClienteNavigation?.correo || '', telefono: pedido.idClienteNavigation?.telefono || '', direccion: pedido.idClienteNavigation?.direccion || '', electrodomestico: pedido.electrodomestico, nombreMarca: pedido.idMarcaNavigation?.nombreMarca || '', modelo: pedido.modelo, descripcion: pedido.descripcion, tipoServicio: pedido.tipoDeServicio,
+      estado: pedido.estadoReal || 'Pendiente' 
     };
   }
 
   guardarPedido() {
     if (this.editingId) {
-      // ENVIAMOS UN PAQUETE LIMPIO: Solo la info técnica. Nada de clientes, ni marcas, ni estados.
-      const updateData = {
-        electrodomestico: this.form.electrodomestico,
-        modelo: this.form.modelo,
-        descripcion: this.form.descripcion
-      };
-
+      const updateData = { electrodomestico: this.form.electrodomestico, modelo: this.form.modelo, descripcion: this.form.descripcion };
       this.pedidoService.update(this.editingId, updateData).subscribe({
-        next: () => {
-          this.cargarPedidos();
-          this.closeForm();
-        },
+        next: () => { this.cargarPedidos(); this.closeForm(); },
         error: (err) => {
-          console.error("Fallo al actualizar:", err);
-          // Leemos el error exacto que envía .NET
           const msg = err.error?.mensaje || err.error?.title || "Error de validación desconocido.";
           alert(`NO SE PUDO ACTUALIZAR:\n${msg}`);
         }
       });
     } else {
-      // Crear pedido manual
       this.pedidoService.createPedidoPublico(this.form).subscribe({
-        next: () => {
-          this.cargarPedidos();
-          this.closeForm();
-        },
+        next: () => { this.cargarPedidos(); this.closeForm(); },
         error: (err) => {
-          console.error("Fallo al crear:", err);
           const msg = err.error?.mensaje || "Error desconocido.";
           alert(`NO SE PUDO CREAR:\n${msg}`);
         }
@@ -127,19 +103,20 @@ export class PedidosPageComponent implements OnInit {
     if (confirm('¿Estás seguro de eliminar este pedido?')) {
       this.pedidoService.delete(id).subscribe({
         next: () => this.cargarPedidos(),
-        error: (err) => {
-          console.error("Fallo al eliminar:", err);
-          alert("No se pudo eliminar el pedido. Revisa la consola.");
-        }
+        error: (err) => { alert("No se pudo eliminar el pedido. Revisa la consola."); }
       });
     }
   }
 
-  getEstadoLabel(estado: string): string {
-    const labels: Record<string, string> = {
-      'pendiente': 'Pendiente', 'en-proceso': 'En Proceso',
-      'completado': 'Completado', 'cancelado': 'Cancelado', 'nuevo': 'Pendiente'
-    };
-    return labels[estado] || estado;
+  getEstadoClass(estado: string): string {
+    const est = (estado || '').toLowerCase().trim();
+    if (est === 'en proceso') return 'en-proceso'; 
+    if (est === 'anulado' || est === 'cancelado') return 'cancelado'; 
+    if (est === 'completado') return 'completado';
+    return 'pendiente';
+  }
+
+  capitalizarPrimeraLetra(texto: string): string {
+    return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase();
   }
 }

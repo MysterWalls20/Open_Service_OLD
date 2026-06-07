@@ -1,0 +1,64 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>Configuraciones</h1>
+  </div>
+
+  <div class="settings-card">
+    <form class="form-grid" (ngSubmit)="guardar()">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nombres">Nombres</label>
+          <input type="text" id="nombres" [(ngModel)]="formModel.nombres" name="nombres" placeholder="Nombres" required>
+        </div>
+        <div class="form-group">
+          <label for="apellidos">Apellidos</label>
+          <input type="text" id="apellidos" [(ngModel)]="formModel.apellidos" name="apellidos" placeholder="Apellidos" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" [(ngModel)]="formModel.correo" name="correo" placeholder="correo@ejemplo.com" required>
+      </div>
+
+      <hr class="divider">
+
+      <h3>Cambiar contraseña</h3>
+      <p class="hint">Deja estos campos vacíos si no deseas cambiar tu contraseña.</p>
+
+      <div class="form-group">
+        <label for="contrasenaActual">Contraseña actual</label>
+        <input type="password" id="contrasenaActual" [(ngModel)]="formModel.contrasenaActual" name="contrasenaActual" placeholder="••••••••">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nuevaContrasena">Nueva contraseña</label>
+          <input type="password" id="nuevaContrasena" [(ngModel)]="formModel.nuevaContrasena" name="nuevaContrasena" placeholder="••••••••">
+        </div>
+        <div class="form-group">
+          <label for="confirmarContrasena">Confirmar nueva contraseña</label>
+          <input type="password" id="confirmarContrasena" [(ngModel)]="formModel.confirmarContrasena" name="confirmarContrasena" placeholder="••••••••">
+        </div>
+      </div>
+
+      @if (successMessage) {
+        <div class="success-message">✓ {{ successMessage }}</div>
+      }
+
+      @if (errorMessage) {
+        <div class="error-message">⚠️ {{ errorMessage }}</div>
+      }
+
+      <div class="form-actions">
+        <button type="submit" class="btn-primary" [disabled]="loading">
+          @if (loading) {
+            <span>Guardando...</span>
+          } @else {
+            <span>Guardar cambios</span>
+          }
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

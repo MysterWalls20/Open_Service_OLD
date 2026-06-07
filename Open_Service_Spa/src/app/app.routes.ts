@@ -26,6 +26,7 @@ import { ReportePageComponent } from './admin-pages/reporte-page/reporte-page';
 import { ComprasPageComponent } from './admin-pages/compras-page/compras-page';
 import { EmpleadosPageComponent } from './admin-pages/empleados-page/empleados-page';
 import { ComprobantesPageComponent } from './admin-pages/comprobantes-page/comprobantes-page';
+import { ConfiguracionesPageComponent } from './admin-pages/configuraciones-page/configuraciones-page';
 
 export const routes: Routes = [
   { path: '', component: InicioPageComponent },
@@ -59,6 +60,7 @@ export const routes: Routes = [
       { path: 'empleados', component: EmpleadosPageComponent },
       { path: 'reporte',  component: ReportePageComponent },
       { path: 'comprobantes', component: ComprobantesPageComponent },
+      { path: 'configuraciones', component: ConfiguracionesPageComponent },
     ]
   },
   { path: '**', redirectTo: '' }

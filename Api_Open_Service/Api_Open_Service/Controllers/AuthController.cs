@@ -1,6 +1,14 @@
 ﻿using Api_Open_Service.DTOs;
 using Api_Open_Service.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Api_Open_Service.Controllers
 {
@@ -9,10 +17,13 @@ namespace Api_Open_Service.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+        private readonly IConfiguration _configuration;
 
-        public AuthController(IAuthService authService)
+        // Inyectamos el servicio de autenticación y la configuración (para leer appsettings.json)
+        public AuthController(IAuthService authService, IConfiguration configuration)
         {
             _authService = authService;
+            _configuration = configuration;
         }
 
         [HttpPost("registrar-empleado")]
@@ -70,7 +81,6 @@ namespace Api_Open_Service.Controllers
             return BadRequest(new { mensaje = "No se pudo eliminar el empleado." });
         }
 
-
         [HttpPut("empleado")]
         public async Task<IActionResult> EditarEmpleado([FromBody] EmpleadoEdicionDto dto)
         {
@@ -80,17 +90,88 @@ namespace Api_Open_Service.Controllers
             return BadRequest(new { mensaje = "No se pudo actualizar el empleado." });
         }
 
+        [HttpPut("mi-perfil")]
+        public async Task<IActionResult> ActualizarMiPerfil([FromBody] ActualizarPerfilDto dto)
+        {
+            try
+            {
+                var email = User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value;
+                if (string.IsNullOrEmpty(email))
+                {
+                    return Unauthorized(new { mensaje = "No se pudo identificar al usuario." });
+                }
+
+                var resultado = await _authService.ActualizarPerfilAsync(dto, email);
+                if (resultado)
+                {
+                    return Ok(new { mensaje = "Perfil actualizado correctamente." });
+                }
+                return BadRequest(new { mensaje = "No se pudo actualizar el perfil." });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { mensaje = ex.Message });
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, new { mensaje = "Ocurrió un error interno en el servidor." });
+            }
+        }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
             try
             {
-                var resultado = await _authService.LoginAsync(dto);
+                // Usamos dynamic para aceptar el objeto (DTO o Entidad) que devuelve tu servicio
+                dynamic resultado = await _authService.LoginAsync(dto);
 
                 if (resultado != null)
                 {
-                    return Ok(resultado); // Devuelve los datos del empleado
+                    // 1. Traemos la configuración secreta de appsettings.json
+                    var jwtSettings = _configuration.GetSection("Jwt");
+                    var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
+
+                    // 2. Extraemos los valores. 
+                    // NOTA: En C# las propiedades suelen ser en PascalCase (mayúscula inicial). 
+                    // Si tu modelo las tiene en minúscula, solo cámbialas aquí (ej: resultado.nombres)
+                    string nombreEmpleado = (string)resultado.Nombre; 
+                    string correoEmpleado = (string)resultado.Email;  
+                    string rolEmpleado = (string)resultado.Rol;
+
+                    // 3. Empaquetamos la identidad del usuario en "Claims"
+                    var claims = new[]
+                    {
+                        new Claim(ClaimTypes.Name, nombreEmpleado),
+                        new Claim(ClaimTypes.Email, correoEmpleado),
+                        new Claim(ClaimTypes.Role, rolEmpleado)
+                    };
+
+                    // 4. Firmamos y creamos el Token
+                    var tokenDescriptor = new SecurityTokenDescriptor
+                    {
+                        Subject = new ClaimsIdentity(claims),
+                        Expires = DateTime.UtcNow.AddHours(8), // El token durará 8 horas
+                        Issuer = jwtSettings["Issuer"],
+                        Audience = jwtSettings["Audience"],
+                        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                    };
+
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    var token = tokenHandler.CreateToken(tokenDescriptor);
+
+                    // 5. Devolvemos el Token real y los datos de la sesión para Angular
+                    return Ok(new
+                    {
+                        mensaje = "Login exitoso",
+                        token = tokenHandler.WriteToken(token),
+                        usuario = new
+                        {
+                            nombres = nombreEmpleado,
+                            correo = correoEmpleado,
+                            rol = rolEmpleado
+                        }
+                    });
                 }
 
                 return Unauthorized(new { mensaje = "Credenciales incorrectas." });
@@ -99,11 +180,13 @@ namespace Api_Open_Service.Controllers
             {
                 return Unauthorized(new { mensaje = ex.Message });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(500, new { mensaje = "Error interno del servidor." });
+                // Extraemos el error real y lo mandamos al frontend para verlo con nuestros propios ojos
+                string errorReal = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                return StatusCode(500, new { mensaje = $"Error exacto de C#: {errorReal}" });
             }
+
         }
     }
-
 }

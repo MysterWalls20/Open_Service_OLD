@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Router, NavigationEnd } from '@angular/router';
 import { VentaService } from '../../services/venta.service';
 import { ProductoService } from '../../services/producto.service'; 
-// 👇 AHORA SÍ IMPORTAMOS EL SERVICIO DE ÓRDENES
 import { ServicioService } from '../../services/servicio.service'; 
 import { filter, Subscription } from 'rxjs';
 
@@ -25,6 +24,9 @@ export class VentasPageComponent implements OnInit, OnDestroy {
   ventasMes: number = 0;
   promedioVenta: number = 0;
 
+  // 👇 NUEVA VARIABLE PARA GUARDAR EL ROL
+  userRole: string = '';
+
   tipoOperacion: 'venta' | 'servicio' = 'venta';
   serviciosPendientes: any[] = []; 
   articulosInventario: any[] = [];
@@ -41,11 +43,18 @@ export class VentasPageComponent implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef, 
     private ventaService: VentaService, 
     private productoService: ProductoService,
-    private servicioService: ServicioService, // Inyectamos el Servicio
+    private servicioService: ServicioService,
     private router: Router
   ) {}
 
   ngOnInit() {
+    // 👇 LEEMOS EL ROL DEL USUARIO
+    const userStr = localStorage.getItem('admin_user');
+    if (userStr) {
+      const user = JSON.parse(userStr);
+      this.userRole = user.rol || '';
+    }
+
     this.cargarVentas();
     this.cargarDatosParaCombobox();
 
@@ -67,12 +76,10 @@ export class VentasPageComponent implements OnInit, OnDestroy {
     this.ventaService.getAll().subscribe({
       next: (data) => {
         this.calcularEstadisticas(data);
-
         this.ventas = data.map((v: any) => ({
           id: v.idVenta,
           cliente: v.idClienteNavigation ? `${v.idClienteNavigation.nombres} ${v.idClienteNavigation.apellidos}` : 'N/A',
           origen: v.origenVenta,
-          // 👇 AGREGAMOS EL SUBTOTAL Y EL IGV A LA TABLA PRINCIPAL
           subtotal: v.montoTotal - (v.igv || 0),
           igv: v.igv || 0,
           total: v.montoTotal,
@@ -91,14 +98,13 @@ export class VentasPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  // En ventas-page.ts
   deleteVenta(id: number) {
     if (confirm('¿Estás seguro de eliminar esta venta? Esto anulará el comprobante.')) {
       this.ventaService.delete(id).subscribe({
         next: () => {
           alert('Venta eliminada correctamente.');
-          this.cargarVentas(); // Recarga la tabla
-          this.cargarDatosParaCombobox(); // Recarga el combobox (el servicio volverá a aparecer)
+          this.cargarVentas(); 
+          this.cargarDatosParaCombobox(); 
         },
         error: (err) => {
           console.error(err);
@@ -108,8 +114,7 @@ export class VentasPageComponent implements OnInit, OnDestroy {
     }
   }
 
-cargarDatosParaCombobox() {
-    // 1. Cargar Productos
+  cargarDatosParaCombobox() {
     this.productoService.getAll().subscribe({
       next: (data) => {
         this.articulosInventario = data.map((p: any) => ({
@@ -121,22 +126,17 @@ cargarDatosParaCombobox() {
       }
     });
     
-    // 2. Cargar Servicios (Jalando los datos del Cliente a través del Pedido)
     this.servicioService.getAll().subscribe({
       next: (data) => {
         this.serviciosPendientes = data
-          .filter((s: any) => s.estado === 'Activo') // Solo los servicios pendientes de cobro
+          .filter((s: any) => s.estado === 'Activo') 
           .map((s: any) => {
-            
-            // 👇 AQUÍ ATRAPAMOS AL CLIENTE QUE VINO DENTRO DEL PEDIDO
             const clienteDelPedido = s.idPedidoNavigation?.idClienteNavigation;
-
             return {
               idServicio: s.idServicio,
               diagnosticoTecnico: s.diagnosticoTecnico || 'Sin diagnóstico',
               totalServicio: s.totalServicio,
               cliente: {
-                // Llenamos los datos automáticamente
                 nombres: clienteDelPedido?.nombres || 'Cliente no asignado',
                 apellidos: clienteDelPedido?.apellidos || '',
                 correo: clienteDelPedido?.correo || '',
@@ -164,12 +164,9 @@ cargarDatosParaCombobox() {
       this.form.correo = servicio.cliente.correo;
       this.form.telefono = servicio.cliente.telefono;
       this.form.direccion = servicio.cliente.direccion;
-      
       this.calcularMontos(servicio.totalServicio);
     }
   }
-
-  // ... (Tus métodos agregarProductoVenta, quitarProductoVenta, calcularTotalVentaDirecta, calcularEstadisticas, openForm, closeForm y resetForm se mantienen exactamente igual) ...
 
   agregarProductoVenta() {
     if (!this.form.idArticuloSeleccionado) return;
@@ -216,8 +213,20 @@ cargarDatosParaCombobox() {
     this.promedioVenta = data.length > 0 ? (sumaGeneral / data.length) : 0;
   }
 
-  openForm() { this.showForm = true; this.tipoOperacion = 'venta'; this.resetForm(); }
+  openForm() { 
+    this.showForm = true; 
+    this.resetForm(); 
+
+    // 👇 AJUSTAMOS EL MODO POR DEFECTO SEGÚN EL ROL
+    if (this.userRole === 'Técnico') {
+      this.tipoOperacion = 'servicio';
+    } else {
+      this.tipoOperacion = 'venta'; // Aplica para Administrador y Vendedor
+    }
+  }
+
   closeForm() { this.showForm = false; }
+  
   resetForm() {
     this.form = { nombres: '', apellidos: '', correo: '', telefono: '', direccion: '', idTipoPago: 1, idServicio: null, idArticuloSeleccionado: null, cantidadSeleccionada: 1, carritoAdmin: [], subtotal: 0, igv: 0, total: 0 };
   }
@@ -244,8 +253,8 @@ cargarDatosParaCombobox() {
     this.ventaService.checkout(payload).subscribe({
       next: (res: any) => {
         alert(`Transacción exitosa.\nComprobante generado: ${res.nroComprobante}`);
-        this.cargarVentas(); // Recarga la tabla de ventas
-        this.cargarDatosParaCombobox(); // Recarga los servicios (el completado desaparecerá)
+        this.cargarVentas(); 
+        this.cargarDatosParaCombobox(); 
         this.closeForm();
       },
       error: (err) => {
