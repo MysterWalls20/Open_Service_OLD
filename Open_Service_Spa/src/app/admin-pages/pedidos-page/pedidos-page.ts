@@ -23,6 +23,20 @@ export class PedidosPageComponent implements OnInit {
     electrodomestico: '', nombreMarca: '', modelo: '', descripcion: '', tipoServicio: 'Reparacion', estado: 'Pendiente'
   };
 
+  // --- PAGINACIÓN ---
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+
+  get pedidosPaginados() {
+    const inicio = (this.currentPage - 1) * this.itemsPerPage;
+    return this.pedidos.slice(inicio, inicio + this.itemsPerPage);
+  }
+
+  get totalPages() { return Math.max(1, Math.ceil(this.pedidos.length / this.itemsPerPage)); }
+  nextPage() { if (this.currentPage < this.totalPages) this.currentPage++; }
+  prevPage() { if (this.currentPage > 1) this.currentPage--; }
+  // ------------------
+
   constructor(private cdr: ChangeDetectorRef, private pedidoService: PedidoService) { }
 
   ngOnInit() {
@@ -46,6 +60,7 @@ export class PedidosPageComponent implements OnInit {
           
           estadoReal: p.estado || 'Pendiente'
         }));
+        this.currentPage = 1;
         this.loading = false;
         this.cdr.detectChanges();
       },

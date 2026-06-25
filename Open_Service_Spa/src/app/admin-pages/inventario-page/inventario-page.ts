@@ -17,6 +17,20 @@ export class InventarioPageComponent implements OnInit {
   articulos: any[] = [];
   loading = false;
 
+  // --- PAGINACIÓN ---
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+
+  get articulosPaginados() {
+    const inicio = (this.currentPage - 1) * this.itemsPerPage;
+    return this.articulos.slice(inicio, inicio + this.itemsPerPage);
+  }
+
+  get totalPages() { return Math.max(1, Math.ceil(this.articulos.length / this.itemsPerPage)); }
+  nextPage() { if (this.currentPage < this.totalPages) this.currentPage++; }
+  prevPage() { if (this.currentPage > 1) this.currentPage--; }
+  // ------------------
+
   constructor(private cdr: ChangeDetectorRef, private inventarioService: InventarioService) {}
 
   ngOnInit() {
@@ -28,6 +42,7 @@ export class InventarioPageComponent implements OnInit {
     this.inventarioService.getAll().subscribe({
       next: (data) => {
         this.articulos = data;
+        this.currentPage = 1;
         this.loading = false;
         this.cdr.detectChanges();
       },

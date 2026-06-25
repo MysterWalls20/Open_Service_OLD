@@ -54,6 +54,11 @@
           }
         </tbody>
       </table>
+      <div class="pagination-container">
+        <button class="btn-page" (click)="prevPage()" [disabled]="currentPage === 1">&laquo; Anterior</button>
+        <span class="page-info">Página <strong>{{ currentPage }}</strong> de <strong>{{ totalPages }}</strong></span>
+        <button class="btn-page" (click)="nextPage()" [disabled]="currentPage === totalPages || totalPages === 0">Siguiente &raquo;</button>
+      </div>
     }
   </div>
 

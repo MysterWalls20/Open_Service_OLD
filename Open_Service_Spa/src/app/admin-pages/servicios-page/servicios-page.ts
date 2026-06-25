@@ -47,6 +47,31 @@ export class ServiciosPageComponent implements OnInit, OnDestroy {
 
   private routerSubscription?: Subscription;
 
+  // --- PAGINACIÓN ---
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+
+  get serviciosPaginados() {
+    const inicio = (this.currentPage - 1) * this.itemsPerPage;
+    return this.filteredServicios.slice(inicio, inicio + this.itemsPerPage);
+  }
+
+  get totalPages() {
+    return Math.max(1, Math.ceil(this.filteredServicios.length / this.itemsPerPage));
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+// ------------------
   constructor(
     private cdr: ChangeDetectorRef,
     private servicioService: ServicioService,
@@ -124,6 +149,7 @@ export class ServiciosPageComponent implements OnInit, OnDestroy {
           detalles: s.detalleServicios || [],
           repuestos: s.consumoRepuestos || []
         }));
+        this.currentPage = 1;
         this.loading = false;
         this.cdr.detectChanges();
       },

@@ -244,3 +244,47 @@
   transition: all 0.2s;
   &:hover { background: #dc3545; color: #fff; }
 }
+
+/* =========================================
+   ESTILOS DE PAGINACIÓN
+   ========================================= */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  margin-top: 10px;
+  border-top: 1px solid #eaeaea;
+
+  .page-info {
+    font-size: 14px;
+    color: #666;
+    
+    strong {
+      color: #333;
+    }
+  }
+
+  .btn-page {
+    padding: 8px 16px;
+    background-color: #f8f9fa;
+    color: #4452cc;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background-color: #e8f0fe;
+      border-color: #4452cc;
+    }
+
+    &:disabled {
+      background-color: #f5f5f5;
+      color: #bbb;
+      border-color: #eee;
+      cursor: not-allowed;
+    }
+  }
+}

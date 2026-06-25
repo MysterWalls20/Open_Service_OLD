@@ -27,6 +27,20 @@ export class RepuestosPageComponent implements OnInit, OnDestroy {
 
   private routerSubscription?: Subscription;
 
+  // --- PAGINACIÓN ---
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+
+  get repuestosPaginados() {
+    const inicio = (this.currentPage - 1) * this.itemsPerPage;
+    return this.repuestos.slice(inicio, inicio + this.itemsPerPage);
+  }
+
+  get totalPages() { return Math.max(1, Math.ceil(this.repuestos.length / this.itemsPerPage)); }
+  nextPage() { if (this.currentPage < this.totalPages) this.currentPage++; }
+  prevPage() { if (this.currentPage > 1) this.currentPage--; }
+  // ------------------
+
   constructor(
     private cdr: ChangeDetectorRef,
     private repuestoService: RepuestoService, 
@@ -72,6 +86,7 @@ export class RepuestosPageComponent implements OnInit, OnDestroy {
           compatibilidad: r.compatibilidadMarca || 'Genérico',
           estado: (r.idArticuloNavigation?.stockDisponible || 0) > 0 ? 'disponible' : 'agotado'
         }));
+        this.currentPage = 1;
         this.loading = false;
         this.cdr.detectChanges();
       },

@@ -39,6 +39,20 @@ export class VentasPageComponent implements OnInit, OnDestroy {
     subtotal: 0, igv: 0, total: 0
   };
 
+  // --- PAGINACIÓN ---
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+
+  get ventasPaginadas() {
+    const inicio = (this.currentPage - 1) * this.itemsPerPage;
+    return this.ventas.slice(inicio, inicio + this.itemsPerPage);
+  }
+
+  get totalPages() { return Math.max(1, Math.ceil(this.ventas.length / this.itemsPerPage)); }
+  nextPage() { if (this.currentPage < this.totalPages) this.currentPage++; }
+  prevPage() { if (this.currentPage > 1) this.currentPage--; }
+  // ------------------
+
   constructor(
     private cdr: ChangeDetectorRef, 
     private ventaService: VentaService, 
@@ -87,6 +101,7 @@ export class VentasPageComponent implements OnInit, OnDestroy {
           metodoPago: v.idTipoPagoNavigation?.descripcion || 'N/A',
           comprobante: v.tipoComprobante
         }));
+        this.currentPage = 1;
         this.loading = false;
         this.cdr.detectChanges();
       },

@@ -17,6 +17,7 @@ import { DashboardPageComponent } from './admin-pages/dashboard-page/dashboard-p
 import { ClientesPageComponent } from './admin-pages/clientes-page/clientes-page';
 import { AdminProductosPageComponent } from './admin-pages/admin-product-page/admin-product-page';
 import { InventarioPageComponent } from './admin-pages/inventario-page/inventario-page';
+import { CategoriasPageComponent } from './admin-pages/categorias-page/categorias-page';
 import { ProveedorPageComponent } from './admin-pages/proveedor-page/proveedor-page';
 import { ServiciosPageComponent as AdminServiciosPageComponent } from './admin-pages/servicios-page/servicios-page';
 import { RepuestosPageComponent } from './admin-pages/repuestos-page/repuestos-page';
@@ -56,6 +57,7 @@ export const routes: Routes = [
       { path: 'repuestos', component: RepuestosPageComponent },
       { path: 'pedidos', component: PedidosPageComponent },
       { path: 'ventas', component: VentasPageComponent },
+      { path: 'categorias', component: CategoriasPageComponent },
       { path: 'compras', component: ComprasPageComponent },
       { path: 'empleados', component: EmpleadosPageComponent },
       { path: 'reporte',  component: ReportePageComponent },

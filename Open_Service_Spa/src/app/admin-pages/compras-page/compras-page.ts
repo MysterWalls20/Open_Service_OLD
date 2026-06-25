@@ -12,6 +12,7 @@ import { ProveedorService } from '../../services/proveedor.service';
   templateUrl: './compras-page.html',
   styleUrl: './compras-page.scss',
 })
+
 export class ComprasPageComponent implements OnInit {
   showForm = false;
   loading = false;
@@ -27,6 +28,10 @@ export class ComprasPageComponent implements OnInit {
   nuevoDetalle: any = { idArticulo: '' };
   totalCompraCalculado: number = 0;
 
+  // --- PAGINACIÓN ---
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+
   constructor(
     private cdr: ChangeDetectorRef,
     private compraService: CompraService, 
@@ -40,6 +45,16 @@ export class ComprasPageComponent implements OnInit {
     this.cargarProveedores(); 
   }
 
+get comprasPaginadas() {
+    const inicio = (this.currentPage - 1) * this.itemsPerPage;
+    return this.compras.slice(inicio, inicio + this.itemsPerPage);
+  }
+
+  get totalPages() { return Math.max(1, Math.ceil(this.compras.length / this.itemsPerPage)); }
+  nextPage() { if (this.currentPage < this.totalPages) this.currentPage++; }
+  prevPage() { if (this.currentPage > 1) this.currentPage--; }
+  // ----------------------------
+
   cargarCompras() {
     this.loading = true;
     this.compraService.getAll().subscribe({
@@ -51,6 +66,7 @@ export class ComprasPageComponent implements OnInit {
           fechaCompra: c.fechaCompra ? new Date(c.fechaCompra).toLocaleDateString() : 'N/A',
           total: c.totalCompra
         }));
+        this.currentPage = 1; // Reiniciar
         this.loading = false;
         this.cdr.detectChanges();
       },

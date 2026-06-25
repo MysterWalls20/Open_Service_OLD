@@ -12,18 +12,19 @@ export class AuthGuard implements CanActivate {
   // Define qué roles pueden acceder a cada ruta URL
   // =================================================================
   private permisosRutas: { [key: string]: string[] } = {
-    '/admin/dashboard': ['Administrador', 'Vendedor', 'Comprador', 'Técnico', 'Inventario'],
+    '/admin/dashboard': ['Administrador', 'Vendedor', 'Comprador_Inventario', 'Técnico', 'Inventario'],
     '/admin/clientes': ['Administrador', 'Técnico'],
-    '/admin/productos': ['Administrador', 'Inventario'],
-    '/admin/inventario': ['Administrador', 'Comprador', 'Inventario'],
-    '/admin/proveedor': ['Administrador', 'Comprador'],
+    '/admin/productos': ['Administrador', 'Comprador_Inventario', 'Inventario'],
+    '/admin/inventario': ['Administrador', 'Comprador_Inventario', 'Inventario'],
+    '/admin/proveedor': ['Administrador', 'Comprador_Inventario'],
     '/admin/servicios': ['Administrador', 'Técnico'],
-    '/admin/repuestos': ['Administrador', 'Inventario'],
+    '/admin/repuestos': ['Administrador', 'Comprador_Inventario', 'Inventario'],
     '/admin/pedidos': ['Administrador', 'Técnico'],
     '/admin/ventas': ['Administrador', 'Vendedor', 'Técnico'],
     '/admin/comprobantes': ['Administrador', 'Vendedor', 'Técnico'],
-    '/admin/compras': ['Administrador', 'Comprador'],
+    '/admin/compras': ['Administrador', 'Comprador_Inventario'],
     '/admin/empleados': ['Administrador'],
+    '/admin/categorias': ['Administrador', 'Comprador_Inventario'],
     '/admin/reporte': ['Administrador', 'Vendedor', 'Técnico']
   };
 

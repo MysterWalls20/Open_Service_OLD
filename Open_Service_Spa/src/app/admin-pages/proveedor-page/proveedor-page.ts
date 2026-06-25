@@ -16,6 +16,20 @@ export class ProveedorPageComponent implements OnInit {
   formModel: any = {};
   proveedores: any[] = [];
   loading = false;
+  
+  // --- PAGINACIÓN ---
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+
+  get proveedoresPaginados() {
+    const inicio = (this.currentPage - 1) * this.itemsPerPage;
+    return this.proveedores.slice(inicio, inicio + this.itemsPerPage);
+  }
+
+  get totalPages() { return Math.max(1, Math.ceil(this.proveedores.length / this.itemsPerPage)); }
+  nextPage() { if (this.currentPage < this.totalPages) this.currentPage++; }
+  prevPage() { if (this.currentPage > 1) this.currentPage--; }
+  // ------------------
 
   constructor(private cdr: ChangeDetectorRef, private proveedorService: ProveedorService) {}
 
@@ -28,6 +42,7 @@ export class ProveedorPageComponent implements OnInit {
     this.proveedorService.getAll().subscribe({
       next: (data) => {
         this.proveedores = data;
+        this.currentPage = 1;
         this.loading = false;
         this.cdr.detectChanges();
       },

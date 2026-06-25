@@ -1,8 +1,8 @@
-﻿using Api_Open_Service.Data.Repositories;
-using Api_Open_Service.Models;
+﻿using Api_Open_Service.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Api_Open_Service.DTOs;
 
 namespace Api_Open_Service.Controllers
 {
@@ -20,7 +20,6 @@ namespace Api_Open_Service.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            // Ojo: Si tu modelo en C# se llama Categoria en vez de Categorium, cámbialo aquí
             var categorias = await _context.Set<Categorium>().ToListAsync();
             return Ok(categorias);
         }
@@ -31,6 +30,48 @@ namespace Api_Open_Service.Controllers
             var categoria = await _context.Set<Categorium>().FindAsync(id);
             if (categoria == null) return NotFound(new { mensaje = "Categoría no encontrada." });
             return Ok(categoria);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CategoriaDto dto)
+        {
+            if (string.IsNullOrWhiteSpace(dto.NombreCategoria))
+                return BadRequest(new { mensaje = "El nombre de la categoría es obligatorio." });
+
+            var nuevaCategoria = new Categorium { NombreCategoria = dto.NombreCategoria };
+            _context.Set<Categorium>().Add(nuevaCategoria);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetById), new { id = nuevaCategoria.IdCategoria }, nuevaCategoria);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] CategoriaDto dto)
+        {
+            var categoria = await _context.Set<Categorium>().FindAsync(id);
+            if (categoria == null) return NotFound(new { mensaje = "Categoría no encontrada." });
+
+            categoria.NombreCategoria = dto.NombreCategoria;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { mensaje = "Categoría actualizada correctamente." });
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var categoria = await _context.Set<Categorium>().FindAsync(id);
+            if (categoria == null) return NotFound(new { mensaje = "Categoría no encontrada." });
+
+            // Protección de llave foránea: Verificar si hay productos usando esta categoría
+            // Descomenta esto si tienes el DbSet de Productos configurado:
+            // var tieneProductos = await _context.Set<Producto>().AnyAsync(p => p.IdCategoria == id);
+            // if (tieneProductos) return BadRequest(new { mensaje = "No puedes eliminar esta categoría porque tiene productos asignados." });
+
+            _context.Set<Categorium>().Remove(categoria);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { mensaje = "Categoría eliminada correctamente." });
         }
     }
 }

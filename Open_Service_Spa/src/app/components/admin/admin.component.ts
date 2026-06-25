@@ -8,7 +8,7 @@ interface MenuItem {
   title: string;
   route: string;
   active?: boolean;
-  roles: string[]; // <-- Nueva propiedad de restricción
+  roles: string[];
 }
 
 @Component({
@@ -23,17 +23,18 @@ export class AdminComponent implements OnInit, OnDestroy {
   
   // Matriz de permisos EXACTA a lo que solicitaste
   menuItems: MenuItem[] = [
-    { title: 'Dashboard', route: '/admin/dashboard', roles: ['Administrador', 'Vendedor', 'Comprador', 'Técnico', 'Inventario'] },
+    { title: 'Dashboard', route: '/admin/dashboard', roles: ['Administrador', 'Vendedor', 'Comprador_Inventario', 'Técnico', 'Inventario'] },
     { title: 'Clientes', route: '/admin/clientes', roles: ['Administrador', 'Técnico'] },
-    { title: 'Productos', route: '/admin/productos', roles: ['Administrador', 'Inventario'] },
-    { title: 'Inventario', route: '/admin/inventario', roles: ['Administrador', 'Comprador', 'Inventario'] },
-    { title: 'Proveedor', route: '/admin/proveedor', roles: ['Administrador', 'Comprador'] },
+    { title: 'Productos', route: '/admin/productos', roles: ['Administrador', 'Comprador_Inventario', 'Inventario'] },
+    { title: 'Inventario', route: '/admin/inventario', roles: ['Administrador', 'Comprador_Inventario', 'Inventario'] },
+    { title: 'Categorias', route: '/admin/categorias', roles: ['Administrador', 'Comprador_Inventario'] },
+    { title: 'Proveedor', route: '/admin/proveedor', roles: ['Administrador', 'Comprador_Inventario'] },
     { title: 'Servicios', route: '/admin/servicios', roles: ['Administrador', 'Técnico'] },
-    { title: 'Repuestos', route: '/admin/repuestos', roles: ['Administrador', 'Inventario'] },
+    { title: 'Repuestos', route: '/admin/repuestos', roles: ['Administrador', 'Comprador_Inventario', 'Inventario'] },
     { title: 'Pedidos', route: '/admin/pedidos', roles: ['Administrador', 'Técnico'] },
     { title: 'Ventas', route: '/admin/ventas', roles: ['Administrador', 'Vendedor', 'Técnico'] },
     { title: 'Comprobantes', route: '/admin/comprobantes', roles: ['Administrador', 'Vendedor', 'Técnico'] },
-    { title: 'Compras',    route: '/admin/compras', roles: ['Administrador', 'Comprador'] },
+    { title: 'Compras',    route: '/admin/compras', roles: ['Administrador', 'Comprador_Inventario'] },
     { title: 'Empleados',  route: '/admin/empleados', roles: ['Administrador'] },
     { title: 'Reporte',    route: '/admin/reporte', roles: ['Administrador', 'Vendedor', 'Técnico'] },
   ];
@@ -81,7 +82,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   logout() {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('admin_user');
-    localStorage.removeItem('token'); // Borramos el JWT
+    localStorage.removeItem('token'); 
     this.router.navigate(['/login']);
   }
 }

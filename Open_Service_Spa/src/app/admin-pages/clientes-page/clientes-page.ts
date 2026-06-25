@@ -25,6 +25,12 @@ export class ClientesPageComponent implements OnInit, OnDestroy {
     direccion: ''
   };
 
+  // ==========================================
+  // VARIABLES DE PAGINACIÓN (Cópialas al resto)
+  // ==========================================
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+
   private routerSubscription?: Subscription;
 
   constructor(
@@ -49,6 +55,33 @@ export class ClientesPageComponent implements OnInit, OnDestroy {
     this.routerSubscription?.unsubscribe();
   }
 
+  // ==========================================
+  // LÓGICA DE PAGINACIÓN (Cópiala al resto)
+  // ==========================================
+  get clientesPaginados() {
+    const inicio = (this.currentPage - 1) * this.itemsPerPage;
+    const fin = inicio + this.itemsPerPage;
+    return this.clientes.slice(inicio, fin);
+  }
+
+  get totalPages() {
+    // Si no hay clientes, devuelve 1 página por defecto
+    return Math.max(1, Math.ceil(this.clientes.length / this.itemsPerPage));
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+  // ==========================================
+
   cargarClientes() {
     this.loading = true;
     this.clienteService.getAll().subscribe({
@@ -63,6 +96,10 @@ export class ClientesPageComponent implements OnInit, OnDestroy {
           direccion: c.direccion,
           estado: 'activo'
         }));
+        
+        // Opcional: Reiniciamos a la página 1 cada vez que cargamos datos nuevos
+        this.currentPage = 1; 
+        
         this.loading = false;
         this.cdr.detectChanges();
       },

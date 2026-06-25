@@ -3,9 +3,11 @@
     <img class="logo-1" src="assets/logo.png" alt="Logo Open Service">
     
     <input type="checkbox" id="menu" [checked]="menuOpen" (change)="toggleMenu()">
-    <label for="menu">
+    <label for="menu" class="menu-label">
       <img src="assets/menu.png" class="menu-icono" alt="Menu">
     </label>
+
+    <div class="menu-overlay" (click)="toggleMenu()"></div>
     
     <nav class="navbar">
       <div class="menu-1">
@@ -44,13 +46,11 @@
         </div>
       </div>
 
-      <!-- <div class="authorized-brands">
-        <span>Servicio Técnica autorizado por</span>
+      <div class="authorized-brands">
         <div class="brand-logos">
-          <img src="assets/bosch.png" alt="Bosch">
-          <img src="assets/coldex.png" alt="Coldex">
+          <img src="assets/logoMarca.png" alt="Servicio Técnico Bosch">
         </div>
-      </div> -->
+      </div>
 
     </nav>
   </div>

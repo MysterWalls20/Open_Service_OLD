@@ -21,13 +21,11 @@
             <th>Acciones</th>
           </tr>
         </thead>
-        <tbody>
-          @for (compra of compras; track compra.id) {
+<tbody>
+          @for (compra of comprasPaginadas; track compra.id) {
             <tr>
               <td>{{ compra.id }}</td>
-              
               <td style="font-weight: 500;">{{ obtenerNombreProveedor(compra.idProveedor) }}</td>
-              
               <td>{{ compra.nroFactura }}</td>
               <td>{{ compra.fechaCompra }}</td>
               <td style="font-weight: bold; color: #28a745;">S/ {{ compra.total.toFixed(2) }}</td>
@@ -38,6 +36,13 @@
           }
         </tbody>
       </table>
+
+      <div class="pagination-container">
+        <button class="btn-page" (click)="prevPage()" [disabled]="currentPage === 1">&laquo; Anterior</button>
+        <span class="page-info">Página <strong>{{ currentPage }}</strong> de <strong>{{ totalPages }}</strong></span>
+        <button class="btn-page" (click)="nextPage()" [disabled]="currentPage === totalPages || totalPages === 0">Siguiente &raquo;</button>
+      </div>
+      
     } @else {
       <div class="empty-state">
         <p>No hay compras registradas</p>

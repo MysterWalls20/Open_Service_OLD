@@ -21,6 +21,10 @@ export class EmpleadosPageComponent implements OnInit, OnDestroy {
   errorMessage = '';
   loading = false;
 
+  // --- PAGINACIÓN ---
+    currentPage: number = 1;
+    itemsPerPage: number = 10;
+
   private routerSubscription?: Subscription;
 
   constructor(private cdr: ChangeDetectorRef, private authService: AuthService, private router: Router) {}
@@ -42,6 +46,17 @@ export class EmpleadosPageComponent implements OnInit, OnDestroy {
     this.routerSubscription?.unsubscribe();
   }
 
+  // --- LÓGICA DE PAGINACIÓN ---
+  get empleadosPaginados() {
+    const inicio = (this.currentPage - 1) * this.itemsPerPage;
+    return this.empleados.slice(inicio, inicio + this.itemsPerPage);
+  }
+
+  get totalPages() { return Math.max(1, Math.ceil(this.empleados.length / this.itemsPerPage)); }
+  nextPage() { if (this.currentPage < this.totalPages) this.currentPage++; }
+  prevPage() { if (this.currentPage > 1) this.currentPage--; }
+  // ----------------------------
+
   cargarRoles() {
     this.authService.obtenerRoles().subscribe({
       next: (data: any[]) => this.roles = data,
@@ -54,6 +69,7 @@ export class EmpleadosPageComponent implements OnInit, OnDestroy {
     this.authService.obtenerEmpleados().subscribe({
       next: (data: any[]) => {
         this.empleados = data;
+        this.currentPage = 1;
         this.loading = false;
         this.cdr.detectChanges();
       },

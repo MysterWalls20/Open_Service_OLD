@@ -22,6 +22,10 @@ export class ComprobantesPageComponent implements OnInit {
   fechaFin = '';
   filtroDocumento = '';
 
+  // --- PAGINACIÓN ---
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+
   constructor(
     private cdr: ChangeDetectorRef,
     private comprobanteService: ComprobanteService
@@ -30,6 +34,18 @@ export class ComprobantesPageComponent implements OnInit {
   ngOnInit() {
     this.cargarComprobantes();
   }
+
+  // --- LÓGICA DE PAGINACIÓN ---
+    // ¡OJO! Hacemos slice a filteredComprobantes
+    get comprobantesPaginados() {
+      const inicio = (this.currentPage - 1) * this.itemsPerPage;
+      return this.filteredComprobantes.slice(inicio, inicio + this.itemsPerPage);
+    }
+
+    get totalPages() { return Math.max(1, Math.ceil(this.filteredComprobantes.length / this.itemsPerPage)); }
+    nextPage() { if (this.currentPage < this.totalPages) this.currentPage++; }
+    prevPage() { if (this.currentPage > 1) this.currentPage--; }
+    // ----------------------------
 
   cargarComprobantes() {
     this.loading = true;
@@ -62,6 +78,7 @@ export class ComprobantesPageComponent implements OnInit {
       }
       return true;
     });
+    this.currentPage = 1; // Reiniciar la paginación al aplicar filtros
   }
 
   get totalSubtotal(): number {

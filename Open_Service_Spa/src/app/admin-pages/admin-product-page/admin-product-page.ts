@@ -15,14 +15,13 @@ import { CategoriaService } from '../../services/categoria.service';
   templateUrl: './admin-product-page.html',
   styleUrl: './admin-product-page.scss',
 })
-
 export class AdminProductosPageComponent implements OnInit, OnDestroy {
   showForm = false;
   editingId: number | null = null;
   
   productos: any[] = []; 
-  articulosInventario: any[] = []; // Para el combobox de Articulos
-  categoriasBD: any[] = []; // Para el combobox de Categorias
+  articulosInventario: any[] = []; 
+  categoriasBD: any[] = []; 
   loading = false;
   
   form = {
@@ -30,12 +29,15 @@ export class AdminProductosPageComponent implements OnInit, OnDestroy {
     idCategoria: null as number | null,
     categoriaMarketplace: '',
     urlImagen: '',
-    // Campos de solo lectura (se autocompletan)
     nombre: '',
     descripcion: '',
     precio: 0,
     stock: 0
   };
+
+  // --- PAGINACIÓN ---
+  currentPage: number = 1;
+  itemsPerPage: number = 11; // 11 productos + 1 botón de agregar = 12 cuadros
 
   private routerSubscription?: Subscription;
 
@@ -66,11 +68,28 @@ export class AdminProductosPageComponent implements OnInit, OnDestroy {
     this.routerSubscription?.unsubscribe();
   }
 
+  // --- LÓGICA DE PAGINACIÓN ---
+  get productosPaginados() {
+    const inicio = (this.currentPage - 1) * this.itemsPerPage;
+    const fin = inicio + this.itemsPerPage;
+    return this.productos.slice(inicio, fin);
+  }
+
+  get totalPages() {
+    return Math.max(1, Math.ceil(this.productos.length / this.itemsPerPage));
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) this.currentPage++;
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) this.currentPage--;
+  }
+  // ----------------------------
+
   cargarListasDesplegables() {
-    // 1. Cargar inventario base
     this.inventarioService.getAll().subscribe(data => this.articulosInventario = data);
-    
-    // 2. Cargar categorías de la BD (Ajusta la URL a tu API de categorías)
     this.categoriaService.getAll().subscribe({
       next: (data) => this.categoriasBD = data,
       error: () => console.warn('Error al cargar categorías')
@@ -89,9 +108,9 @@ export class AdminProductosPageComponent implements OnInit, OnDestroy {
           stock: p.idArticuloNavigation?.stockDisponible || 0,
           estado: (p.idArticuloNavigation?.stockDisponible || 0) > 0 ? 'disponible' : 'agotado',
           urlImagen: p.urlImagen || '',
-          // Guardamos todo el objeto para usarlo al editar
           rawData: p
         }));
+        this.currentPage = 1; // Reiniciar paginación
         this.loading = false;
         this.cdr.detectChanges();
       },
@@ -102,10 +121,8 @@ export class AdminProductosPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  // ESTA ES LA MAGIA: Al seleccionar un artículo del combobox, se autocompleta la info
   onArticuloSeleccionado() {
     if (!this.form.idArticulo) return;
-    
     const articulo = this.articulosInventario.find(a => a.idArticulo == this.form.idArticulo);
     if (articulo) {
       this.form.nombre = articulo.nombre;
@@ -173,6 +190,4 @@ export class AdminProductosPageComponent implements OnInit, OnDestroy {
       this.productoService.delete(id).subscribe(() => this.cargarProductos());
     }
   }
-
-
 }
